@@ -77,11 +77,14 @@ def main():
             raise SystemExit(f"{space} already exists (sdk: {sdk}); pass --update to redeploy it, or --space <new name>")
     api.create_repo(space, repo_type="space", space_sdk="docker", private=True, exist_ok=True)
     api.add_space_secret(space, "HF_TOKEN", token)
-    key = env_key("OPENROUTER_API_KEY")
-    if key:
-        api.add_space_secret(space, "OPENROUTER_API_KEY", key)
-    else:
-        print("OPENROUTER_API_KEY not found: add it in the Space settings")
+    # OpenRouter answers and glosses; Groq transcribes speech (Whisper) in the audio / video mode; NVIDIA is a fallback
+    # DATABASE_URL: the Neon (PostgreSQL) database of the review dashboard (/review)
+    for name in ("OPENROUTER_API_KEY", "GROQ_API_KEY", "NVIDIA_API_KEY", "DATABASE_URL"):
+        key = env_key(name)
+        if key:
+            api.add_space_secret(space, name, key)
+        else:
+            print(f"{name} not found: add it in the Space settings")
     api.add_space_variable(space, "ISHARATI_HUB_DATASET", dataset)
     # files the app no longer has are removed from the Space (an upload alone only adds and replaces)
     api.upload_folder(repo_id=space, repo_type="space", folder_path=str(folder), commit_message="deploy Isharati",

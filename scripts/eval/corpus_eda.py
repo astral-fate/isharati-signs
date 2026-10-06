@@ -111,15 +111,28 @@ def main():
     from isharati.text.arabic import normalize_ar
     ar_rows = load(DATA / "ar" / "corpus.jsonl")
     # «الشرح:» heads the commentary of 3,574 hadith passages: a section label, not a word of the text
-    ar_words = lambda t: [w for w in normalize_ar(re.sub(r"الشرح\s*:", " ", t)).split() if re.fullmatch(r"[ء-ي]+", w)]
+    # words as spelled (hamza and ة kept, ar_morph.spelling): the analyser reads «المؤمنين» and «رأيت», not their
+    # folded forms; stopwords and phrase signs are compared folded
+    ar_words = lambda t: [w for w in ar_morph.spelling(re.sub(r"الشرح\s*:", " ", t)).split()
+                          if re.fullmatch(r"[ء-ي]+", w) and normalize_ar(w)]
     ca = counts(ar_rows, ar_words)
     alex = ar_lexicon.qa_lexicon(DATA / "lexicon_v2" / "lexicon_qa.jsonl")
-    ar_morph.lemmatize(list(ca["all"]))
+    ar_morph.lemmatize(list(ca["all"]), analysed=True)  # the whole vocabulary in one analyser run
     amemo = {}
     def ar_match(w):
         if w not in amemo:
             amemo[w] = alex.match_token(w)
         return amemo[w]
+    # what the app does with a word that has no sign: a function word the analyser reads only as a particle,
+    # preposition, conjunction or relative («فإنه», «لأنه», «بذلك») is dropped, as ArSL grammar drops it (the glosser
+    # is told so); such words are not content words. A function word with a sign («مع») and pronouns stay.
+    def _pos(w):
+        top = ar_morph.top_analyses(w)
+        return top[0]["pos"] if top else None
+    AR_FUNCTION = {w for w in ca["all"] if _pos(w) in ar_morph.FUNCTION_POS - {"pron"} and ar_match(w) is None}
+    AR_STOP = {w for w in ca["all"] if normalize_ar(w) in ar_morph.STOPWORDS} | AR_FUNCTION
+    # a proper name with no sign («عباس», «جبريل») is fingerspelled, as ArSL shows names: reported apart
+    AR_NAMES = {w for w in ca["all"] if _pos(w) == "noun_prop" and ar_match(w) is None and w not in AR_STOP}
     # as for Turkish, a word is covered in context when it is signed by a multi-word sign the text contains word for
     # word («صلى الله عليه وسلم», «عز وجل», «أبو هريرة»): the glosser uses those phrase signs (phrases_in), and «وسلم»
     # has no sign of its own. A phrase word matches the text word with or without a leading «و/ف/ب/ل».
@@ -128,20 +141,37 @@ def main():
         pw = normalize_ar(e.gloss).split()
         if len(pw) >= 2:
             phrases.setdefault(pw[0], []).append(pw)
-    same = lambda tok, w: tok == w or (tok[:1] in "وفبل" and tok[1:] == w)
+    CASES = {"ابي": "ابو", "ابا": "ابو"}  # «أبي هريرة», «أبا بكر»: the phrase sign «أبو ...» in another case
+    def same(tok, w):
+        """The text word is the phrase word, with or without a leading «و/ف/ب/ل», in any case of «أبو»."""
+        t = normalize_ar(tok)
+        forms = [t] + ([t[1:]] if t[:1] in "وفبل" else [])
+        return any(x == w or CASES.get(x) == w for x in forms)
     acov = {"quran": Counter(), "hadith": Counter()}
     for r in ar_rows:
         ws = ar_words(r["text"])
         hit = [ar_match(w) is not None for w in ws]
         for i, w in enumerate(ws):
-            for pw in phrases.get(w, []) + (phrases.get(w[1:], []) if w[:1] in "وفبل" else []):
+            n = normalize_ar(w)
+            n = CASES.get(n, n)
+            for pw in phrases.get(n, []) + (phrases.get(n[1:], []) if n[:1] in "وفبل" else []) +                     (phrases.get(CASES[n[1:]], []) if n[:1] in "وفبل" and n[1:] in CASES else []):
                 if i + len(pw) <= len(ws) and all(same(ws[i + k], pw[k]) for k in range(len(pw))):
                     hit[i:i + len(pw)] = [True] * len(pw)
         acov[r["kind"]].update(w for w, h in zip(ws, hit) if h)
     acov["all"] = acov["quran"] + acov["hadith"]
-    res["ar"] = {"passages": len(ar_rows), **summary(ca, ar_morph.STOPWORDS, lambda w: ar_match(w) is not None,
+    res["ar"] = {"passages": len(ar_rows), **summary(ca, AR_STOP, lambda w: ar_match(w) is not None,
                                                      covered_tokens=acov),
-                 "attribution": attribution(ca, ar_morph.STOPWORDS, ar_match)}
+                 "attribution": attribution(ca, AR_STOP, ar_match),
+                 "unsigned_function_words_dropped": sum(ca["all"][w] for w in AR_FUNCTION)}
+    # signs, plus proper names with no sign shown by fingerspelling (in context, as above)
+    for k in ("quran", "hadith", "all"):
+        content = {w: n for w, n in ca[k].items() if w not in AR_STOP}
+        shown = sum(min(n, acov[k][w]) if w not in AR_NAMES else n for w, n in content.items())
+        res["ar"][k]["coverage_with_fingerspelled_names"] = round(shown / max(1, sum(content.values())), 4)
+    # every content word still unsigned in context, most frequent first: the worklist for signs and reviewed synonyms
+    left = Counter({w: n - min(n, acov["all"][w]) for w, n in ca["all"].items() if w not in AR_STOP})
+    (OUT.parent / "ar_uncovered.json").write_text(json.dumps([[w, n] for w, n in left.most_common() if n > 0],
+                                                             ensure_ascii=False), encoding="utf-8")
     print("ar done", flush=True)
 
     # Turkish / TİD: the app's own matcher (TIDLexicon.match_tokens: exact, lemma via zeyrek, reviewed synonyms, a

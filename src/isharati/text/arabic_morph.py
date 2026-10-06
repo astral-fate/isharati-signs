@@ -1,10 +1,11 @@
 """Arabic morphology for matching words to signs: stems that stay words, regular plurals to the singular,
 CAMeL Tools lemmas (cached on disk), verb detection, number words."""
 import json
+import re
 from pathlib import Path
 
 from isharati.config import DATA, ROOT
-from isharati.text.arabic import candidates, normalize_ar
+from isharati.text.arabic import candidates, normalize_ar, strip_diacritics
 
 # function words: not counted as content words and not signed. Question words (لماذا، كيف، متى، أين، ماذا، هل) and
 # the negations that have a sign (لم، لن، ليس) are NOT here: they carry meaning and are signed. «من» and «ما» stay (as
@@ -134,15 +135,27 @@ def _save(path, cache):
 
 
 NOMINAL = ("noun", "adj", "noun_quant", "adj_comp", "noun_num")
+# parts of speech of words that are not signed on their own (CAMeL Tools): prepositions, conjunctions, particles,
+# pronouns. Question words (pron_interrog, adv_interrog, part_interrog) and negation are signed and not here.
+FUNCTION_POS = {"prep", "conj", "conj_sub", "part", "part_det", "part_focus", "part_fut", "part_restrict",
+                "part_verb", "part_voc", "pron", "pron_dem", "pron_rel", "adv_rel"}
+
+
+def spelling(word):
+    """The word as the analyser should see it: no diacritics or tatweel, Qur'anic alef wasla as alef, but hamza seats
+    (ؤ ئ أ) and ة kept. normalize_ar folds those for lookups, and the folded «المومنين», «شييا», «رايت» are not
+    words CAMeL knows; «المؤمنين», «شيئا», «رأيت» are."""
+    return re.sub(r"[^ء-ي\s]", "", strip_diacritics(word or "").replace("ٱ", "ا")).strip()
 
 
 def analyses(word):
-    """CAMeL analyses of a normalised word, most probable first: dicts with pos, lex (diacritised lemma), lp
-    (pos_lex_logprob), enc0, per, num, gen. [] when the NLP environment is not installed."""
-    w = normalize_ar(word)
+    """CAMeL analyses of a word, most probable first: dicts with pos, lex (diacritised lemma), lp (pos_lex_logprob),
+    enc0, per, num, gen. The word is analysed as spelled (spelling()); a cache made before that, keyed by the folded
+    form, is the fallback. [] when neither the analyser nor a cached analysis is there."""
+    w = spelling(word)
     if _analyses is None or w not in _analyses:
         lemmatize([w], analysed=True)
-    rows = (_analyses or {}).get(w, [])
+    rows = (_analyses or {}).get(w) or (_analyses or {}).get(normalize_ar(word), [])
     return [dict(zip(("pos", "lex", "lp", "enc0", "per", "num", "gen"), r)) for r in rows]
 
 

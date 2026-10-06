@@ -13,10 +13,10 @@
    "code": "ar",
    "name": "Arabic",
    "sign_language": "ArSL",
-   "signs": 6662,
-   "glosses": 6614,
+   "signs": 6663,
+   "glosses": 6615,
    "passages": 9810,
-   "coverage": 0.6842
+   "coverage": 0.7291
   },
   {
    "code": "tr",
@@ -87,7 +87,7 @@
    "use": "ar lexicon"
   },
   {
-   "source": "Qur'an curriculum, Tawasol, Saudi/Arabic dictionary, ArabicSignLanguage, DisabilityApps, Levantine Shorts, «إشارتي هي لغتي» (Ayman Abbas) (YouTube)",
+   "source": "Qur'an curriculum, Tawasol, Saudi/Arabic dictionary, ArabicSignLanguage, DisabilityApps, Levantine Shorts, «إشارتي هي لغتي» (Ayman Abbas), Heba Abdelrahman (YouTube)",
    "licence": "not stated; permission to be requested",
    "use": "ar lexicon"
   },

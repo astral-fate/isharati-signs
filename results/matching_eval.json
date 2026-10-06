@@ -1,0 +1,353 @@
+{
+ "isharah": {
+  "sentences": 300,
+  "signer_signs_from_the_text": 0.391,
+  "word_to_sign": {
+   "exact": {
+    "pairs": 459,
+    "right": 0.447,
+    "no_sign": 0.549,
+    "wrong_sign": 0.004
+   },
+   "affixes": {
+    "pairs": 459,
+    "right": 0.854,
+    "no_sign": 0.107,
+    "wrong_sign": 0.039
+   },
+   "full": {
+    "pairs": 459,
+    "right": 0.908,
+    "no_sign": 0.065,
+    "wrong_sign": 0.026
+   }
+  },
+  "sentence": {
+   "copy": {
+    "precision": 0.284,
+    "recall": 0.637,
+    "f1": 0.393
+   },
+   "rule": {
+    "precision": 0.352,
+    "recall": 0.671,
+    "f1": 0.462
+   },
+   "llm": {
+    "precision": 0.351,
+    "recall": 0.681,
+    "f1": 0.464
+   }
+  }
+ },
+ "religious": {
+  "sentences": 54,
+  "signer_signs_from_the_text": 0.482,
+  "word_to_sign": {
+   "exact": {
+    "pairs": 118,
+    "right": 0.559,
+    "no_sign": 0.441,
+    "wrong_sign": 0.0
+   },
+   "affixes": {
+    "pairs": 118,
+    "right": 0.907,
+    "no_sign": 0.093,
+    "wrong_sign": 0.0
+   },
+   "full": {
+    "pairs": 118,
+    "right": 0.983,
+    "no_sign": 0.017,
+    "wrong_sign": 0.0
+   }
+  },
+  "sentence": {
+   "copy": {
+    "precision": 0.385,
+    "recall": 0.697,
+    "f1": 0.496
+   },
+   "rule": {
+    "precision": 0.481,
+    "recall": 0.772,
+    "f1": 0.593
+   },
+   "llm": {
+    "precision": 0.477,
+    "recall": 0.779,
+    "f1": 0.592
+   }
+  }
+ },
+ "arabsign": {
+  "sentences": 25,
+  "signer_signs_from_the_text": 0.701,
+  "word_to_sign": {
+   "exact": {
+    "pairs": 39,
+    "right": 0.744,
+    "no_sign": 0.256,
+    "wrong_sign": 0.0
+   },
+   "affixes": {
+    "pairs": 39,
+    "right": 0.923,
+    "no_sign": 0.077,
+    "wrong_sign": 0.0
+   },
+   "full": {
+    "pairs": 39,
+    "right": 0.974,
+    "no_sign": 0.026,
+    "wrong_sign": 0.0
+   }
+  },
+  "sentence": {
+   "copy": {
+    "precision": 0.589,
+    "recall": 0.796,
+    "f1": 0.677
+   },
+   "rule": {
+    "precision": 0.656,
+    "recall": 0.778,
+    "f1": 0.712
+   },
+   "llm": {
+    "precision": 0.611,
+    "recall": 0.815,
+    "f1": 0.698
+   }
+  }
+ },
+ "_examples": {
+  "wrong": [
+   {
+    "set": "isharah",
+    "word": "المدرسي",
+    "signer": "مدرسه",
+    "matched": "مدرس"
+   },
+   {
+    "set": "isharah",
+    "word": "الشركه",
+    "signer": "شركه",
+    "matched": "الشرك"
+   },
+   {
+    "set": "isharah",
+    "word": "عمره",
+    "signer": "عمر",
+    "matched": "عمرة"
+   },
+   {
+    "set": "isharah",
+    "word": "عمره",
+    "signer": "عمر",
+    "matched": "عمرة"
+   },
+   {
+    "set": "isharah",
+    "word": "الدرس",
+    "signer": "مدرسه",
+    "matched": "درَّس"
+   },
+   {
+    "set": "isharah",
+    "word": "الدرس",
+    "signer": "مدرسه",
+    "matched": "درَّس"
+   },
+   {
+    "set": "isharah",
+    "word": "الرياضه",
+    "signer": "رياضه",
+    "matched": "الرياض"
+   },
+   {
+    "set": "isharah",
+    "word": "لبسه",
+    "signer": "لبس",
+    "matched": "بسه"
+   },
+   {
+    "set": "isharah",
+    "word": "تذكره",
+    "signer": "ذاكره",
+    "matched": "ذكر"
+   },
+   {
+    "set": "isharah",
+    "word": "تجار",
+    "signer": "تجاره",
+    "matched": "جار"
+   },
+   {
+    "set": "isharah",
+    "word": "الدرس",
+    "signer": "مدرسه",
+    "matched": "درَّس"
+   },
+   {
+    "set": "isharah",
+    "word": "الرياضه",
+    "signer": "رياضه",
+    "matched": "الرياض"
+   }
+  ],
+  "missed": [
+   {
+    "set": "isharah",
+    "word": "اشعر",
+    "signer": "شعور",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "خمسين",
+    "signer": "خمسون",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "السعودي",
+    "signer": "السعوديه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "مزدحم",
+    "signer": "ازدحام",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "زهور",
+    "signer": "زهره",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "يدرس",
+    "signer": "مدرسه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "اكره",
+    "signer": "كره",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "مزدحم",
+    "signer": "ازدحام",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "سرق",
+    "signer": "سرقه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "تدخن",
+    "signer": "دخان",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "تدخن",
+    "signer": "دخان",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "معا",
+    "signer": "مع",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "ترتدي",
+    "signer": "وردي",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "اصغر",
+    "signer": "صغير",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "سرق",
+    "signer": "سرقه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "خطير",
+    "signer": "خطر",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "المساجين",
+    "signer": "سجن",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "المدرسيه",
+    "signer": "مدرسه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "ادرس",
+    "signer": "مدرسه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "صحيه",
+    "signer": "صحه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "السعودي",
+    "signer": "السعوديه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "مشمس",
+    "signer": "شمس",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "الرابعه",
+    "signer": "اربع",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "المترجم",
+    "signer": "ترجمه",
+    "matched": null
+   },
+   {
+    "set": "isharah",
+    "word": "اترجم",
+    "signer": "ترجمه",
+    "matched": null
+   }
+  ]
+ }
+}

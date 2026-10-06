@@ -1,0 +1,6074 @@
+[
+ {
+  "kind": "nom",
+  "lemma": "شيء",
+  "example": "شيئا",
+  "forms": [
+   "شيئا",
+   "شيء",
+   "بشيء",
+   "الشيء",
+   "الأشياء",
+   "أشياء"
+  ],
+  "count": 1670,
+  "proposal": "شيء شارب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أخبر",
+  "example": "أخبر",
+  "forms": [
+   "أخبر",
+   "يخبر",
+   "فأخبره",
+   "وأخبر",
+   "فأخبر",
+   "أخبرت"
+  ],
+  "count": 1535,
+  "proposal": "خبر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "قبل",
+  "example": "قبل",
+  "forms": [
+   "قبل",
+   "قبله",
+   "يقبل",
+   "قبلكم",
+   "أقبل",
+   "قبلهم"
+  ],
+  "count": 1413,
+  "proposal": "قبول"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قول",
+  "example": "قوله",
+  "forms": [
+   "قوله",
+   "قول",
+   "بقوله",
+   "وقوله",
+   "القول",
+   "لقوله"
+  ],
+  "count": 1059,
+  "proposal": "قول الحق"
+ },
+ {
+  "kind": "verb",
+  "lemma": "راوند",
+  "example": "رأيت",
+  "forms": [
+   "رأيت",
+   "ترى",
+   "رآه",
+   "رأيته",
+   "رأوا",
+   "تر"
+  ],
+  "count": 1010,
+  "proposal": "رأى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مثل",
+  "example": "مثل",
+  "forms": [
+   "مثل",
+   "مثله",
+   "كمثل",
+   "بمثل",
+   "مثلها",
+   "ومثل"
+  ],
+  "count": 949,
+  "proposal": "مثال"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مؤمن",
+  "example": "المؤمنين",
+  "forms": [
+   "المؤمنين",
+   "المؤمن",
+   "مؤمن",
+   "المؤمنون",
+   "مؤمنين",
+   "مؤمنا"
+  ],
+  "count": 867,
+  "proposal": "إيمان"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أخذ",
+  "example": "أخذ",
+  "forms": [
+   "أخذ",
+   "فأخذ",
+   "يأخذ",
+   "فخذه",
+   "أخذه",
+   "أخذت"
+  ],
+  "count": 794,
+  "proposal": "أخذ إبرة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "علم",
+  "example": "أعلم",
+  "forms": [
+   "أعلم",
+   "يعلم",
+   "يعلمون",
+   "علمت",
+   "يعلمه",
+   "نعلم"
+  ],
+  "count": 785,
+  "proposal": "علم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "دنيا",
+  "example": "الدنيا",
+  "forms": [
+   "الدنيا"
+  ],
+  "count": 728,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شاء",
+  "example": "شاء",
+  "forms": [
+   "شاء",
+   "يشاء",
+   "شئت",
+   "شئتم",
+   "تشاء",
+   "نشاء"
+  ],
+  "count": 608,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عذاب",
+  "example": "عذاب",
+  "forms": [
+   "عذاب",
+   "العذاب",
+   "عذابا",
+   "بعذاب",
+   "عذابي",
+   "وعذاب"
+  ],
+  "count": 541,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "سلم",
+  "example": "سلمة",
+  "forms": [
+   "سلمة",
+   "سلم",
+   "أسلم",
+   "فسلم",
+   "وسلم",
+   "فسلمت"
+  ],
+  "count": 534,
+  "proposal": "سلام"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أمن",
+  "example": "آمنوا",
+  "forms": [
+   "آمنوا",
+   "يؤمنون",
+   "آمنت",
+   "نؤمن",
+   "تؤمن"
+  ],
+  "count": 515,
+  "proposal": "آمن"
+ },
+ {
+  "kind": "verb",
+  "lemma": "رجع",
+  "example": "رجع",
+  "forms": [
+   "رجع",
+   "يرجع",
+   "فرجع",
+   "ارجع",
+   "فرجعت",
+   "رجعت"
+  ],
+  "count": 507,
+  "proposal": "رجعى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رواية",
+  "example": "رواية",
+  "forms": [
+   "رواية",
+   "الرواية",
+   "الروايات"
+  ],
+  "count": 477,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "فعل",
+  "example": "يفعل",
+  "forms": [
+   "يفعل",
+   "فعلت",
+   "يفعله",
+   "تفعل",
+   "يفعلون",
+   "فعلوا"
+  ],
+  "count": 470,
+  "proposal": "فعل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مرة",
+  "example": "مرة",
+  "forms": [
+   "مرة",
+   "مرات",
+   "مرتين",
+   "المرة"
+  ],
+  "count": 469,
+  "proposal": "مرة ثانية"
+ },
+ {
+  "kind": "nom",
+  "lemma": "آخرة",
+  "example": "الآخرة",
+  "forms": [
+   "الآخرة",
+   "والآخرة",
+   "بالآخرة"
+  ],
+  "count": 391,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "دون",
+  "example": "دون",
+  "forms": [
+   "دون",
+   "دونه",
+   "بدون"
+  ],
+  "count": 335,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فضل",
+  "example": "فضل",
+  "forms": [
+   "فضل",
+   "الفضل",
+   "فضله",
+   "فضلا",
+   "بفضل",
+   "وفضل"
+  ],
+  "count": 334,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بلغ",
+  "example": "بلغ",
+  "forms": [
+   "بلغ",
+   "بلغت",
+   "يبلغ",
+   "فبلغ",
+   "أبلغ",
+   "يبلغه"
+  ],
+  "count": 334,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كثر",
+  "example": "أكثر",
+  "forms": [
+   "أكثر",
+   "يكثر",
+   "كثر",
+   "وأكثر",
+   "ويكثر"
+  ],
+  "count": 330,
+  "proposal": "كثير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صاحب",
+  "example": "صاحب",
+  "forms": [
+   "صاحب",
+   "صاحبه",
+   "صاحبها",
+   "لصاحبه",
+   "صاحبكم",
+   "وصاحب"
+  ],
+  "count": 312,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "مر",
+  "example": "مر",
+  "forms": [
+   "مر",
+   "يمر",
+   "فمر",
+   "مروا",
+   "تمرة",
+   "مررت"
+  ],
+  "count": 310,
+  "proposal": "مر هذا"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حال",
+  "example": "حال",
+  "forms": [
+   "حال",
+   "الحال",
+   "الأحوال",
+   "أحوال"
+  ],
+  "count": 309,
+  "proposal": "حالة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ثوب",
+  "example": "الثوب",
+  "forms": [
+   "الثوب",
+   "ثوب",
+   "ثوبه",
+   "الثياب",
+   "ثوبا",
+   "ثياب"
+  ],
+  "count": 286,
+  "proposal": "ثوبان"
+ },
+ {
+  "kind": "verb",
+  "lemma": "وصل",
+  "example": "يصل",
+  "forms": [
+   "يصل",
+   "يصلون",
+   "تصلي",
+   "تصل",
+   "فليصل",
+   "يصلوا"
+  ],
+  "count": 285,
+  "proposal": "وصول"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أصاب",
+  "example": "أصاب",
+  "forms": [
+   "أصاب",
+   "نصيب",
+   "أصبت",
+   "أصيب",
+   "يصيب",
+   "يصيبه"
+  ],
+  "count": 267,
+  "proposal": "إصابة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أنصار",
+  "example": "الأنصار",
+  "forms": [
+   "الأنصار",
+   "والأنصار"
+  ],
+  "count": 264,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "سأل",
+  "example": "فسأله",
+  "forms": [
+   "فسأله",
+   "سأله",
+   "فسألهم",
+   "سألهم",
+   "وسأله",
+   "فسألها"
+  ],
+  "count": 252,
+  "proposal": "سؤال"
+ },
+ {
+  "kind": "verb",
+  "lemma": "وجب",
+  "example": "يجب",
+  "forms": [
+   "يجب",
+   "وجبت",
+   "وجب",
+   "فيجب",
+   "تجب"
+  ],
+  "count": 242,
+  "proposal": "واجب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "دل",
+  "example": "يدل",
+  "forms": [
+   "يدل",
+   "دل",
+   "فدل",
+   "تدل",
+   "ويدل"
+  ],
+  "count": 241,
+  "proposal": "دلّ على"
+ },
+ {
+  "kind": "nom",
+  "lemma": "نحو",
+  "example": "ونحو",
+  "forms": [
+   "ونحو",
+   "نحو",
+   "ونحوه",
+   "ونحوها",
+   "ونحوهما"
+  ],
+  "count": 238,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بقي",
+  "example": "بقي",
+  "forms": [
+   "بقي",
+   "يبقى",
+   "يبق",
+   "وبقي",
+   "ويبقى",
+   "بقيت"
+  ],
+  "count": 237,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كفر",
+  "example": "كفروا",
+  "forms": [
+   "كفروا",
+   "يكفر"
+  ],
+  "count": 233,
+  "proposal": "كفر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مرفوع",
+  "example": "مرفوعا",
+  "forms": [
+   "مرفوعا"
+  ],
+  "count": 232,
+  "proposal": "رفع"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حصل",
+  "example": "حصل",
+  "forms": [
+   "حصل",
+   "يحصل",
+   "تحصل"
+  ],
+  "count": 228,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قليل",
+  "example": "قليلا",
+  "forms": [
+   "قليلا",
+   "قليل",
+   "قليلة",
+   "القليل"
+  ],
+  "count": 224,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صوت",
+  "example": "صوته",
+  "forms": [
+   "صوته",
+   "صوت",
+   "الصوت",
+   "صوتا",
+   "بصوت",
+   "صوتك"
+  ],
+  "count": 223,
+  "proposal": "صوت الأنامل"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عمل",
+  "example": "تعملون",
+  "forms": [
+   "تعملون",
+   "وعملوا",
+   "عملوا",
+   "يعملها",
+   "عملت"
+  ],
+  "count": 219,
+  "proposal": "عمل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حاجة",
+  "example": "حاجة",
+  "forms": [
+   "حاجة",
+   "حاجته",
+   "الحاجة"
+  ],
+  "count": 217,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "زال",
+  "example": "يزال",
+  "forms": [
+   "يزال",
+   "زال",
+   "زالت",
+   "يزل",
+   "تزال",
+   "زلت"
+  ],
+  "count": 216,
+  "proposal": "إزالة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ثالث",
+  "example": "الثالثة",
+  "forms": [
+   "الثالثة",
+   "الثالث",
+   "والثالث",
+   "ثالثا"
+  ],
+  "count": 210,
+  "proposal": "ثالثا سهل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خطاب",
+  "example": "الخطاب",
+  "forms": [
+   "الخطاب"
+  ],
+  "count": 208,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مكان",
+  "example": "مكان",
+  "forms": [
+   "مكان",
+   "مكانه",
+   "مكانا",
+   "مكانها"
+  ],
+  "count": 206,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "روى",
+  "example": "روى",
+  "forms": [
+   "روى",
+   "رواه"
+  ],
+  "count": 205,
+  "proposal": "رواه البيهقي"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حد",
+  "example": "الحد",
+  "forms": [
+   "الحد",
+   "حد",
+   "حدود",
+   "الحدود",
+   "حدا"
+  ],
+  "count": 195,
+  "proposal": "حداد"
+ },
+ {
+  "kind": "verb",
+  "lemma": "جاز",
+  "example": "يجوز",
+  "forms": [
+   "يجوز",
+   "جاز",
+   "ويجوز",
+   "تجوز"
+  ],
+  "count": 192,
+  "proposal": "جازان"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عليم",
+  "example": "عليم",
+  "forms": [
+   "عليم",
+   "العليم",
+   "عليما"
+  ],
+  "count": 192,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "نظر",
+  "example": "ينظر",
+  "forms": [
+   "ينظر",
+   "ينظرون",
+   "فانظر",
+   "فنظرت",
+   "تنظر"
+  ],
+  "count": 189,
+  "proposal": "أنظر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "قضى",
+  "example": "قضى",
+  "forms": [
+   "قضى",
+   "يقضي",
+   "فقضى",
+   "قضي",
+   "يقضى"
+  ],
+  "count": 187,
+  "proposal": "قضى على"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حل",
+  "example": "يحل",
+  "forms": [
+   "يحل",
+   "تحل",
+   "أحل"
+  ],
+  "count": 185,
+  "proposal": "حل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حرم",
+  "example": "حرم",
+  "forms": [
+   "حرم",
+   "الحرم",
+   "حرمة"
+  ],
+  "count": 182,
+  "proposal": "حرام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "إبل",
+  "example": "الإبل",
+  "forms": [
+   "الإبل",
+   "إبل"
+  ],
+  "count": 179,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ولي",
+  "example": "إله",
+  "forms": [
+   "إله",
+   "إلها",
+   "يلي",
+   "يليه"
+  ],
+  "count": 179,
+  "proposal": "إله"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عبادة",
+  "example": "عبادة",
+  "forms": [
+   "عبادة",
+   "العبادة",
+   "العبادات"
+  ],
+  "count": 179,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كون",
+  "example": "لكونه",
+  "forms": [
+   "لكونه",
+   "كونه",
+   "لكون",
+   "لكونها",
+   "كون"
+  ],
+  "count": 178,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عرب",
+  "example": "العرب",
+  "forms": [
+   "العرب",
+   "أعرابي",
+   "الأعراب"
+  ],
+  "count": 177,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شدة",
+  "example": "شدة",
+  "forms": [
+   "شدة",
+   "وشدة",
+   "لشدة"
+  ],
+  "count": 174,
+  "proposal": "شديد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أجل",
+  "example": "لأجل",
+  "forms": [
+   "لأجل",
+   "أجل",
+   "أجله",
+   "الأجل"
+  ],
+  "count": 174,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أشار",
+  "example": "يشرك",
+  "forms": [
+   "يشرك",
+   "وأشار",
+   "فأشار",
+   "يشير",
+   "أشار"
+  ],
+  "count": 173,
+  "proposal": "إشارة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أمر",
+  "example": "يأمر",
+  "forms": [
+   "يأمر",
+   "أمرت",
+   "أمرني",
+   "يؤمر"
+  ],
+  "count": 172,
+  "proposal": "أمر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سواء",
+  "example": "سواء",
+  "forms": [
+   "سواء"
+  ],
+  "count": 163,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بين",
+  "example": "يبين",
+  "forms": [
+   "يبين"
+  ],
+  "count": 159,
+  "proposal": "بين"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عظم",
+  "example": "أعظم",
+  "forms": [
+   "أعظم",
+   "وأعظم"
+  ],
+  "count": 155,
+  "proposal": "أكبر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "معروف",
+  "example": "بالمعروف",
+  "forms": [
+   "بالمعروف",
+   "المعروف",
+   "معروف",
+   "معروفا"
+  ],
+  "count": 155,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "موضع",
+  "example": "موضع",
+  "forms": [
+   "موضع",
+   "الموضع"
+  ],
+  "count": 153,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صفة",
+  "example": "الصفة",
+  "forms": [
+   "الصفة",
+   "وصفاته",
+   "صفات",
+   "الصفات",
+   "صفاته"
+  ],
+  "count": 150,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شد",
+  "example": "أشد",
+  "forms": [
+   "أشد"
+  ],
+  "count": 148,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أراد",
+  "example": "يرد",
+  "forms": [
+   "يرد",
+   "ترد"
+  ],
+  "count": 148,
+  "proposal": "رد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "دم",
+  "example": "الدم",
+  "forms": [
+   "الدم",
+   "دم",
+   "الدماء"
+  ],
+  "count": 148,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ريح",
+  "example": "الريح",
+  "forms": [
+   "الريح",
+   "ريح",
+   "ريحا",
+   "ريحها"
+  ],
+  "count": 147,
+  "proposal": "رياح"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مبين",
+  "example": "مبين",
+  "forms": [
+   "مبين",
+   "مبينا",
+   "المبين"
+  ],
+  "count": 145,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "حدث",
+  "example": "يحدث",
+  "forms": [
+   "يحدث",
+   "أحدث",
+   "حدثني",
+   "حدثت"
+  ],
+  "count": 145,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كثرة",
+  "example": "كثرة",
+  "forms": [
+   "كثرة",
+   "لكثرة",
+   "وكثرة",
+   "بكثرة"
+  ],
+  "count": 145,
+  "proposal": "كثير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "جميع",
+  "example": "جميع",
+  "forms": [
+   "جميع",
+   "بجميع"
+  ],
+  "count": 144,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "صنع",
+  "example": "يصنع",
+  "forms": [
+   "يصنع",
+   "صنعت",
+   "تصنع",
+   "أصنع"
+  ],
+  "count": 144,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱنطلق",
+  "example": "انطلق",
+  "forms": [
+   "انطلق",
+   "فانطلق",
+   "فانطلقنا",
+   "فانطلقت"
+  ],
+  "count": 142,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قط",
+  "example": "قط",
+  "forms": [
+   "قط"
+  ],
+  "count": 129,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ظن",
+  "example": "ظن",
+  "forms": [
+   "ظن",
+   "يظن",
+   "أظن",
+   "ظنا",
+   "ظنه"
+  ],
+  "count": 129,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نظر",
+  "example": "نظر",
+  "forms": [
+   "نظر",
+   "النظر",
+   "فنظر"
+  ],
+  "count": 128,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حياة",
+  "example": "الحياة",
+  "forms": [
+   "الحياة",
+   "حياة"
+  ],
+  "count": 126,
+  "proposal": "حي"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أظهر",
+  "example": "يظهر",
+  "forms": [
+   "يظهر",
+   "أظهر",
+   "تظهر",
+   "ويظهر"
+  ],
+  "count": 126,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱتخذ",
+  "example": "اتخذ",
+  "forms": [
+   "اتخذ",
+   "اتخذوا",
+   "يتخذ",
+   "تتخذوا"
+  ],
+  "count": 124,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "خشي",
+  "example": "خشية",
+  "forms": [
+   "خشية",
+   "يخشى",
+   "خشيت",
+   "خشي"
+  ],
+  "count": 122,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "قدم",
+  "example": "قدمت",
+  "forms": [
+   "قدمت",
+   "قدموا",
+   "يقدم"
+  ],
+  "count": 120,
+  "proposal": "قدم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "فضة",
+  "example": "والفضة",
+  "forms": [
+   "والفضة",
+   "فضة",
+   "الفضة",
+   "بالفضة"
+  ],
+  "count": 119,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "طالب",
+  "example": "طالب",
+  "forms": [
+   "طالب"
+  ],
+  "count": 117,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جهة",
+  "example": "جهة",
+  "forms": [
+   "جهة"
+  ],
+  "count": 117,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "باب",
+  "example": "أبواب",
+  "forms": [
+   "أبواب",
+   "الأبواب",
+   "بابه"
+  ],
+  "count": 116,
+  "proposal": "باب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حرم",
+  "example": "يحرم",
+  "forms": [
+   "يحرم",
+   "حرمت",
+   "تحرم",
+   "أحرم"
+  ],
+  "count": 116,
+  "proposal": "حرام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "منزل",
+  "example": "منزلة",
+  "forms": [
+   "منزلة",
+   "منزله",
+   "منزل",
+   "منزلا",
+   "المنزل"
+  ],
+  "count": 116,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "تكلم",
+  "example": "تكلم",
+  "forms": [
+   "تكلم",
+   "يتكلم"
+  ],
+  "count": 115,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كثير",
+  "example": "كثيرة",
+  "forms": [
+   "كثيرة",
+   "الكثيرة"
+  ],
+  "count": 113,
+  "proposal": "كثير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صف",
+  "example": "صفة",
+  "forms": [
+   "صفة",
+   "صفية",
+   "صفا"
+  ],
+  "count": 113,
+  "proposal": "صف"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عبد",
+  "example": "يعبد",
+  "forms": [
+   "يعبد",
+   "تعبدون",
+   "يعبدون",
+   "أعبد"
+  ],
+  "count": 112,
+  "proposal": "عبد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أليم",
+  "example": "أليم",
+  "forms": [
+   "أليم",
+   "اليمان",
+   "أليما"
+  ],
+  "count": 111,
+  "proposal": "ألم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حق",
+  "example": "أحق",
+  "forms": [
+   "أحق"
+  ],
+  "count": 109,
+  "proposal": "حق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "زمان",
+  "example": "الزمان",
+  "forms": [
+   "الزمان",
+   "زمان"
+  ],
+  "count": 109,
+  "proposal": "وقت"
+ },
+ {
+  "kind": "nom",
+  "lemma": "نسبة",
+  "example": "بالنسبة",
+  "forms": [
+   "بالنسبة",
+   "النسب",
+   "نسب",
+   "نسبة"
+  ],
+  "count": 108,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "صار",
+  "example": "صار",
+  "forms": [
+   "صار",
+   "فصار",
+   "وصار",
+   "صارت"
+  ],
+  "count": 106,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بارك",
+  "example": "تبارك",
+  "forms": [
+   "تبارك",
+   "يبارك"
+  ],
+  "count": 105,
+  "proposal": "بركة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أذى",
+  "example": "الأذى",
+  "forms": [
+   "الأذى",
+   "أذى"
+  ],
+  "count": 105,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "وحي",
+  "example": "الوحي",
+  "forms": [
+   "الوحي"
+  ],
+  "count": 104,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مجلس",
+  "example": "المجلس",
+  "forms": [
+   "المجلس",
+   "مجلس",
+   "مجلسه"
+  ],
+  "count": 104,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حدث",
+  "example": "حدث",
+  "forms": [
+   "حدث",
+   "حدثنا"
+  ],
+  "count": 103,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غنم",
+  "example": "الغنم",
+  "forms": [
+   "الغنم",
+   "غنم",
+   "والغنم"
+  ],
+  "count": 101,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حر",
+  "example": "الحر",
+  "forms": [
+   "الحر",
+   "حر",
+   "الحرة"
+  ],
+  "count": 100,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أنفق",
+  "example": "أنفق",
+  "forms": [
+   "أنفق",
+   "ينفقون",
+   "ينفق",
+   "تنفقوا"
+  ],
+  "count": 100,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بدر",
+  "example": "بدر",
+  "forms": [
+   "بدر",
+   "بدرا"
+  ],
+  "count": 97,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ظاهر",
+  "example": "ظاهر",
+  "forms": [
+   "ظاهر",
+   "الظاهر",
+   "ظاهرا",
+   "والظاهر"
+  ],
+  "count": 97,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بعث",
+  "example": "يبعث",
+  "forms": [
+   "يبعث",
+   "بعثت",
+   "بعثني"
+  ],
+  "count": 96,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كفى",
+  "example": "وكفى",
+  "forms": [
+   "وكفى",
+   "يكفي",
+   "يكفيك",
+   "كفى"
+  ],
+  "count": 96,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أهدى",
+  "example": "يهدي",
+  "forms": [
+   "يهدي",
+   "أهدى"
+  ],
+  "count": 95,
+  "proposal": "هدى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "وراء",
+  "example": "وراء",
+  "forms": [
+   "وراء",
+   "وراءه"
+  ],
+  "count": 95,
+  "proposal": "خلف"
+ },
+ {
+  "kind": "nom",
+  "lemma": "جالس",
+  "example": "جالسا",
+  "forms": [
+   "جالسا",
+   "جالس"
+  ],
+  "count": 95,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "عرض",
+  "example": "يعرض",
+  "forms": [
+   "يعرض",
+   "فأعرض",
+   "عرضت",
+   "أعرض"
+  ],
+  "count": 95,
+  "proposal": "عرض"
+ },
+ {
+  "kind": "nom",
+  "lemma": "توبة",
+  "example": "التوبة",
+  "forms": [
+   "التوبة",
+   "توبة"
+  ],
+  "count": 94,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "إثر",
+  "example": "أثر",
+  "forms": [
+   "أثر",
+   "أثره"
+  ],
+  "count": 93,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "خلاف",
+  "example": "بخلاف",
+  "forms": [
+   "بخلاف",
+   "خلاف"
+  ],
+  "count": 93,
+  "proposal": "اختلاف الأجناس"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حضر",
+  "example": "حضر",
+  "forms": [
+   "حضر",
+   "حضرت",
+   "يحضر"
+  ],
+  "count": 92,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ترك",
+  "example": "يترك",
+  "forms": [
+   "يترك",
+   "تركت"
+  ],
+  "count": 91,
+  "proposal": "ترك"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سوء",
+  "example": "سوء",
+  "forms": [
+   "سوء",
+   "السوء"
+  ],
+  "count": 91,
+  "proposal": "العمل السيئ"
+ },
+ {
+  "kind": "verb",
+  "lemma": "سار",
+  "example": "يسير",
+  "forms": [
+   "يسير",
+   "يسيرا"
+  ],
+  "count": 89,
+  "proposal": "سار"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱنصرف",
+  "example": "انصرف",
+  "forms": [
+   "انصرف",
+   "ينصرف"
+  ],
+  "count": 88,
+  "proposal": "الإنسحاب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قبلة",
+  "example": "القبلة",
+  "forms": [
+   "القبلة"
+  ],
+  "count": 87,
+  "proposal": "قبلة الصلاة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "منبر",
+  "example": "المنبر",
+  "forms": [
+   "المنبر"
+  ],
+  "count": 87,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "زمن",
+  "example": "زمن",
+  "forms": [
+   "زمن",
+   "الزمن"
+  ],
+  "count": 87,
+  "proposal": "زمن بعيد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مدة",
+  "example": "مدة",
+  "forms": [
+   "مدة",
+   "المدة"
+  ],
+  "count": 86,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "لقي",
+  "example": "لقي",
+  "forms": [
+   "لقي",
+   "لقيت"
+  ],
+  "count": 84,
+  "proposal": "لقيط"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شريك",
+  "example": "شريك",
+  "forms": [
+   "شريك"
+  ],
+  "count": 83,
+  "proposal": "شرك"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مهاجر",
+  "example": "المهاجرين",
+  "forms": [
+   "المهاجرين",
+   "المهاجرون"
+  ],
+  "count": 83,
+  "proposal": "هجرة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أنكر",
+  "example": "ينكر",
+  "forms": [
+   "ينكر",
+   "فأنكر",
+   "أنكر"
+  ],
+  "count": 83,
+  "proposal": "استنكار"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شريف",
+  "example": "الشريف",
+  "forms": [
+   "الشريف",
+   "الشريفة"
+  ],
+  "count": 81,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بدأ",
+  "example": "بدأ",
+  "forms": [
+   "بدأ",
+   "بدا",
+   "فبدأ"
+  ],
+  "count": 81,
+  "proposal": "بداية"
+ },
+ {
+  "kind": "nom",
+  "lemma": "لبن",
+  "example": "اللبن",
+  "forms": [
+   "اللبن"
+  ],
+  "count": 80,
+  "proposal": "حليب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صادق",
+  "example": "صادقين",
+  "forms": [
+   "صادقين",
+   "الصادقين",
+   "صادقا"
+  ],
+  "count": 80,
+  "proposal": "صادق صادق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سائر",
+  "example": "سائر",
+  "forms": [
+   "سائر",
+   "وسائر"
+  ],
+  "count": 79,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حقيقة",
+  "example": "حقيقة",
+  "forms": [
+   "حقيقة",
+   "الحقيقة"
+  ],
+  "count": 79,
+  "proposal": "حقيقي"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عدة",
+  "example": "عدة",
+  "forms": [
+   "عدة",
+   "العدة"
+  ],
+  "count": 79,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "علامة",
+  "example": "علامات",
+  "forms": [
+   "علامات",
+   "علامة"
+  ],
+  "count": 79,
+  "proposal": "إشارة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "تراب",
+  "example": "التراب",
+  "forms": [
+   "التراب",
+   "تراب",
+   "ترابا"
+  ],
+  "count": 78,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱحتمل",
+  "example": "ويحتمل",
+  "forms": [
+   "ويحتمل",
+   "يحتمل"
+  ],
+  "count": 77,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "مس",
+  "example": "مس",
+  "forms": [
+   "مس",
+   "يمسك",
+   "يمس"
+  ],
+  "count": 77,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سبب",
+  "example": "أسباب",
+  "forms": [
+   "أسباب",
+   "الأسباب"
+  ],
+  "count": 76,
+  "proposal": "السبب ؟"
+ },
+ {
+  "kind": "verb",
+  "lemma": "سبق",
+  "example": "سبق",
+  "forms": [
+   "سبق"
+  ],
+  "count": 75,
+  "proposal": "سابق"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أفاد",
+  "example": "أفاد",
+  "forms": [
+   "أفاد",
+   "يفيد"
+  ],
+  "count": 75,
+  "proposal": "استفادة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رؤى",
+  "example": "الرؤيا",
+  "forms": [
+   "الرؤيا",
+   "رؤيا"
+  ],
+  "count": 75,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حجة",
+  "example": "حجة",
+  "forms": [
+   "حجة",
+   "الحجة"
+  ],
+  "count": 75,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غائب",
+  "example": "الغيب",
+  "forms": [
+   "الغيب"
+  ],
+  "count": 74,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "قيس",
+  "example": "قيس",
+  "forms": [
+   "قيس"
+  ],
+  "count": 74,
+  "proposal": "قياس الشئ"
+ },
+ {
+  "kind": "nom",
+  "lemma": "جاري",
+  "example": "جارية",
+  "forms": [
+   "جارية",
+   "الجارية"
+  ],
+  "count": 74,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "تحريم",
+  "example": "تحريم",
+  "forms": [
+   "تحريم",
+   "التحريم"
+  ],
+  "count": 74,
+  "proposal": "حرام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "جسد",
+  "example": "جسده",
+  "forms": [
+   "جسده",
+   "الجسد"
+  ],
+  "count": 74,
+  "proposal": "جسم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ألقى",
+  "example": "يلقى",
+  "forms": [
+   "يلقى",
+   "ألقى",
+   "يلقي"
+  ],
+  "count": 74,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جواز",
+  "example": "جواز",
+  "forms": [
+   "جواز",
+   "الجواز"
+  ],
+  "count": 73,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "عاد",
+  "example": "عادة",
+  "forms": [
+   "عادة",
+   "يعد"
+  ],
+  "count": 73,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "رابع",
+  "example": "الرابعة",
+  "forms": [
+   "الرابعة",
+   "الرابع"
+  ],
+  "count": 73,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جيش",
+  "example": "الجيش",
+  "forms": [
+   "الجيش",
+   "جيش"
+  ],
+  "count": 72,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حرب",
+  "example": "الحرب",
+  "forms": [
+   "الحرب",
+   "حرب"
+  ],
+  "count": 72,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جنب",
+  "example": "جنب",
+  "forms": [
+   "جنب",
+   "جنبه"
+  ],
+  "count": 72,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "قصد",
+  "example": "قصد",
+  "forms": [
+   "قصد",
+   "يقصد"
+  ],
+  "count": 72,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "عرف",
+  "example": "يعرف",
+  "forms": [
+   "يعرف",
+   "عرفت"
+  ],
+  "count": 71,
+  "proposal": "عرفنا التوحيد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شأن",
+  "example": "شأن",
+  "forms": [
+   "شأن",
+   "شأنه"
+  ],
+  "count": 69,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جانب",
+  "example": "جانب",
+  "forms": [
+   "جانب",
+   "الجانب"
+  ],
+  "count": 69,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كف",
+  "example": "كفه",
+  "forms": [
+   "كفه",
+   "كف",
+   "وكف"
+  ],
+  "count": 69,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "خطب",
+  "example": "يخطب",
+  "forms": [
+   "يخطب"
+  ],
+  "count": 68,
+  "proposal": "خطبة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خطيئة",
+  "example": "خطيئة",
+  "forms": [
+   "خطيئة",
+   "خطاياي",
+   "خطاياه"
+  ],
+  "count": 68,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مشرق",
+  "example": "المشرق",
+  "forms": [
+   "المشرق"
+  ],
+  "count": 67,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسح",
+  "example": "المسح",
+  "forms": [
+   "المسح",
+   "مسح",
+   "فمسح"
+  ],
+  "count": 67,
+  "proposal": "مسح الصبورة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حكمة",
+  "example": "والحكمة",
+  "forms": [
+   "والحكمة",
+   "الحكمة"
+  ],
+  "count": 66,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عظيم",
+  "example": "عظيمة",
+  "forms": [
+   "عظيمة",
+   "العظيمة"
+  ],
+  "count": 66,
+  "proposal": "عظيم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "لفظ",
+  "example": "لفظ",
+  "forms": [
+   "لفظ"
+  ],
+  "count": 65,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "وتر",
+  "example": "الوتر",
+  "forms": [
+   "الوتر"
+  ],
+  "count": 65,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "دابة",
+  "example": "الدابة",
+  "forms": [
+   "الدابة",
+   "الدواب"
+  ],
+  "count": 65,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "نفع",
+  "example": "ينفع",
+  "forms": [
+   "ينفع",
+   "نفعا"
+  ],
+  "count": 64,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱستأذن",
+  "example": "استأذن",
+  "forms": [
+   "استأذن",
+   "يستأذن",
+   "استأذنت"
+  ],
+  "count": 64,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "طلوع",
+  "example": "طلوع",
+  "forms": [
+   "طلوع"
+  ],
+  "count": 63,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "خاص",
+  "example": "خاصة",
+  "forms": [
+   "خاصة",
+   "خاص"
+  ],
+  "count": 62,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مطلب",
+  "example": "المطلب",
+  "forms": [
+   "المطلب"
+  ],
+  "count": 61,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عام",
+  "example": "عامة",
+  "forms": [
+   "عامة",
+   "العامة"
+  ],
+  "count": 61,
+  "proposal": "عام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "غد",
+  "example": "غدا",
+  "forms": [
+   "غدا",
+   "الغد"
+  ],
+  "count": 61,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فم",
+  "example": "فمه",
+  "forms": [
+   "فمه",
+   "فم"
+  ],
+  "count": 61,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسألة",
+  "example": "المسألة",
+  "forms": [
+   "المسألة",
+   "مسألة"
+  ],
+  "count": 61,
+  "proposal": "سؤال"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شق",
+  "example": "شق",
+  "forms": [
+   "شق",
+   "فشق",
+   "الشق"
+  ],
+  "count": 61,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جلوس",
+  "example": "الجلوس",
+  "forms": [
+   "الجلوس",
+   "جلوس",
+   "جلوسا"
+  ],
+  "count": 61,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أسلم",
+  "example": "أسلمت",
+  "forms": [
+   "أسلمت",
+   "أسلموا"
+  ],
+  "count": 60,
+  "proposal": "إسلام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "راحل",
+  "example": "راحلته",
+  "forms": [
+   "راحلته",
+   "الرحل"
+  ],
+  "count": 60,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ثلاث",
+  "example": "ثلاثين",
+  "forms": [
+   "ثلاثين",
+   "وثلاثين"
+  ],
+  "count": 60,
+  "proposal": "ثلاثة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "وقوع",
+  "example": "الوقوع",
+  "forms": [
+   "الوقوع",
+   "وقوع",
+   "وقوعه"
+  ],
+  "count": 60,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أقرب",
+  "example": "أقرب",
+  "forms": [
+   "أقرب"
+  ],
+  "count": 59,
+  "proposal": "قريب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "كبر",
+  "example": "يكبر",
+  "forms": [
+   "يكبر"
+  ],
+  "count": 59,
+  "proposal": "الله أكبر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بدن",
+  "example": "البدن",
+  "forms": [
+   "البدن",
+   "بدنه"
+  ],
+  "count": 59,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نبوة",
+  "example": "النبوة",
+  "forms": [
+   "النبوة"
+  ],
+  "count": 58,
+  "proposal": "نبي"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أدى",
+  "example": "يؤدي",
+  "forms": [
+   "يؤدي",
+   "أدى"
+  ],
+  "count": 58,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "طائفة",
+  "example": "طائفة",
+  "forms": [
+   "طائفة"
+  ],
+  "count": 57,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مرء",
+  "example": "المرء",
+  "forms": [
+   "المرء"
+  ],
+  "count": 56,
+  "proposal": "إنسان"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صنع",
+  "example": "صنع",
+  "forms": [
+   "صنع"
+  ],
+  "count": 56,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عظم",
+  "example": "عظم",
+  "forms": [
+   "عظم"
+  ],
+  "count": 56,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سيف",
+  "example": "السيف",
+  "forms": [
+   "السيف",
+   "بالسيف"
+  ],
+  "count": 56,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "طاف",
+  "example": "يطوف",
+  "forms": [
+   "يطوف",
+   "طاف"
+  ],
+  "count": 56,
+  "proposal": "طواف"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أدرك",
+  "example": "أدرك",
+  "forms": [
+   "أدرك"
+  ],
+  "count": 55,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "لزم",
+  "example": "يلزم",
+  "forms": [
+   "يلزم",
+   "يلزمه"
+  ],
+  "count": 55,
+  "proposal": "إلزام"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱختلف",
+  "example": "اختلف",
+  "forms": [
+   "اختلف",
+   "يختلفون",
+   "اختلفوا"
+  ],
+  "count": 55,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حساب",
+  "example": "الحساب",
+  "forms": [
+   "الحساب",
+   "حساب"
+  ],
+  "count": 54,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سميع",
+  "example": "السميع",
+  "forms": [
+   "السميع",
+   "سميع"
+  ],
+  "count": 54,
+  "proposal": "سمع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عضو",
+  "example": "أعضاء",
+  "forms": [
+   "أعضاء",
+   "الأعضاء",
+   "عضوا"
+  ],
+  "count": 54,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أيمن",
+  "example": "الأيمن",
+  "forms": [
+   "الأيمن"
+  ],
+  "count": 53,
+  "proposal": "يمين"
+ },
+ {
+  "kind": "nom",
+  "lemma": "طلق",
+  "example": "طلق",
+  "forms": [
+   "طلق",
+   "طلقها"
+  ],
+  "count": 53,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "دأب",
+  "example": "دابة",
+  "forms": [
+   "دابة"
+  ],
+  "count": 52,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فأر",
+  "example": "كفارة",
+  "forms": [
+   "كفارة"
+  ],
+  "count": 52,
+  "proposal": "فأر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ثبت",
+  "example": "ثبت",
+  "forms": [
+   "ثبت"
+  ],
+  "count": 52,
+  "proposal": "ثابت"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قرب",
+  "example": "قرب",
+  "forms": [
+   "قرب"
+  ],
+  "count": 52,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "مضى",
+  "example": "مضى",
+  "forms": [
+   "مضى",
+   "ومضى"
+  ],
+  "count": 52,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مشقة",
+  "example": "مشقة",
+  "forms": [
+   "مشقة",
+   "المشقة"
+  ],
+  "count": 52,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غنيمة",
+  "example": "الغنيمة",
+  "forms": [
+   "الغنيمة",
+   "الغنائم"
+  ],
+  "count": 52,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "فر",
+  "example": "نفر",
+  "forms": [
+   "نفر"
+  ],
+  "count": 51,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نبوي",
+  "example": "النبوي",
+  "forms": [
+   "النبوي"
+  ],
+  "count": 51,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كبيرة",
+  "example": "الكبائر",
+  "forms": [
+   "الكبائر",
+   "كبائر"
+  ],
+  "count": 51,
+  "proposal": "كبير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سهم",
+  "example": "السهم",
+  "forms": [
+   "السهم",
+   "بسهم"
+  ],
+  "count": 51,
+  "proposal": "أسهم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "قرب",
+  "example": "تقرب",
+  "forms": [
+   "تقرب",
+   "يقرب"
+  ],
+  "count": 51,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "تبع",
+  "example": "تبع",
+  "forms": [
+   "تبع",
+   "يتبعون",
+   "تتبع"
+  ],
+  "count": 51,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أخاف",
+  "example": "أخاف",
+  "forms": [
+   "أخاف"
+  ],
+  "count": 50,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مقام",
+  "example": "مقام",
+  "forms": [
+   "مقام",
+   "المقام"
+  ],
+  "count": 50,
+  "proposal": "مقام إبراهيم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "درى",
+  "example": "يدري",
+  "forms": [
+   "يدري",
+   "تدرون"
+  ],
+  "count": 50,
+  "proposal": "أدرى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قرن",
+  "example": "قرن",
+  "forms": [
+   "قرن",
+   "القرن"
+  ],
+  "count": 50,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عنق",
+  "example": "عنقه",
+  "forms": [
+   "عنقه",
+   "أعناقهم"
+  ],
+  "count": 50,
+  "proposal": "رقبة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أحيى",
+  "example": "يحيى",
+  "forms": [
+   "يحيى",
+   "يحيي"
+  ],
+  "count": 50,
+  "proposal": "إحياء"
+ },
+ {
+  "kind": "verb",
+  "lemma": "بدا",
+  "example": "لابد",
+  "forms": [
+   "لابد",
+   "يبدو"
+  ],
+  "count": 49,
+  "proposal": "بداية"
+ },
+ {
+  "kind": "verb",
+  "lemma": "تم",
+  "example": "يتم",
+  "forms": [
+   "يتم",
+   "يتمنى"
+  ],
+  "count": 48,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عقوبة",
+  "example": "العقوبة",
+  "forms": [
+   "العقوبة",
+   "عقوبة"
+  ],
+  "count": 48,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أكثر",
+  "example": "أكثرهم",
+  "forms": [
+   "أكثرهم"
+  ],
+  "count": 47,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أمام",
+  "example": "أمامة",
+  "forms": [
+   "أمامة"
+  ],
+  "count": 47,
+  "proposal": "أمام"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ضر",
+  "example": "يضر",
+  "forms": [
+   "يضر",
+   "يضره"
+  ],
+  "count": 47,
+  "proposal": "ضرر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱجتمع",
+  "example": "اجتمع",
+  "forms": [
+   "اجتمع",
+   "يجتمع"
+  ],
+  "count": 47,
+  "proposal": "اجتماع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مذكور",
+  "example": "المذكور",
+  "forms": [
+   "المذكور",
+   "المذكورة"
+  ],
+  "count": 47,
+  "proposal": "ذكر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شب",
+  "example": "شبه",
+  "forms": [
+   "شبه",
+   "الشبه"
+  ],
+  "count": 47,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "خلق",
+  "example": "يخلق",
+  "forms": [
+   "يخلق",
+   "خلقت"
+  ],
+  "count": 47,
+  "proposal": "خلق"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ليس",
+  "example": "أليس",
+  "forms": [
+   "أليس"
+  ],
+  "count": 46,
+  "proposal": "ليس"
+ },
+ {
+  "kind": "nom",
+  "lemma": "شعب",
+  "example": "شعبة",
+  "forms": [
+   "شعبة"
+  ],
+  "count": 46,
+  "proposal": "شعب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "شق",
+  "example": "يشق",
+  "forms": [
+   "يشق",
+   "أشق"
+  ],
+  "count": 46,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غالب",
+  "example": "الغالب",
+  "forms": [
+   "الغالب",
+   "غالب"
+  ],
+  "count": 46,
+  "proposal": "غالبية"
+ },
+ {
+  "kind": "verb",
+  "lemma": "قعد",
+  "example": "قعد",
+  "forms": [
+   "قعد",
+   "فقعد"
+  ],
+  "count": 46,
+  "proposal": "قعد مقود"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حكى",
+  "example": "يحكي",
+  "forms": [
+   "يحكي",
+   "ويحك"
+  ],
+  "count": 46,
+  "proposal": "حكينا ساعة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "سقط",
+  "example": "يسقط",
+  "forms": [
+   "يسقط",
+   "سقط"
+  ],
+  "count": 46,
+  "proposal": "سقوط"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ولي",
+  "example": "أولياء",
+  "forms": [
+   "أولياء"
+  ],
+  "count": 45,
+  "proposal": "ولي العهد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ضعف",
+  "example": "ضعف",
+  "forms": [
+   "ضعف"
+  ],
+  "count": 45,
+  "proposal": "ضعيف"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حصين",
+  "example": "حصين",
+  "forms": [
+   "حصين"
+  ],
+  "count": 45,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شرعي",
+  "example": "الشرعي",
+  "forms": [
+   "الشرعي",
+   "شرعي"
+  ],
+  "count": 45,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مجاهد",
+  "example": "المجاهدين",
+  "forms": [
+   "المجاهدين",
+   "المجاهد"
+  ],
+  "count": 45,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مقدس",
+  "example": "المقدس",
+  "forms": [
+   "المقدس"
+  ],
+  "count": 44,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نذر",
+  "example": "نذر",
+  "forms": [
+   "نذر",
+   "النذر"
+  ],
+  "count": 44,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حرج",
+  "example": "حرج",
+  "forms": [
+   "حرج"
+  ],
+  "count": 43,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قصة",
+  "example": "قصة",
+  "forms": [
+   "قصة"
+  ],
+  "count": 43,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أطلع",
+  "example": "يطلع",
+  "forms": [
+   "يطلع",
+   "اطلع"
+  ],
+  "count": 43,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "بلاء",
+  "example": "البلاء",
+  "forms": [
+   "البلاء",
+   "بلاء"
+  ],
+  "count": 43,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ملء",
+  "example": "ملء",
+  "forms": [
+   "ملء",
+   "وملء"
+  ],
+  "count": 43,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سحر",
+  "example": "السحر",
+  "forms": [
+   "السحر"
+  ],
+  "count": 42,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نخل",
+  "example": "النخل",
+  "forms": [
+   "النخل"
+  ],
+  "count": 42,
+  "proposal": "نخلة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خيل",
+  "example": "الخيل",
+  "forms": [
+   "الخيل"
+  ],
+  "count": 42,
+  "proposal": "حصان"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بنون",
+  "example": "بنو",
+  "forms": [
+   "بنو"
+  ],
+  "count": 42,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "لسان",
+  "example": "السن",
+  "forms": [
+   "السن"
+  ],
+  "count": 42,
+  "proposal": "اللسان"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱحتاج",
+  "example": "يحتاج",
+  "forms": [
+   "يحتاج"
+  ],
+  "count": 42,
+  "proposal": "احتياجاتهم المختلفة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رؤية",
+  "example": "رؤية",
+  "forms": [
+   "رؤية"
+  ],
+  "count": 42,
+  "proposal": "أنظر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سمر",
+  "example": "سمرة",
+  "forms": [
+   "سمرة"
+  ],
+  "count": 42,
+  "proposal": "أسمر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "خلا",
+  "example": "نخل",
+  "forms": [
+   "نخل",
+   "خلت"
+  ],
+  "count": 42,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "وصية",
+  "example": "الوصية",
+  "forms": [
+   "الوصية",
+   "وصية"
+  ],
+  "count": 42,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أشبه",
+  "example": "يشبه",
+  "forms": [
+   "يشبه",
+   "تشبه"
+  ],
+  "count": 41,
+  "proposal": "شبيه شبيه"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مملوك",
+  "example": "المملوك",
+  "forms": [
+   "المملوك",
+   "مملوكا"
+  ],
+  "count": 41,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أنهى",
+  "example": "ينهى",
+  "forms": [
+   "ينهى"
+  ],
+  "count": 40,
+  "proposal": "انتهى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قبض",
+  "example": "قبض",
+  "forms": [
+   "قبض"
+  ],
+  "count": 40,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مكتوب",
+  "example": "المكتوبة",
+  "forms": [
+   "المكتوبة",
+   "مكتوب"
+  ],
+  "count": 40,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شعر",
+  "example": "يشعرون",
+  "forms": [
+   "يشعرون",
+   "يشعر"
+  ],
+  "count": 40,
+  "proposal": "شعر أجعد"
+ },
+ {
+  "kind": "verb",
+  "lemma": "سعى",
+  "example": "واسع",
+  "forms": [
+   "واسع",
+   "واسعة"
+  ],
+  "count": 40,
+  "proposal": "سعي"
+ },
+ {
+  "kind": "verb",
+  "lemma": "خص",
+  "example": "وخص",
+  "forms": [
+   "وخص",
+   "خص"
+  ],
+  "count": 40,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "دليل",
+  "example": "الأدلة",
+  "forms": [
+   "الأدلة",
+   "أدلة"
+  ],
+  "count": 40,
+  "proposal": "دليل"
+ },
+ {
+  "kind": "verb",
+  "lemma": "طعم",
+  "example": "يطعم",
+  "forms": [
+   "يطعم",
+   "أطعم"
+  ],
+  "count": 40,
+  "proposal": "اطعام الطعام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مرسل",
+  "example": "المرسلين",
+  "forms": [
+   "المرسلين"
+  ],
+  "count": 39,
+  "proposal": "رسل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خمس",
+  "example": "خمسين",
+  "forms": [
+   "خمسين"
+  ],
+  "count": 39,
+  "proposal": "خمسة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قلة",
+  "example": "قلة",
+  "forms": [
+   "قلة",
+   "وقلة"
+  ],
+  "count": 39,
+  "proposal": "قل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أعمى",
+  "example": "أعمى",
+  "forms": [
+   "أعمى",
+   "الأعمى"
+  ],
+  "count": 39,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أوجب",
+  "example": "أوجب",
+  "forms": [
+   "أوجب",
+   "يوجب"
+  ],
+  "count": 39,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "متفق",
+  "example": "متفق",
+  "forms": [
+   "متفق"
+  ],
+  "count": 38,
+  "proposal": "اتفاق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "وجود",
+  "example": "وجود",
+  "forms": [
+   "وجود"
+  ],
+  "count": 38,
+  "proposal": "موجود"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حديد",
+  "example": "حديد",
+  "forms": [
+   "حديد",
+   "الحديد"
+  ],
+  "count": 38,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أجاب",
+  "example": "يجبه",
+  "forms": [
+   "يجبه",
+   "إجابة"
+  ],
+  "count": 38,
+  "proposal": "أجاب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حكم",
+  "example": "يحكم",
+  "forms": [
+   "يحكم"
+  ],
+  "count": 37,
+  "proposal": "حكم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "وفى",
+  "example": "أوفى",
+  "forms": [
+   "أوفى"
+  ],
+  "count": 37,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "لاق",
+  "example": "يليق",
+  "forms": [
+   "يليق"
+  ],
+  "count": 37,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "بائع",
+  "example": "البائع",
+  "forms": [
+   "البائع"
+  ],
+  "count": 37,
+  "proposal": "بائع المقصف"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أعد",
+  "example": "أعد",
+  "forms": [
+   "أعد",
+   "نعد"
+  ],
+  "count": 37,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "راكب",
+  "example": "راكبا",
+  "forms": [
+   "راكبا",
+   "الراكب"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "متاع",
+  "example": "متاع",
+  "forms": [
+   "متاع"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "جل",
+  "example": "جل",
+  "forms": [
+   "جل"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شديد",
+  "example": "شديدة",
+  "forms": [
+   "شديدة"
+  ],
+  "count": 36,
+  "proposal": "شديد"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عدل",
+  "example": "يعدل",
+  "forms": [
+   "يعدل",
+   "تعدل"
+  ],
+  "count": 36,
+  "proposal": "عدل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ذات",
+  "example": "بذات",
+  "forms": [
+   "بذات",
+   "ذاته"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بئس",
+  "example": "بئس",
+  "forms": [
+   "بئس",
+   "وبئس"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "سرق",
+  "example": "سرق",
+  "forms": [
+   "سرق",
+   "يسرق"
+  ],
+  "count": 36,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "تزوج",
+  "example": "يتزوج",
+  "forms": [
+   "يتزوج",
+   "تزوجت"
+  ],
+  "count": 36,
+  "proposal": "زواج"
+ },
+ {
+  "kind": "verb",
+  "lemma": "شفع",
+  "example": "يشفع",
+  "forms": [
+   "يشفع"
+  ],
+  "count": 35,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شكر",
+  "example": "تشكرون",
+  "forms": [
+   "تشكرون",
+   "شكر"
+  ],
+  "count": 35,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ذري",
+  "example": "ذريته",
+  "forms": [
+   "ذريته",
+   "ذرية"
+  ],
+  "count": 35,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "طال",
+  "example": "طال",
+  "forms": [
+   "طال",
+   "أطول"
+  ],
+  "count": 35,
+  "proposal": "طول"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بقر",
+  "example": "البقر",
+  "forms": [
+   "البقر"
+  ],
+  "count": 34,
+  "proposal": "بقرة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "كيفية",
+  "example": "كيفية",
+  "forms": [
+   "كيفية"
+  ],
+  "count": 34,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عبد",
+  "example": "عبيدة",
+  "forms": [
+   "عبيدة"
+  ],
+  "count": 34,
+  "proposal": "عبد"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أعتق",
+  "example": "أعتق",
+  "forms": [
+   "أعتق"
+  ],
+  "count": 34,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "خفف",
+  "example": "خفف",
+  "forms": [
+   "خفف",
+   "يخفف"
+  ],
+  "count": 34,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كسب",
+  "example": "يكسبون",
+  "forms": [
+   "يكسبون",
+   "كسبوا"
+  ],
+  "count": 34,
+  "proposal": "كسب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أد",
+  "example": "أدنى",
+  "forms": [
+   "أدنى"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "لعنة",
+  "example": "لعنة",
+  "forms": [
+   "لعنة"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ظن",
+  "example": "الظن",
+  "forms": [
+   "الظن"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أبى",
+  "example": "تاب",
+  "forms": [
+   "تاب"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "صلح",
+  "example": "يصلح",
+  "forms": [
+   "يصلح"
+  ],
+  "count": 33,
+  "proposal": "صلح"
+ },
+ {
+  "kind": "nom",
+  "lemma": "معلوم",
+  "example": "معلوم",
+  "forms": [
+   "معلوم"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "نقص",
+  "example": "ينقص",
+  "forms": [
+   "ينقص"
+  ],
+  "count": 33,
+  "proposal": "نقص"
+ },
+ {
+  "kind": "nom",
+  "lemma": "دهر",
+  "example": "الدهر",
+  "forms": [
+   "الدهر"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "هاجر",
+  "example": "هاجر",
+  "forms": [
+   "هاجر"
+  ],
+  "count": 33,
+  "proposal": "هجرة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "حث",
+  "example": "حث",
+  "forms": [
+   "حث"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "مسح",
+  "example": "يمسح",
+  "forms": [
+   "يمسح"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مائدة",
+  "example": "المائدة",
+  "forms": [
+   "المائدة"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "دية",
+  "example": "دية",
+  "forms": [
+   "دية"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "رد",
+  "example": "بردة",
+  "forms": [
+   "بردة"
+  ],
+  "count": 33,
+  "proposal": "رد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خندق",
+  "example": "الخندق",
+  "forms": [
+   "الخندق"
+  ],
+  "count": 33,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مصير",
+  "example": "المصير",
+  "forms": [
+   "المصير"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كامل",
+  "example": "كاملة",
+  "forms": [
+   "كاملة"
+  ],
+  "count": 32,
+  "proposal": "كامل"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عاقب",
+  "example": "عاقبة",
+  "forms": [
+   "عاقبة"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "وعيد",
+  "example": "الوعيد",
+  "forms": [
+   "الوعيد"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "تعلق",
+  "example": "يتعلق",
+  "forms": [
+   "يتعلق"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عادة",
+  "example": "العادة",
+  "forms": [
+   "العادة"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أداء",
+  "example": "أداء",
+  "forms": [
+   "أداء"
+  ],
+  "count": 32,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حاج",
+  "example": "الحجاج",
+  "forms": [
+   "الحجاج"
+  ],
+  "count": 32,
+  "proposal": "حج"
+ },
+ {
+  "kind": "verb",
+  "lemma": "غير",
+  "example": "أغير",
+  "forms": [
+   "أغير",
+   "يغير"
+  ],
+  "count": 32,
+  "proposal": "غير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "محسن",
+  "example": "المحسنين",
+  "forms": [
+   "المحسنين"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سري",
+  "example": "سرية",
+  "forms": [
+   "سرية"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "دام",
+  "example": "دام",
+  "forms": [
+   "دام"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أقام",
+  "example": "إقامة",
+  "forms": [
+   "إقامة"
+  ],
+  "count": 31,
+  "proposal": "أقام"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عذر",
+  "example": "عذر",
+  "forms": [
+   "عذر"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "رغبة",
+  "example": "رغبة",
+  "forms": [
+   "رغبة"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جائز",
+  "example": "جائز",
+  "forms": [
+   "جائز"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أوصى",
+  "example": "أوصى",
+  "forms": [
+   "أوصى"
+  ],
+  "count": 31,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ضرب",
+  "example": "تضرب",
+  "forms": [
+   "تضرب"
+  ],
+  "count": 31,
+  "proposal": "ضرب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسمى",
+  "example": "مسمى",
+  "forms": [
+   "مسمى"
+  ],
+  "count": 30,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صغير",
+  "example": "صغيرة",
+  "forms": [
+   "صغيرة"
+  ],
+  "count": 30,
+  "proposal": "صغير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عتبة",
+  "example": "عتبة",
+  "forms": [
+   "عتبة"
+  ],
+  "count": 30,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سائب",
+  "example": "السائب",
+  "forms": [
+   "السائب"
+  ],
+  "count": 30,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فاسق",
+  "example": "الفاسقين",
+  "forms": [
+   "الفاسقين",
+   "الفاسقون"
+  ],
+  "count": 30,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أنزل",
+  "example": "أنزلنا",
+  "forms": [
+   "أنزلنا"
+  ],
+  "count": 29,
+  "proposal": "أنزل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عطاء",
+  "example": "عطاء",
+  "forms": [
+   "عطاء"
+  ],
+  "count": 29,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أجرى",
+  "example": "يجري",
+  "forms": [
+   "يجري"
+  ],
+  "count": 29,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فرقة",
+  "example": "فرق",
+  "forms": [
+   "فرق"
+  ],
+  "count": 29,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صلة",
+  "example": "صلة",
+  "forms": [
+   "صلة"
+  ],
+  "count": 29,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "غزا",
+  "example": "غزا",
+  "forms": [
+   "غزا"
+  ],
+  "count": 29,
+  "proposal": "غزو"
+ },
+ {
+  "kind": "verb",
+  "lemma": "نذر",
+  "example": "نذرت",
+  "forms": [
+   "نذرت"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كبير",
+  "example": "كبيرة",
+  "forms": [
+   "كبيرة"
+  ],
+  "count": 28,
+  "proposal": "كبير"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سير",
+  "example": "السير",
+  "forms": [
+   "السير"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سابق",
+  "example": "السابقة",
+  "forms": [
+   "السابقة"
+  ],
+  "count": 28,
+  "proposal": "سابق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أطيب",
+  "example": "أطيب",
+  "forms": [
+   "أطيب"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱشتد",
+  "example": "اشتد",
+  "forms": [
+   "اشتد"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أسود",
+  "example": "سودة",
+  "forms": [
+   "سودة"
+  ],
+  "count": 28,
+  "proposal": "أسود"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ألد",
+  "example": "الدية",
+  "forms": [
+   "الدية"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "خامس",
+  "example": "الخامسة",
+  "forms": [
+   "الخامسة"
+  ],
+  "count": 28,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سبابة",
+  "example": "السبابة",
+  "forms": [
+   "السبابة"
+  ],
+  "count": 28,
+  "proposal": "إصبع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خضرة",
+  "example": "الخضر",
+  "forms": [
+   "الخضر"
+  ],
+  "count": 28,
+  "proposal": "أخضر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حليف",
+  "example": "الحليفة",
+  "forms": [
+   "الحليفة"
+  ],
+  "count": 28,
+  "proposal": "حليف"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أخفى",
+  "example": "يخفى",
+  "forms": [
+   "يخفى"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حنين",
+  "example": "حنين",
+  "forms": [
+   "حنين"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قاعد",
+  "example": "قاعدا",
+  "forms": [
+   "قاعدا"
+  ],
+  "count": 27,
+  "proposal": "قعد مقود"
+ },
+ {
+  "kind": "verb",
+  "lemma": "دبر",
+  "example": "دبر",
+  "forms": [
+   "دبر"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أمس",
+  "example": "أمسك",
+  "forms": [
+   "أمسك"
+  ],
+  "count": 27,
+  "proposal": "إمساك"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أحمد",
+  "example": "أحمد",
+  "forms": [
+   "أحمد"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أشبه",
+  "example": "أشبه",
+  "forms": [
+   "أشبه"
+  ],
+  "count": 27,
+  "proposal": "شبيه شبيه"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مكتوم",
+  "example": "مكتوم",
+  "forms": [
+   "مكتوم"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غاية",
+  "example": "غاية",
+  "forms": [
+   "غاية"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أشرف",
+  "example": "أشرف",
+  "forms": [
+   "أشرف"
+  ],
+  "count": 27,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱستحق",
+  "example": "يستحق",
+  "forms": [
+   "يستحق"
+  ],
+  "count": 27,
+  "proposal": "المستحق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خليفة",
+  "example": "خليفة",
+  "forms": [
+   "خليفة"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جحيم",
+  "example": "الجحيم",
+  "forms": [
+   "الجحيم"
+  ],
+  "count": 26,
+  "proposal": "جهنم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قصاص",
+  "example": "القصاص",
+  "forms": [
+   "القصاص"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حب",
+  "example": "حبة",
+  "forms": [
+   "حبة"
+  ],
+  "count": 26,
+  "proposal": "حب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "فقر",
+  "example": "الفقر",
+  "forms": [
+   "الفقر"
+  ],
+  "count": 26,
+  "proposal": "فقر الدم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ميت",
+  "example": "ميتة",
+  "forms": [
+   "ميتة"
+  ],
+  "count": 26,
+  "proposal": "ميت"
+ },
+ {
+  "kind": "nom",
+  "lemma": "نفاق",
+  "example": "النفاق",
+  "forms": [
+   "النفاق"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عقب",
+  "example": "عقب",
+  "forms": [
+   "عقب"
+  ],
+  "count": 26,
+  "proposal": "عقبى"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مظلوم",
+  "example": "المظلوم",
+  "forms": [
+   "المظلوم"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شرعية",
+  "example": "الشرعية",
+  "forms": [
+   "الشرعية"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسيرة",
+  "example": "مسيرة",
+  "forms": [
+   "مسيرة"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أثنى",
+  "example": "وأثنى",
+  "forms": [
+   "وأثنى"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ضحك",
+  "example": "الضحك",
+  "forms": [
+   "الضحك"
+  ],
+  "count": 26,
+  "proposal": "ضحك ضحك"
+ },
+ {
+  "kind": "verb",
+  "lemma": "غسل",
+  "example": "يغسل",
+  "forms": [
+   "يغسل"
+  ],
+  "count": 26,
+  "proposal": "غسل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "تكبير",
+  "example": "تكبيرة",
+  "forms": [
+   "تكبيرة"
+  ],
+  "count": 26,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسلم",
+  "example": "مسلمة",
+  "forms": [
+   "مسلمة"
+  ],
+  "count": 25,
+  "proposal": "مسلم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رحم",
+  "example": "الأرحام",
+  "forms": [
+   "الأرحام"
+  ],
+  "count": 25,
+  "proposal": "رحم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أشرك",
+  "example": "يشركون",
+  "forms": [
+   "يشركون"
+  ],
+  "count": 25,
+  "proposal": "شرك"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صخر",
+  "example": "الصخرة",
+  "forms": [
+   "الصخرة"
+  ],
+  "count": 25,
+  "proposal": "صخور"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رجوع",
+  "example": "الرجوع",
+  "forms": [
+   "الرجوع"
+  ],
+  "count": 25,
+  "proposal": "رجعى"
+ },
+ {
+  "kind": "verb",
+  "lemma": "نفى",
+  "example": "نفي",
+  "forms": [
+   "نفي"
+  ],
+  "count": 25,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ركب",
+  "example": "يركب",
+  "forms": [
+   "يركب"
+  ],
+  "count": 25,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "متعمد",
+  "example": "متعمدا",
+  "forms": [
+   "متعمدا"
+  ],
+  "count": 24,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ظهور",
+  "example": "ظهور",
+  "forms": [
+   "ظهور"
+  ],
+  "count": 24,
+  "proposal": "ظهور أعراض"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حوض",
+  "example": "الحوض",
+  "forms": [
+   "الحوض"
+  ],
+  "count": 24,
+  "proposal": "حوض ماء"
+ },
+ {
+  "kind": "nom",
+  "lemma": "فضيلة",
+  "example": "فضيلة",
+  "forms": [
+   "فضيلة"
+  ],
+  "count": 24,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أعلم",
+  "example": "واعلموا",
+  "forms": [
+   "واعلموا"
+  ],
+  "count": 23,
+  "proposal": "أحسن"
+ },
+ {
+  "kind": "verb",
+  "lemma": "قبض",
+  "example": "يقبض",
+  "forms": [
+   "يقبض"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نفل",
+  "example": "الأنفال",
+  "forms": [
+   "الأنفال"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أثبت",
+  "example": "يثبت",
+  "forms": [
+   "يثبت"
+  ],
+  "count": 23,
+  "proposal": "ثابت"
+ },
+ {
+  "kind": "nom",
+  "lemma": "داعي",
+  "example": "الداعي",
+  "forms": [
+   "الداعي"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ميزان",
+  "example": "الميزان",
+  "forms": [
+   "الميزان"
+  ],
+  "count": 23,
+  "proposal": "ميزان حرارة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أحسن",
+  "example": "يحسن",
+  "forms": [
+   "يحسن"
+  ],
+  "count": 23,
+  "proposal": "أحسن"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ثناء",
+  "example": "الثناء",
+  "forms": [
+   "الثناء"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عامة",
+  "example": "العوام",
+  "forms": [
+   "العوام"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جمر",
+  "example": "الجمرة",
+  "forms": [
+   "الجمرة"
+  ],
+  "count": 23,
+  "proposal": "جمرات"
+ },
+ {
+  "kind": "nom",
+  "lemma": "إثبات",
+  "example": "إثبات",
+  "forms": [
+   "إثبات"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مانع",
+  "example": "مانع",
+  "forms": [
+   "مانع"
+  ],
+  "count": 23,
+  "proposal": "منع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حياء",
+  "example": "الحياء",
+  "forms": [
+   "الحياء"
+  ],
+  "count": 23,
+  "proposal": "حي"
+ },
+ {
+  "kind": "nom",
+  "lemma": "خليق",
+  "example": "الخلائق",
+  "forms": [
+   "الخلائق"
+  ],
+  "count": 23,
+  "proposal": "خلق"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عافية",
+  "example": "العافية",
+  "forms": [
+   "العافية"
+  ],
+  "count": 23,
+  "proposal": "صحة وعافية"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ولاء",
+  "example": "الولاء",
+  "forms": [
+   "الولاء"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "منكب",
+  "example": "منكبيه",
+  "forms": [
+   "منكبيه"
+  ],
+  "count": 23,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أذكر",
+  "example": "واذكروا",
+  "forms": [
+   "واذكروا"
+  ],
+  "count": 22,
+  "proposal": "أذكر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صفا",
+  "example": "الصفا",
+  "forms": [
+   "الصفا"
+  ],
+  "count": 22,
+  "proposal": "الصفا والمروة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "إله",
+  "example": "آلهة",
+  "forms": [
+   "آلهة"
+  ],
+  "count": 22,
+  "proposal": "إله"
+ },
+ {
+  "kind": "nom",
+  "lemma": "فلك",
+  "example": "الفلك",
+  "forms": [
+   "الفلك"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كف",
+  "example": "كفيه",
+  "forms": [
+   "كفيه"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "تابع",
+  "example": "التابعين",
+  "forms": [
+   "التابعين"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "آذى",
+  "example": "يؤذي",
+  "forms": [
+   "يؤذي"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قدح",
+  "example": "القدح",
+  "forms": [
+   "القدح"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "دفن",
+  "example": "دفن",
+  "forms": [
+   "دفن"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱقتضى",
+  "example": "يقتضي",
+  "forms": [
+   "يقتضي"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ظهر",
+  "example": "ظهرت",
+  "forms": [
+   "ظهرت"
+  ],
+  "count": 22,
+  "proposal": "ظهر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أبعد",
+  "example": "أبعد",
+  "forms": [
+   "أبعد"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فل",
+  "example": "وفلانا",
+  "forms": [
+   "وفلانا"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "سيدة",
+  "example": "سيده",
+  "forms": [
+   "سيده"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ضربة",
+  "example": "ضربة",
+  "forms": [
+   "ضربة"
+  ],
+  "count": 22,
+  "proposal": "ضربة حظ"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ثني",
+  "example": "ثنية",
+  "forms": [
+   "ثنية"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مخالفة",
+  "example": "مخالفة",
+  "forms": [
+   "مخالفة"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مشتري",
+  "example": "المشتري",
+  "forms": [
+   "المشتري"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "فصل",
+  "example": "فصلوا",
+  "forms": [
+   "فصلوا"
+  ],
+  "count": 22,
+  "proposal": "فصل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بكر",
+  "example": "البكر",
+  "forms": [
+   "البكر"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مقدم",
+  "example": "المقدم",
+  "forms": [
+   "المقدم"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "قصر",
+  "example": "يقصر",
+  "forms": [
+   "يقصر"
+  ],
+  "count": 22,
+  "proposal": "قصر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مؤخر",
+  "example": "المؤخر",
+  "forms": [
+   "المؤخر"
+  ],
+  "count": 22,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ريب",
+  "example": "ريب",
+  "forms": [
+   "ريب"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أدخل",
+  "example": "ادخلوا",
+  "forms": [
+   "ادخلوا"
+  ],
+  "count": 21,
+  "proposal": "ادخل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سر",
+  "example": "سرا",
+  "forms": [
+   "سرا"
+  ],
+  "count": 21,
+  "proposal": "سر"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عفا",
+  "example": "عفا",
+  "forms": [
+   "عفا"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بغى",
+  "example": "بغتة",
+  "forms": [
+   "بغتة"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ذمة",
+  "example": "ذمة",
+  "forms": [
+   "ذمة"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أخرج",
+  "example": "أخرجه",
+  "forms": [
+   "أخرجه"
+  ],
+  "count": 21,
+  "proposal": "أخرج"
+ },
+ {
+  "kind": "verb",
+  "lemma": "توكل",
+  "example": "توكلت",
+  "forms": [
+   "توكلت"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بسط",
+  "example": "يبسط",
+  "forms": [
+   "يبسط"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "فهم",
+  "example": "يفهم",
+  "forms": [
+   "يفهم"
+  ],
+  "count": 21,
+  "proposal": "تفهم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "أثر",
+  "example": "الأثر",
+  "forms": [
+   "الأثر"
+  ],
+  "count": 21,
+  "proposal": "آثار قديمة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ورث",
+  "example": "يرث",
+  "forms": [
+   "يرث"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ترتب",
+  "example": "يترتب",
+  "forms": [
+   "يترتب"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱنتفع",
+  "example": "ينتفع",
+  "forms": [
+   "ينتفع"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱستجاب",
+  "example": "يستجاب",
+  "forms": [
+   "يستجاب"
+  ],
+  "count": 21,
+  "proposal": "استجابة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مقتول",
+  "example": "المقتول",
+  "forms": [
+   "المقتول"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "بول",
+  "example": "البول",
+  "forms": [
+   "البول"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حلقة",
+  "example": "حلقة",
+  "forms": [
+   "حلقة"
+  ],
+  "count": 21,
+  "proposal": "حلقات"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صنف",
+  "example": "أصناف",
+  "forms": [
+   "أصناف"
+  ],
+  "count": 21,
+  "proposal": "نوع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ألف",
+  "example": "الإفك",
+  "forms": [
+   "الإفك"
+  ],
+  "count": 21,
+  "proposal": "ألف"
+ },
+ {
+  "kind": "verb",
+  "lemma": "رقم",
+  "example": "أرقم",
+  "forms": [
+   "أرقم"
+  ],
+  "count": 21,
+  "proposal": "رقم"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رفقة",
+  "example": "الرفق",
+  "forms": [
+   "الرفق"
+  ],
+  "count": 21,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "لب",
+  "example": "الألباب",
+  "forms": [
+   "الألباب"
+  ],
+  "count": 20,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "إثم",
+  "example": "إثما",
+  "forms": [
+   "إثما"
+  ],
+  "count": 20,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صيد",
+  "example": "الصيد",
+  "forms": [
+   "الصيد"
+  ],
+  "count": 20,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "جهد",
+  "example": "جهد",
+  "forms": [
+   "جهد"
+  ],
+  "count": 20,
+  "proposal": "تعب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "وعاء",
+  "example": "وعاء",
+  "forms": [
+   "وعاء"
+  ],
+  "count": 20,
+  "proposal": "وعاء ماء"
+ },
+ {
+  "kind": "nom",
+  "lemma": "يقين",
+  "example": "اليقين",
+  "forms": [
+   "اليقين"
+  ],
+  "count": 20,
+  "proposal": "إيمان"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أقسم",
+  "example": "يقسم",
+  "forms": [
+   "يقسم"
+  ],
+  "count": 20,
+  "proposal": "أقسم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أمكن",
+  "example": "يمكن",
+  "forms": [
+   "يمكن"
+  ],
+  "count": 20,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صامت",
+  "example": "الصامت",
+  "forms": [
+   "الصامت"
+  ],
+  "count": 20,
+  "proposal": "صمت"
+ },
+ {
+  "kind": "nom",
+  "lemma": "معركة",
+  "example": "المعركة",
+  "forms": [
+   "المعركة"
+  ],
+  "count": 20,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أخير",
+  "example": "الأخيرة",
+  "forms": [
+   "الأخيرة"
+  ],
+  "count": 20,
+  "proposal": "آخر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "سواد",
+  "example": "سواد",
+  "forms": [
+   "سواد"
+  ],
+  "count": 20,
+  "proposal": "أسود"
+ },
+ {
+  "kind": "nom",
+  "lemma": "مباشر",
+  "example": "مباشرة",
+  "forms": [
+   "مباشرة"
+  ],
+  "count": 20,
+  "proposal": "مباشر"
+ },
+ {
+  "kind": "nom",
+  "lemma": "صحيح",
+  "example": "الصحيحة",
+  "forms": [
+   "الصحيحة"
+  ],
+  "count": 20,
+  "proposal": "صحيح"
+ },
+ {
+  "kind": "verb",
+  "lemma": "تبين",
+  "example": "يتبين",
+  "forms": [
+   "يتبين"
+  ],
+  "count": 17,
+  "proposal": "استبانة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "قسط",
+  "example": "بالقسط",
+  "forms": [
+   "بالقسط"
+  ],
+  "count": 17,
+  "proposal": "أقساط"
+ },
+ {
+  "kind": "nom",
+  "lemma": "نصيب",
+  "example": "نصيبا",
+  "forms": [
+   "نصيبا"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "تلا",
+  "example": "تتلى",
+  "forms": [
+   "تتلى"
+  ],
+  "count": 17,
+  "proposal": "تلاوة"
+ },
+ {
+  "kind": "nom",
+  "lemma": "عداوة",
+  "example": "العداوة",
+  "forms": [
+   "العداوة"
+  ],
+  "count": 17,
+  "proposal": "عدو"
+ },
+ {
+  "kind": "nom",
+  "lemma": "محرم",
+  "example": "محرمة",
+  "forms": [
+   "محرمة"
+  ],
+  "count": 17,
+  "proposal": "محرم"
+ },
+ {
+  "kind": "verb",
+  "lemma": "أقصى",
+  "example": "يقص",
+  "forms": [
+   "يقص"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كاد",
+  "example": "كاد",
+  "forms": [
+   "كاد"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "ٱختلاف",
+  "example": "اختلاف",
+  "forms": [
+   "اختلاف"
+  ],
+  "count": 17,
+  "proposal": "اختلاف الأجناس"
+ },
+ {
+  "kind": "verb",
+  "lemma": "كره",
+  "example": "أكره",
+  "forms": [
+   "أكره"
+  ],
+  "count": 17,
+  "proposal": "كره"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بدل",
+  "example": "بدل",
+  "forms": [
+   "بدل"
+  ],
+  "count": 17,
+  "proposal": "بديل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حيوان",
+  "example": "الحيوان",
+  "forms": [
+   "الحيوان"
+  ],
+  "count": 17,
+  "proposal": "حيوانات"
+ },
+ {
+  "kind": "verb",
+  "lemma": "كشف",
+  "example": "يكشف",
+  "forms": [
+   "يكشف"
+  ],
+  "count": 17,
+  "proposal": "كشف الحقيقة"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ولد",
+  "example": "يولد",
+  "forms": [
+   "يولد"
+  ],
+  "count": 17,
+  "proposal": "ولد"
+ },
+ {
+  "kind": "nom",
+  "lemma": "بقاء",
+  "example": "بقاء",
+  "forms": [
+   "بقاء"
+  ],
+  "count": 17,
+  "proposal": "يبقى ايه"
+ },
+ {
+  "kind": "nom",
+  "lemma": "معقل",
+  "example": "معقل",
+  "forms": [
+   "معقل"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "فارسي",
+  "example": "الفارسي",
+  "forms": [
+   "الفارسي"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "صواب",
+  "example": "الصواب",
+  "forms": [
+   "الصواب"
+  ],
+  "count": 17,
+  "proposal": "صحيح"
+ },
+ {
+  "kind": "verb",
+  "lemma": "رجا",
+  "example": "لأرجو",
+  "forms": [
+   "لأرجو"
+  ],
+  "count": 17,
+  "proposal": "أمل"
+ },
+ {
+  "kind": "nom",
+  "lemma": "حصى",
+  "example": "الحصى",
+  "forms": [
+   "الحصى"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "غلب",
+  "example": "غلب",
+  "forms": [
+   "غلب"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حامل",
+  "example": "حامل",
+  "forms": [
+   "حامل"
+  ],
+  "count": 17,
+  "proposal": "حامل أحذية"
+ },
+ {
+  "kind": "nom",
+  "lemma": "فرج",
+  "example": "الفرج",
+  "forms": [
+   "الفرج"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مأمور",
+  "example": "مأمور",
+  "forms": [
+   "مأمور"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عيش",
+  "example": "عيش",
+  "forms": [
+   "عيش"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شرف",
+  "example": "شرف",
+  "forms": [
+   "شرف"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مرتفع",
+  "example": "مرتفعة",
+  "forms": [
+   "مرتفعة"
+  ],
+  "count": 17,
+  "proposal": "مرتفع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "رقيق",
+  "example": "رقيق",
+  "forms": [
+   "رقيق"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "رداءة",
+  "example": "رداءه",
+  "forms": [
+   "رداءه"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أيسر",
+  "example": "الأيسر",
+  "forms": [
+   "الأيسر"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شرع",
+  "example": "يشرع",
+  "forms": [
+   "يشرع"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "كلم",
+  "example": "يكلم",
+  "forms": [
+   "يكلم"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "راح",
+  "example": "راح",
+  "forms": [
+   "راح"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "بات",
+  "example": "يبيت",
+  "forms": [
+   "يبيت"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "زوال",
+  "example": "الزوال",
+  "forms": [
+   "الزوال"
+  ],
+  "count": 17,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "أبصار",
+  "example": "أبصارهم",
+  "forms": [
+   "أبصارهم"
+  ],
+  "count": 16,
+  "proposal": "عين"
+ },
+ {
+  "kind": "nom",
+  "lemma": "راجع",
+  "example": "راجعون",
+  "forms": [
+   "راجعون"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱختص",
+  "example": "يختص",
+  "forms": [
+   "يختص"
+  ],
+  "count": 16,
+  "proposal": "اختصاص"
+ },
+ {
+  "kind": "nom",
+  "lemma": "ملة",
+  "example": "ملة",
+  "forms": [
+   "ملة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "تطوع",
+  "example": "تطوع",
+  "forms": [
+   "تطوع"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "لباس",
+  "example": "لباس",
+  "forms": [
+   "لباس"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "عزة",
+  "example": "العزة",
+  "forms": [
+   "العزة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "إنجيل",
+  "example": "والإنجيل",
+  "forms": [
+   "والإنجيل"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غليظ",
+  "example": "غليظ",
+  "forms": [
+   "غليظ"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "هال",
+  "example": "يهلك",
+  "forms": [
+   "يهلك"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أهلك",
+  "example": "أهلكنا",
+  "forms": [
+   "أهلكنا"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱدعى",
+  "example": "ادعوا",
+  "forms": [
+   "ادعوا"
+  ],
+  "count": 16,
+  "proposal": "ادعى"
+ },
+ {
+  "kind": "verb",
+  "lemma": "عجل",
+  "example": "يعجل",
+  "forms": [
+   "يعجل"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "كبرياء",
+  "example": "الكبرياء",
+  "forms": [
+   "الكبرياء"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ملأ",
+  "example": "ملأ",
+  "forms": [
+   "ملأ"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "إنفاق",
+  "example": "الإنفاق",
+  "forms": [
+   "الإنفاق"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "نمل",
+  "example": "النمل",
+  "forms": [
+   "النمل"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "جاهد",
+  "example": "يجاهد",
+  "forms": [
+   "يجاهد"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "خفي",
+  "example": "خفي",
+  "forms": [
+   "خفي"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "غداة",
+  "example": "الغداة",
+  "forms": [
+   "الغداة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "إجابة",
+  "example": "الإجابة",
+  "forms": [
+   "الإجابة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مشروع",
+  "example": "مشروعية",
+  "forms": [
+   "مشروعية"
+  ],
+  "count": 16,
+  "proposal": "مشروع"
+ },
+ {
+  "kind": "nom",
+  "lemma": "إخلاص",
+  "example": "الإخلاص",
+  "forms": [
+   "الإخلاص"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "قوي",
+  "example": "أقوى",
+  "forms": [
+   "أقوى"
+  ],
+  "count": 16,
+  "proposal": "قوي"
+ },
+ {
+  "kind": "nom",
+  "lemma": "وزن",
+  "example": "وزن",
+  "forms": [
+   "وزن"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱشتكى",
+  "example": "اشتكى",
+  "forms": [
+   "اشتكى"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مسافر",
+  "example": "المسافر",
+  "forms": [
+   "المسافر"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "قريب",
+  "example": "قريبة",
+  "forms": [
+   "قريبة"
+  ],
+  "count": 16,
+  "proposal": "قريب"
+ },
+ {
+  "kind": "nom",
+  "lemma": "غيرة",
+  "example": "الغيرة",
+  "forms": [
+   "الغيرة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مصلحة",
+  "example": "المصلحة",
+  "forms": [
+   "المصلحة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "هم",
+  "example": "هممت",
+  "forms": [
+   "هممت"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "عزا",
+  "example": "وعزتك",
+  "forms": [
+   "وعزتك"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أكمل",
+  "example": "أكمل",
+  "forms": [
+   "أكمل"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "شمل",
+  "example": "يشمل",
+  "forms": [
+   "يشمل"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "خول",
+  "example": "خولة",
+  "forms": [
+   "خولة"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱشترط",
+  "example": "يشترط",
+  "forms": [
+   "يشترط"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "داء",
+  "example": "داء",
+  "forms": [
+   "داء"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "حبيب",
+  "example": "حبيبة",
+  "forms": [
+   "حبيبة"
+  ],
+  "count": 16,
+  "proposal": "حب"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ٱعتاد",
+  "example": "تعتد",
+  "forms": [
+   "تعتد"
+  ],
+  "count": 16,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "شعيرة",
+  "example": "شعائر",
+  "forms": [
+   "شعائر"
+  ],
+  "count": 15,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أفاض",
+  "example": "أفاض",
+  "forms": [
+   "أفاض"
+  ],
+  "count": 15,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "مولود",
+  "example": "مولود",
+  "forms": [
+   "مولود"
+  ],
+  "count": 15,
+  "proposal": null
+ },
+ {
+  "kind": "nom",
+  "lemma": "زوج",
+  "example": "أزواجا",
+  "forms": [
+   "أزواجا"
+  ],
+  "count": 15,
+  "proposal": "زوج"
+ },
+ {
+  "kind": "verb",
+  "lemma": "ضاعف",
+  "example": "يضاعف",
+  "forms": [
+   "يضاعف"
+  ],
+  "count": 15,
+  "proposal": null
+ },
+ {
+  "kind": "verb",
+  "lemma": "أحس",
+  "example": "أحس",
+  "forms": [
+   "أحس"
+  ],
+  "count": 15,
+  "proposal": null
+ }
+]

@@ -162,10 +162,11 @@ def qa_lexicon(path):
                 # glosses written with vowel marks («شِعر», poetry) are left out: undiacritised, «شعر» reads as the
                 # verb *to feel*, which is not what the sign means
                 keys = [k for k, e in self._signs.items() if " " not in k and strip(e.gloss) == e.gloss.strip()]
-                morph.lemmatize(keys, analysed=True)
+                # each gloss analysed as written («مؤمن», not the folded «مومن», which the analyser does not know)
+                morph.lemmatize([morph.spelling(self._signs[k].gloss) for k in keys], analysed=True)
                 idx = {}
                 for k in keys:
-                    top = morph.top_analyses(k)
+                    top = morph.top_analyses(self._signs[k].gloss)
                     kinds = {(self._kind(a["pos"]), a["lex"]) for a in top}
                     if len(kinds) != 1 or None in next(iter(kinds)):
                         continue
@@ -201,8 +202,11 @@ def qa_lexicon(path):
             for a in top:
                 kind = self._kind(a["pos"])
                 g = idx.get((kind, a["lex"])) if kind else None
-                if g is None and kind == "verb":  # a reviewed verb signed with its act's noun: «تصوم» -> صوم
-                    g = getattr(self, "_verb_lemmas", {}).get(self._lemma_key(a["lex"]))
+                if g is None and kind in ("verb", "nom"):
+                    # a reviewed lemma signed with a sign of the same meaning: «تصوم» -> صوم, «المؤمنين» -> إيمان. A
+                    # vowelled entry names one verb exactly (كَفَر, disbelieve, not كَفَّر, expiate); a bare one any.
+                    exact, bare = getattr(self, "_reviewed_lemmas", {}).get(kind, ({}, {}))
+                    g = exact.get(re.sub(r"[_\d].*$", "", a["lex"])) or bare.get(self._lemma_key(a["lex"]))
                 if g is None:
                     return None
                 found.add(g)
@@ -224,7 +228,9 @@ def qa_lexicon(path):
                 if any(x["enc0"] == "0" and x["lp"] > -99 and normalize_ar(x["lex"]).endswith("ه")
                        for x in morph.analyses(token)):
                     return None
-            return e if self._keeps_alef(token, e) else None
+            # the alef guard of the string matcher does not apply here: the analyser gave the lemma, it stripped
+            # nothing («أيام» -> يوم, «أعمال» -> عمل; «إسلام» is its own lemma, never سلام). The ة guard does.
+            return None if strip(token).endswith("ة") and not normalize_ar(e.gloss).endswith("ه") else e
 
         def _verb_reading(self, token):
             """The sign of a verb reading about as probable as the best one (within MARGIN), if exactly one sign."""
@@ -277,4 +283,12 @@ def qa_lexicon(path):
     # reviewed verbs signed with the noun of the act (صام -> صوم): every conjugation the analyser reads as that verb
     lex._verb_lemmas = {normalize_ar(v): normalize_ar(g) for v, g in reviewed.get("verb_lemmas", {}).items()
                         if normalize_ar(g) in lex._signs}
+
+    def split(entries):  # vowelled keys match the analyser's lemma exactly, bare ones by letters
+        exact = {v.replace("ٱ", "ا"): normalize_ar(g) for v, g in entries.items() if strip(v) != v and normalize_ar(g) in lex._signs}
+        bare = {normalize_ar(v): normalize_ar(g) for v, g in entries.items() if strip(v) == v and normalize_ar(g) in lex._signs}
+        return exact, bare
+    # reviewed nouns and adjectives signed with a sign of the same meaning (مؤمن -> إيمان): every form the analyser
+    # reads as that lemma (plural, with clitics, in any case)
+    lex._reviewed_lemmas = {"verb": split(reviewed.get("verb_lemmas", {})), "nom": split(reviewed.get("noun_lemmas", {}))}
     return lex
