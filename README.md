@@ -14,6 +14,7 @@
 [![Hadith in sign language](https://img.shields.io/badge/🤗%20Collection-Hadith%20in%20sign%20language-F9D371)](https://huggingface.co/collections/FatimahEmadEldin/hadith-in-sign-language-6ac3f8c150af9e5417c0d93d)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-isharati--data-F9D371)](https://huggingface.co/datasets/FatimahEmadEldin/isharati-data)
 [![Video](https://img.shields.io/badge/YouTube-Demo%20video-FF0000)](https://youtu.be/MhDm_XLl8fI)
+[![Sources](https://img.shields.io/badge/Sources%20%C2%B7%20rights%20%C2%B7%20AI%20use-docs%2FSOURCES.md-1E3A5F)](docs/SOURCES.md)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 </div>
@@ -191,6 +192,10 @@ published, with jitter smoothed (0.2 s) and unusable skeletons left out:
 
 ## Data
 
+Every source (texts, sign dictionaries and datasets in the four languages, signed Qur'an and hadith videos, models,
+tools, avatars), its terms, the rights and the use of AI are documented in **[docs/SOURCES.md](docs/SOURCES.md)**
+(English and Arabic).
+
 The code repository carries no data. Everything the app reads is on the Hugging Face Hub, each source with its
 attribution and licence in the dataset card, and the server downloads it on first use:
 
@@ -341,6 +346,8 @@ Watch on YouTube: https://youtu.be/MhDm_XLl8fI
 ```
 
 ## License
+
+Sources, rights and use of AI: [docs/SOURCES.md](docs/SOURCES.md).
 
 The code is released under the [MIT License](LICENSE). The avatars keep their own licences
 ([third-party notices](THIRD_PARTY_NOTICES.md)). The data keeps the licence of each source; several sources do not
