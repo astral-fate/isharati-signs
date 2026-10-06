@@ -38,13 +38,14 @@ describe("Commercial sections: UseCases and Pricing", () => {
     expect(screen.getByText("$169")).toBeDefined();
   });
 
-  it("displays unit economics cost efficiency comparison", () => {
+  it("shows no profit-margin or unit-cost claims", () => {
     render(
       <I18nProvider initial="en">
         <Pricing />
       </I18nProvider>
     );
 
-    expect(screen.getByText(/\$0\.0025/)).toBeDefined();
+    expect(screen.queryByText(/\$0\.0025/)).toBeNull();
+    expect(screen.queryByText(/margin/i)).toBeNull();
   });
 });

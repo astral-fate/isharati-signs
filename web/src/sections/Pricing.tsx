@@ -148,34 +148,6 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Unit Economics Highlight Banner */}
-        <motion.div
-          className="economics-banner panel"
-          style={{ marginTop: 48, padding: 32, borderRadius: 20 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-            <div>
-              <span className="badge-pill">{t("pricing.economics.badge")}</span>
-              <h3 style={{ margin: "8px 0" }}>{t("pricing.economics.title")}</h3>
-              <p style={{ margin: 0, maxWidth: 780, opacity: 0.85, fontSize: "0.95rem", lineHeight: 1.6 }}>
-                {t("pricing.economics.desc")}
-              </p>
-            </div>
-            <div style={{ display: "flex", gap: 24, textAlign: "center" }}>
-              <div style={{ padding: "12px 20px", background: "var(--bg3)", borderRadius: 12 }}>
-                <div style={{ fontSize: "1.4rem", fontWeight: 800, color: "var(--accent)" }}>$0.0025</div>
-                <div style={{ fontSize: "0.75rem", opacity: 0.7 }}>Isharati COGS / query</div>
-              </div>
-              <div style={{ padding: "12px 20px", background: "var(--bg3)", borderRadius: 12 }}>
-                <div style={{ fontSize: "1.4rem", fontWeight: 800, color: "#ef4444" }}>$0.80 - $2.97</div>
-                <div style={{ fontSize: "0.75rem", opacity: 0.7 }}>Legacy Cloud Video / min</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
