@@ -24,6 +24,7 @@ def arg(name, default):
 
 def stage() -> Path:
     out = Path(tempfile.mkdtemp(prefix="isharati_space_"))
+    shutil.copy2(ROOT / ".env.example", out / ".env.example")  # the settings and where to get each key, for local runs
     for f in (ROOT / "deploy" / "space").iterdir():
         shutil.copy2(f, out / f.name)
     # only files tracked in git: a local copy of data (src/isharati/academy_data, app/static/data) is git-ignored

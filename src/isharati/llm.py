@@ -38,7 +38,8 @@ class GroqClient:
 
 
 
-ENV = Path(r"D:\islam\.env")
+from isharati.config import ROOT  # noqa: E402  (importing config also loads .env)
+ENV = ROOT / ".env"
 
 
 def env_key(name: str) -> str | None:

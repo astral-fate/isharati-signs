@@ -202,22 +202,35 @@ tests/
 ## Getting started
 
 ```bash
+git clone https://github.com/astral-fate/isharati-signs && cd isharati-signs
 python -m venv .venv && .venv/Scripts/pip install -e .[dev]     # Windows; use .venv/bin on Linux/macOS
+cp .env.example .env                                             # then fill in your keys (below)
 .venv/Scripts/python -m pytest -q
 ```
 
-The pipeline reads its data from `data/` (or `ISHARATI_DATA_DIR`). To get it, download the dataset and restore its layout.
-This needs read access to the private dataset:
+**Keys.** [`.env.example`](.env.example) lists every setting, what it is for and where to get each key; the app reads
+`.env` from the project root at start-up. The minimum is a Hugging Face token and one language-model key:
+
+| Variable | Used for | Where to get it |
+|---|---|---|
+| `OPENROUTER_API_KEY` | the answer and the glosses (what the live demo uses) | [openrouter.ai/keys](https://openrouter.ai/keys) |
+| `NVIDIA_API_KEY` | the same, through NVIDIA NIM, when `ISHARATI_LLM` is not `openrouter` | [build.nvidia.com](https://build.nvidia.com) → a model → *Get API Key* |
+| `GROQ_API_KEY` | Whisper speech-to-text (audio / video mode) and the last fallback model | [console.groq.com/keys](https://console.groq.com/keys) |
+| `HF_TOKEN` | downloading the datasets; question embeddings (`ISHARATI_EMBED=hf`) | [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) (type *Read*) |
+| `DATABASE_URL` | optional: the Review Studio database | [console.neon.tech](https://console.neon.tech) → connection string |
+
+The datasets are private (several sign sources do not allow redistribution): ask the authors for access, and your own
+read token works. Then restore the data into `data/`:
 
 ```bash
-HF_TOKEN=<token> ISHARATI_HUB_DATASET=FatimahEmadEldin/isharati-data python -c "from isharati import hub; hub.ensure_data()"
+python -c "from isharati import hub; hub.ensure_data()"
 ```
 
-Ask a question from the command line:
+Ask a question from the command line (settings from `.env`):
 
 ```bash
-ISHARATI_LLM=openrouter ISHARATI_EMBED=hf python -m isharati.pipeline "What are the pillars of Islam?"
-ISHARATI_LLM=openrouter ISHARATI_EMBED=hf python -m isharati.pipeline --lang ar "ما هو الإسلام؟"
+python -m isharati.pipeline "What are the pillars of Islam?"
+python -m isharati.pipeline --lang ar "ما هو الإسلام؟"
 ```
 
 Run the web app (a React page in `web/`, served by the FastAPI app):
@@ -230,11 +243,6 @@ cd web && npm run build                          # production build to web/dist,
 
 With the app running, `py scripts/web/e2e.py [--live]` checks the page in a browser (Playwright) and rewrites the
 screenshots in `docs/paper/figures/` (only when every check passes).
-
-Keys are read from the environment (copy `.env.example` if present; never commit `.env`): `OPENROUTER_API_KEY` for the
-models and `HF_TOKEN` for the datasets and the hosted embeddings. Without `ISHARATI_LLM=openrouter` the models are called
-through NVIDIA NIM and then Groq (`NVIDIA_API_KEY`, `GROQ_API_KEY`). Without `ISHARATI_EMBED=hf`, question embeddings
-come from a local service: `python scripts/corpora/embeddings.py serve`.
 
 ## Deployment
 
