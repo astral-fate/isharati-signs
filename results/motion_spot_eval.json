@@ -1,0 +1,418 @@
+{
+ "words": 80,
+ "lexicon_signs": 3055,
+ "spotted": {
+  "top1": 0.0125,
+  "top10": 0.0375,
+  "top50": 0.1125,
+  "median_rank": 839.0
+ },
+ "random_window": {
+  "top1": 0.0,
+  "top10": 0.012658227848101266,
+  "top50": 0.012658227848101266,
+  "median_rank": 1213.0
+ },
+ "per_word": [
+  {
+   "word": "deaf",
+   "score": 0.8437,
+   "rank": 880
+  },
+  {
+   "word": "people",
+   "score": 0.9278,
+   "rank": 816
+  },
+  {
+   "word": "like",
+   "score": 0.8944,
+   "rank": 1756
+  },
+  {
+   "word": "know",
+   "score": 0.9325,
+   "rank": 232
+  },
+  {
+   "word": "sign",
+   "score": 0.9817,
+   "rank": 1068
+  },
+  {
+   "word": "more",
+   "score": 0.7778,
+   "rank": 71
+  },
+  {
+   "word": "want",
+   "score": 0.9279,
+   "rank": 80
+  },
+  {
+   "word": "time",
+   "score": 0.8773,
+   "rank": 5
+  },
+  {
+   "word": "because",
+   "score": 0.9252,
+   "rank": 1031
+  },
+  {
+   "word": "some",
+   "score": 0.9667,
+   "rank": 23
+  },
+  {
+   "word": "here",
+   "score": 0.8575,
+   "rank": 2365
+  },
+  {
+   "word": "other",
+   "score": 0.8943,
+   "rank": 362
+  },
+  {
+   "word": "hearing",
+   "score": 0.7661,
+   "rank": 1364
+  },
+  {
+   "word": "really",
+   "score": 0.8422,
+   "rank": 1295
+  },
+  {
+   "word": "language",
+   "score": 0.2901,
+   "rank": 850
+  },
+  {
+   "word": "many",
+   "score": 0.8297,
+   "rank": 84
+  },
+  {
+   "word": "today",
+   "score": 0.7472,
+   "rank": 30
+  },
+  {
+   "word": "community",
+   "score": 0.8219,
+   "rank": 1
+  },
+  {
+   "word": "first",
+   "score": 0.8729,
+   "rank": 1263
+  },
+  {
+   "word": "work",
+   "score": 0.9479,
+   "rank": 1551
+  },
+  {
+   "word": "need",
+   "score": 0.896,
+   "rank": 916
+  },
+  {
+   "word": "different",
+   "score": 0.8642,
+   "rank": 78
+  },
+  {
+   "word": "well",
+   "score": 0.9847,
+   "rank": 2795
+  },
+  {
+   "word": "hello",
+   "score": 0.8598,
+   "rank": 2813
+  },
+  {
+   "word": "person",
+   "score": 0.9501,
+   "rank": 488
+  },
+  {
+   "word": "make",
+   "score": 0.8826,
+   "rank": 197
+  },
+  {
+   "word": "right",
+   "score": 0.8802,
+   "rank": 1400
+  },
+  {
+   "word": "good",
+   "score": 0.8761,
+   "rank": 2297
+  },
+  {
+   "word": "name",
+   "score": 0.7397,
+   "rank": 1438
+  },
+  {
+   "word": "things",
+   "score": 0.9375,
+   "rank": 1312
+  },
+  {
+   "word": "take",
+   "score": 0.8809,
+   "rank": 666
+  },
+  {
+   "word": "think",
+   "score": 0.9944,
+   "rank": 341
+  },
+  {
+   "word": "help",
+   "score": 0.9222,
+   "rank": 2046
+  },
+  {
+   "word": "back",
+   "score": 0.9176,
+   "rank": 171
+  },
+  {
+   "word": "information",
+   "score": 0.8,
+   "rank": 650
+  },
+  {
+   "word": "school",
+   "score": 0.9157,
+   "rank": 1804
+  },
+  {
+   "word": "support",
+   "score": 0.677,
+   "rank": 45
+  },
+  {
+   "word": "through",
+   "score": 0.9028,
+   "rank": 359
+  },
+  {
+   "word": "only",
+   "score": 0.8844,
+   "rank": 1688
+  },
+  {
+   "word": "over",
+   "score": 0.9274,
+   "rank": 287
+  },
+  {
+   "word": "hard",
+   "score": 0.8656,
+   "rank": 1473
+  },
+  {
+   "word": "feel",
+   "score": 0.7461,
+   "rank": 2177
+  },
+  {
+   "word": "important",
+   "score": 0.7617,
+   "rank": 66
+  },
+  {
+   "word": "next",
+   "score": 0.9451,
+   "rank": 259
+  },
+  {
+   "word": "same",
+   "score": 0.9304,
+   "rank": 14
+  },
+  {
+   "word": "children",
+   "score": 0.8434,
+   "rank": 1206
+  },
+  {
+   "word": "something",
+   "score": 0.8796,
+   "rank": 227
+  },
+  {
+   "word": "still",
+   "score": 0.9164,
+   "rank": 89
+  },
+  {
+   "word": "even",
+   "score": 0.9279,
+   "rank": 1165
+  },
+  {
+   "word": "again",
+   "score": 0.8467,
+   "rank": 1917
+  },
+  {
+   "word": "year",
+   "score": 0.7868,
+   "rank": 15
+  },
+  {
+   "word": "come",
+   "score": 0.9193,
+   "rank": 2002
+  },
+  {
+   "word": "show",
+   "score": 0.959,
+   "rank": 143
+  },
+  {
+   "word": "family",
+   "score": 0.7096,
+   "rank": 18
+  },
+  {
+   "word": "before",
+   "score": 0.9519,
+   "rank": 153
+  },
+  {
+   "word": "love",
+   "score": 0.9144,
+   "rank": 1045
+  },
+  {
+   "word": "sure",
+   "score": 0.9405,
+   "rank": 94
+  },
+  {
+   "word": "down",
+   "score": 0.9316,
+   "rank": 171
+  },
+  {
+   "word": "after",
+   "score": 0.9261,
+   "rank": 828
+  },
+  {
+   "word": "learn",
+   "score": 0.9077,
+   "rank": 270
+  },
+  {
+   "word": "each",
+   "score": 0.9216,
+   "rank": 616
+  },
+  {
+   "word": "much",
+   "score": 0.8616,
+   "rank": 416
+  },
+  {
+   "word": "another",
+   "score": 0.8933,
+   "rank": 194
+  },
+  {
+   "word": "remember",
+   "score": 0.8401,
+   "rank": 1909
+  },
+  {
+   "word": "while",
+   "score": 0.9271,
+   "rank": 1034
+  },
+  {
+   "word": "please",
+   "score": 0.8338,
+   "rank": 1704
+  },
+  {
+   "word": "example",
+   "score": 0.7941,
+   "rank": 2865
+  },
+  {
+   "word": "last",
+   "score": 0.9387,
+   "rank": 9
+  },
+  {
+   "word": "share",
+   "score": 0.8265,
+   "rank": 291
+  },
+  {
+   "word": "welcome",
+   "score": 0.5484,
+   "rank": 2040
+  },
+  {
+   "word": "understand",
+   "score": 0.7478,
+   "rank": 1216
+  },
+  {
+   "word": "world",
+   "score": 0.9403,
+   "rank": 127
+  },
+  {
+   "word": "keep",
+   "score": 0.8947,
+   "rank": 2195
+  },
+  {
+   "word": "week",
+   "score": 0.8587,
+   "rank": 2010
+  },
+  {
+   "word": "give",
+   "score": 0.9043,
+   "rank": 1656
+  },
+  {
+   "word": "maybe",
+   "score": 0.8935,
+   "rank": 953
+  },
+  {
+   "word": "hope",
+   "score": 0.8889,
+   "rank": 184
+  },
+  {
+   "word": "both",
+   "score": 0.8819,
+   "rank": 1169
+  },
+  {
+   "word": "three",
+   "score": 0.9198,
+   "rank": 2279
+  },
+  {
+   "word": "most",
+   "score": 0.8775,
+   "rank": 1761
+  }
+ ]
+}

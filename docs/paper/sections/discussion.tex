@@ -1,0 +1,31 @@
+\chapter{Discussion, limitations and future work}
+\label{sec:discussion}
+
+\section{System achievements and technical guarantees}
+Isharati addresses the long-standing challenge of digital sign language access for sacred Islamic scripture by enforcing strict architectural guarantees across its pipelines:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Grounded theological integrity:} Factuality is enforced deterministically after generation rather than relying on LLM self-consistency. Any sentence not fully supported by retrieved Qur'an or hadith passages is excised, and legal ruling inquiries (*fatawa*) are immediately intercepted and referred to human scholars.
+  \item \textbf{Transparent lexical tracking:} Rather than synthesizing approximate or fabricated handshapes, signing is synthesized from verified, canonical motion captures. Words lacking a verified sign are reported transparently in the user interface and held in rest rather than obscured by fingerspelling.
+  \item \textbf{Scalable weakly supervised vocabulary expansion:} By deploying a 5-layer dilated temporal convolutional network with multiple-instance learning over 21 million frames of continuous YouTube-ASL, the platform successfully mined 186 missing scriptural terms, driving content-word coverage to \textbf{80.96\%} and demonstrating that skeletal kinematics alone carry sufficient signal for weakly supervised sign discovery.
+  \item \textbf{Culturally grounded photorealistic 3D avatars:} The automated conversion of Microsoft Rocketbox humanoid meshes into VRM 1.0, paired with WebGL kinematic retargeting and procedural modesty attire (hijab and shemagh), brings high-fidelity, culturally respectful signing into standard mobile and desktop web browsers without video-streaming latency.
+\end{enumerate}
+
+\section{Current limitations and considerations}
+While Isharati represents a major functional leap forward, several technical and linguistic considerations remain active areas of refinement:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Community-in-the-loop review:} Although automated multi-source consensus, kinematic validity filters, and spotter confidence thresholds classify the vast majority of mined signs as high-confidence candidates (153 approved, 30 requiring light review), community review by Deaf native signers and scholars remains essential prior to official curricular adoption.
+  \item \textbf{Concatenation and grammatical prosody:} The current poser joins discrete sign recordings using cubic Hermite smoothstep interpolation and proportional bone rescaling. While transitions are smooth and eliminate abrupt visual pops, natural sign languages employ complex co-articulation, use 3D signing space for pronominal and spatial referencing, and convey critical grammatical mood through facial non-manual markers.
+  \item \textbf{Evolution of back-translation metrics:} Early baselines relied on cross-signer 1-nearest-neighbour dynamic time warping, which suffered from inter-signer morphological variance. The platform has largely moved beyond this towards neural verification: our weakly supervised MIL spotter achieves a $60\times$ improvement over chance on continuous video data, and neural continuous sign language recognition (CSLR) models reach $\sim$3\% WER on benchmark data. Fully scaling continuous neural back-translation to evaluate complete concatenated sentence outputs across all four target languages remains an ongoing engineering effort.
+  \item \textbf{Dialectal diversity:} Arabic Sign Language encompasses several regional dialects (Saudi, Levantine, Egyptian, and Gulf). Isharati explicitly tags each sign's provenance in its metadata schema, enabling regional filtering, but unified dialect standardization requires continued engagement with local Deaf associations.
+  \item \textbf{Non-manual facial articulation:} At present, Isharati leverages 50 skeletal keypoints (8 upper body and $2 \times 21$ hand landmarks). Although facial landmarks are extracted during preprocessing (468 landmarks), active avatar rendering is focused on manual phonology; integrating real-time facial blendshapes (eyebrows, mouthings, and eye gaze) will further elevate linguistic richness.
+\end{enumerate}
+
+\section{Future work}
+Immediate next steps build directly upon the platform's modular foundation:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+  \item \textbf{End-to-end continuous translation models:} Fine-tuning continuous sequence-to-sequence translation architectures (such as T5-for-SLT) to map natural language directly into fluent, grammatically reordered continuous sign sequences, capturing co-articulation and sign-space topography.
+  \item \textbf{Facial blendshapes and non-manual markers:} The signed hadith samples now carry the signer's 52 face blendshape scores, which drive the avatar's ARKit shapes directly (Chapter~\ref{sec:scripture}); the same pass still has to be run over the Qur'an datasets and the lexicon, and the grammatical markers (questioning eyebrow raises, head tilts, mouth morphemes) have yet to be evaluated as such.
+  \item \textbf{Completing the signed hadith corpus:} Processing the four silent lesson series (65.7 hours, one sample per hadith rather than per video), aligning signs inside each hadith, and having Deaf reviewers check the labels that the on-screen and translation routes produce.
+  \item \textbf{Broadened neural back-translation:} Expanding fine-tuned continuous neural back-translation models across Turkish Sign Language (T\.{I}D) and Indo-Pakistani Sign Language (ISL) to provide unified, automated quality certificates for all four language pipelines.
+  \item \textbf{Participatory community evaluation:} Conducting structured empirical comprehension and naturalness evaluations with Deaf students, educators, and Islamic scholars across Saudi Arabia and the wider Islamic world.
+\end{itemize}

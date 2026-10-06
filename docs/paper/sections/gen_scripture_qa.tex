@@ -1,0 +1,20 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Pose quality before and after the two corrections, on a random sample of clips per dataset. Upper arm over shoulder width is about 0.7--0.9 in adults; a jump is a body joint moving more than 0.6 shoulder widths between two frames at 25\,fps.}
+\label{tab:pose_qa}
+\begin{tabular}{lrrrrr}
+\toprule
+& & \multicolumn{2}{c}{Upper arm / shoulder} & \multicolumn{2}{c}{Jumps per 100 frames} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Dataset & Clips & raw units & square units & before filter & after filter \\
+\midrule
+King Fahd Complex & 60 & 1.41 & 0.87 & 0.19 & 0.10 \\
+al-Mukhtasar fi Tafsir & 60 & 1.42 & 0.86 & 0.13 & 0.04 \\
+Al-Kharj curriculum & 60 & 1.29 & 0.81 & 0.05 & 0.05 \\
+Tebyan & 60 & 1.39 & 0.84 & 0.41 & 0.21 \\
+Diyanet & 13 & 1.25 & 0.77 & 0.01 & 0.00 \\
+Signed hadith & 120 & 1.32 & 0.83 & 2.96 & 1.75 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,590 @@
+<!doctype html><html><head><meta charset='utf-8'><style>body{font-family:'Segoe UI','Noto Naskh Arabic','Arial',sans-serif;max-width:900px;margin:24px auto;font-size:12px;line-height:1.5}
+table{border-collapse:collapse;width:100%;margin:8px 0}td,th{border:1px solid #ccc;padding:4px 6px;vertical-align:top}th{background:#eef3f1}
+td{unicode-bidi:plaintext}h1{color:#1f5f4a}h2{color:#1f5f4a;border-bottom:1px solid #cde;padding-bottom:2px}img{max-width:100%}code{background:#f4f4f4}</style></head><body><h1>Arabic lexicon: what is missing from the Qur'an and hadith, and why</h1>
+<p><em>Isharati EDA, 2026-10-05. Lexicon: <code>lexicon_qa.jsonl</code> (6,632 signs, 6,602 distinct glosses). Corpus: Qur'an + hadith, 595,022 content-word occurrences (stopwords excluded).</em></p>
+<h2>Bottom line</h2>
+<p>The headline <strong>57.4 %</strong> is <em>not</em> "57 % of our glosses". It is the share of <strong>every content-word occurrence in the Qur'an and hadith</strong> that the matcher links to a sign. Only <strong>4.8%</strong> of those occurrences are words we truly have no sign for. Most of the uncovered 42.6 % are words <strong>we already sign</strong>, written in a form the matcher does not recognise:</p>
+<table>
+<thead>
+<tr>
+<th>Why a word is counted as uncovered</th>
+<th>Share of all content words</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verb form, and its lemma has a sign (يقول → قال)</td>
+<td><strong>12.3%</strong></td>
+<td>وسلم (12,493)، قالت (842)، يكون (813)، قالوا (646)، وجل (570)، كانوا (554)، قلت (486)، كنت (477)</td>
+</tr>
+<tr>
+<td>Noun/adjective form, and its lemma has a sign</td>
+<td><strong>4.1%</strong></td>
+<td>بن (3,936)، شيء (1,071)، مثل (607)، انما (488)، ربك (337)، يده (293)، يديه (261)، بيده (249)</td>
+</tr>
+<tr>
+<td>Function word missing from the stopword list</td>
+<td><strong>6.5%</strong></td>
+<td>عنه (3,746)، الا (3,728)، ولا (3,389)، به (2,443)، انه (2,154)، منه (1,259)، فلا (1,069)، عنهما (951)</td>
+</tr>
+<tr>
+<td>Proper name (fingerspell, or a name sign)</td>
+<td>3.8%</td>
+<td>شييا (682)، عباس (495)، المومنين (391)، عمرو (288)، مسعود (265)، جبريل (258)، زيد (199)، المومن (184)</td>
+</tr>
+<tr>
+<td>Same root as a sign, different word (needs review)</td>
+<td>11.3%</td>
+<td>هريره (890)، قبل (846)، بكر (663)، عز (569)، روايه (419)، قوله (405)، الصحابه (395)، دون (338)</td>
+</tr>
+<tr>
+<td><strong>Truly missing: verb</strong></td>
+<td><strong>1.9%</strong></td>
+<td>اخذ (245)، حصل (112)، فاخذ (107)، ينبغي (100)، يحصل (97)، عروه (88)، افلا (84)، ياخذ (71)</td>
+</tr>
+<tr>
+<td><strong>Truly missing: noun/adjective</strong></td>
+<td><strong>2.9%</strong></td>
+<td>الدنيا (730)، سبيل (420)، عذاب (268)، الابل (158)، العذاب (144)، شيت (140)، حاجه (94)، الدجال (88)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Where the uncovered words are" src="categories.png" /></p>
+<h2>Why this happens</h2>
+<ol>
+<li><strong>Verbs are matched only in their exact form.</strong> The matcher deliberately refuses to lemmatise anything that can be read as a verb (a guard so that «وتكفر», <em>expiates</em>, cannot become «كفر», <em>disbelief</em>). As a result «يقول، قالت، قالوا، فقال، قلت» all miss the sign «قال», even though in ArSL the person and tense are not separate signs: «يقول» is signed as قال, with هو only when needed.</li>
+<li><strong>Noun forms with clitics or other inflections are missed</strong>: «ربك، ربنا، ربه» (our sign: رب), «يده، يديه، بيده» (يد).</li>
+<li><strong>The stopword list has 60 words</strong>, so function words such as «عنه، إلا، ولا، به، أنه، منه، فلا، إليه» count as uncovered content words, which inflates the denominator.</li>
+<li><strong>Phrases</strong>: «وسلم» and «وجل» come from the fixed formulas «صلى الله عليه وسلم» and «عز وجل», which should be phrase signs.</li>
+</ol>
+<h2>What fixing it is worth</h2>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Now</td>
+<td><strong>57.4%</strong></td>
+</tr>
+<tr>
+<td>+ lemma matching for verbs and nouns whose lemma has a sign</td>
+<td><strong>73.7%</strong></td>
+</tr>
+<tr>
+<td>+ function words moved to the stopword list</td>
+<td><strong>78.8%</strong></td>
+</tr>
+<tr>
+<td>+ proper names fingerspelled</td>
+<td><strong>82.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The "same root" group (11.3%) is <strong>not</strong> counted, because a shared root does not mean a shared meaning (قبل <em>before</em> vs قَبِل <em>accepted</em>; عز). It needs review word by word.</p>
+<p>The verb fix keeps a meaning guard: a verb form maps to a sign only when the sign's gloss is <strong>itself that verb</strong> (same CAMeL lemma, verb reading). So «يقول» → قال is allowed, but a noun sign never absorbs an unrelated verb.</p>
+<h2>The words to record next (truly missing, by lemma frequency)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Lemma</th>
+<th>Occurrences</th>
+<th>Forms seen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>اخذ</td>
+<td>1,260</td>
+<td>اخذ، فاخذ، ياخذ، اخذه، فخذه، اخذت</td>
+</tr>
+<tr>
+<td>2</td>
+<td>دنيا</td>
+<td>797</td>
+<td>الدنيا، والدنيا، دنياه، دنيا، للدنيا، بالدنيا</td>
+</tr>
+<tr>
+<td>3</td>
+<td>عذاب</td>
+<td>610</td>
+<td>عذاب، العذاب، عذابا، بعذاب، عذابي، وعذاب</td>
+</tr>
+<tr>
+<td>4</td>
+<td>سبيل</td>
+<td>556</td>
+<td>سبيل، السبيل، سبيلا، سبيله، السبل، سبيلي</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ظن</td>
+<td>346</td>
+<td>ظن، الظن، يظن، اظن، ظنا، ظنه</td>
+</tr>
+<tr>
+<td>6</td>
+<td>حاجه</td>
+<td>333</td>
+<td>حاجه، حاجته، الحاجه، لحاجه، لحاجته، حاجتها</td>
+</tr>
+<tr>
+<td>7</td>
+<td>صوت</td>
+<td>322</td>
+<td>صوته، صوت، الصوت، صوتا، بصوت، صوتك</td>
+</tr>
+<tr>
+<td>8</td>
+<td>حصل</td>
+<td>309</td>
+<td>حصل، يحصل، تحصل، وحصل، حصلت، فحصل</td>
+</tr>
+<tr>
+<td>9</td>
+<td>لعل</td>
+<td>250</td>
+<td>لعلكم، لعلهم، لعله، لعل، ولعل، فلعله</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ٱتخذ</td>
+<td>238</td>
+<td>اتخذ، اتخذوا، يتخذ، تتخذوا، اتخذها، واتخذوا</td>
+</tr>
+<tr>
+<td>11</td>
+<td>كفي</td>
+<td>233</td>
+<td>وكفي، كفي، يكفي، يكفيك، يكفيه، ويكفي</td>
+</tr>
+<tr>
+<td>12</td>
+<td>ابل</td>
+<td>224</td>
+<td>الابل، ابل، ابله، ابلي، والابل، ابلا</td>
+</tr>
+<tr>
+<td>13</td>
+<td>نفع</td>
+<td>222</td>
+<td>ينفع، نفعا، ينفعه، نفعه، نفع، النفع</td>
+</tr>
+<tr>
+<td>14</td>
+<td>خشي</td>
+<td>218</td>
+<td>خشيه، يخشي، خشيت، خشي، اخشي، يخشون</td>
+</tr>
+<tr>
+<td>15</td>
+<td>غلام</td>
+<td>196</td>
+<td>الغلام، غلام، غلاما، بغلام، غلامه، غلامك</td>
+</tr>
+<tr>
+<td>16</td>
+<td>اثم</td>
+<td>189</td>
+<td>اثم، الاثم، اثما، اثمه، والاثم، بالاثم</td>
+</tr>
+<tr>
+<td>17</td>
+<td>ادرك</td>
+<td>189</td>
+<td>ادرك، يدرك، ادركه، يدركه، ادركت، فادركته</td>
+</tr>
+<tr>
+<td>18</td>
+<td>قبض</td>
+<td>171</td>
+<td>قبض، قبضه، يقبض، يقبضه، فيقبض، فتقبض</td>
+</tr>
+<tr>
+<td>19</td>
+<td>غنم</td>
+<td>169</td>
+<td>الغنم، غنم، والغنم، غنما، غنمه، غنمتم</td>
+</tr>
+<tr>
+<td>20</td>
+<td>لفظ</td>
+<td>155</td>
+<td>لفظ، اللفظ، بلفظ، ولفظ، الفاظ، لفظه</td>
+</tr>
+<tr>
+<td>21</td>
+<td>كف</td>
+<td>153</td>
+<td>كفه، كف، كفيه، وكف، الكف، فكف</td>
+</tr>
+<tr>
+<td>22</td>
+<td>ٱنبغي</td>
+<td>142</td>
+<td>ينبغي، فينبغي، وينبغي</td>
+</tr>
+<tr>
+<td>23</td>
+<td>عذب</td>
+<td>141</td>
+<td>يعذب، عذب، يعذبون، يعذبهم، ويعذب، عذبه</td>
+</tr>
+<tr>
+<td>24</td>
+<td>شيت</td>
+<td>140</td>
+<td>شيت</td>
+</tr>
+<tr>
+<td>25</td>
+<td>زمان</td>
+<td>139</td>
+<td>الزمان، زمان، زمانا، زمانه، زماننا، والزمان</td>
+</tr>
+<tr>
+<td>26</td>
+<td>بعير</td>
+<td>133</td>
+<td>بعير، بعيرا، البعير، بعيره، ببعير، بعيرها</td>
+</tr>
+<tr>
+<td>27</td>
+<td>وتر</td>
+<td>129</td>
+<td>الوتر، يوتر، وترا، والوتر، فليوتر، بالوتر</td>
+</tr>
+<tr>
+<td>28</td>
+<td>لبن</td>
+<td>128</td>
+<td>اللبن، باللبن، لبنه، واللبن، بلبن، لبنها</td>
+</tr>
+<tr>
+<td>29</td>
+<td>منبر</td>
+<td>121</td>
+<td>المنبر، منابر، منبر، منبره، ومنبري، منبرا</td>
+</tr>
+<tr>
+<td>30</td>
+<td>عري</td>
+<td>115</td>
+<td>عروه، عريانا، عري، لعروه، عرينه، العريه</td>
+</tr>
+<tr>
+<td>31</td>
+<td>وراء</td>
+<td>110</td>
+<td>وراء، وراءه، وراءهم، وراءها، وراءك، وراءكم</td>
+</tr>
+<tr>
+<td>32</td>
+<td>مضي</td>
+<td>104</td>
+<td>مضي، ومضي، مضت، فمضي، يمضي، المضي</td>
+</tr>
+<tr>
+<td>33</td>
+<td>زمن</td>
+<td>104</td>
+<td>زمن، الزمن، زمنا، وزمن، زمنه، كالزمن</td>
+</tr>
+<tr>
+<td>34</td>
+<td>ٱحتاج</td>
+<td>104</td>
+<td>يحتاج، احتاج، احتجت، يحتاجون، تحتاج، ويحتاج</td>
+</tr>
+<tr>
+<td>35</td>
+<td>اعتق</td>
+<td>104</td>
+<td>اعتق، اعتقها، يعتق، يعتقه، فاعتقها، اعتقت</td>
+</tr>
+<tr>
+<td>36</td>
+<td>عنق</td>
+<td>102</td>
+<td>عنقه، اعناقهم، عنقها، عنق، اعناق، العنق</td>
+</tr>
+<tr>
+<td>37</td>
+<td>جيش</td>
+<td>102</td>
+<td>الجيش، جيش، جيشا، الجيوش، بالجيش، جيوش</td>
+</tr>
+<tr>
+<td>38</td>
+<td>حرب</td>
+<td>101</td>
+<td>الحرب، حرب، الحروب، للحرب، بالحرب، بحرب</td>
+</tr>
+<tr>
+<td>39</td>
+<td>بدن</td>
+<td>101</td>
+<td>بدنه، البدن، بالابدان، والبدن، بدنك، بدن</td>
+</tr>
+<tr>
+<td>40</td>
+<td>اوصي</td>
+<td>99</td>
+<td>اوصي، يوصي، اوصيكم، اوصاه، فاوصي، يوصيكم</td>
+</tr>
+<tr>
+<td>41</td>
+<td>ورث</td>
+<td>97</td>
+<td>يرث، ورثه، يورث، يرثون، يورثوا، ترثوا</td>
+</tr>
+<tr>
+<td>42</td>
+<td>دفن</td>
+<td>96</td>
+<td>دفن، دفنه، يدفن، تدفن، ودفن، الدفن</td>
+</tr>
+<tr>
+<td>43</td>
+<td>دجال</td>
+<td>95</td>
+<td>الدجال، والدجال، دجال، بالدجال، دجالون، للدجال</td>
+</tr>
+<tr>
+<td>44</td>
+<td>بغي</td>
+<td>93</td>
+<td>بغته، البغي، بغي، بغيا، يبغون، والبغي</td>
+</tr>
+<tr>
+<td>45</td>
+<td>نزع</td>
+<td>91</td>
+<td>نزع، ينزع، تنزع، نزعه، فنزعت، فنزعه</td>
+</tr>
+<tr>
+<td>46</td>
+<td>فات</td>
+<td>91</td>
+<td>فاتني، فاته، يفتن، يفوت، فاتكم، فاتنا</td>
+</tr>
+<tr>
+<td>47</td>
+<td>قتاد</td>
+<td>90</td>
+<td>قتاده، لقتاده</td>
+</tr>
+<tr>
+<td>48</td>
+<td>ٱبتغي</td>
+<td>88</td>
+<td>يبتغون، يبتغي، تبتغي، تبتغوا، ابتغي، ابتغيت</td>
+</tr>
+<tr>
+<td>49</td>
+<td>عضو</td>
+<td>86</td>
+<td>اعضاء، الاعضاء، عضوا، عضو، العضو، اعضاءه</td>
+</tr>
+<tr>
+<td>50</td>
+<td>حبس</td>
+<td>86</td>
+<td>حبس، حبست، حبسني، يحبس، احبس، تحبس</td>
+</tr>
+<tr>
+<td>51</td>
+<td>فم</td>
+<td>86</td>
+<td>فمه، فم، الفم، للفم، فمها، بفمه</td>
+</tr>
+<tr>
+<td>52</td>
+<td>افل</td>
+<td>85</td>
+<td>افلا، الافلين</td>
+</tr>
+<tr>
+<td>53</td>
+<td>معاويه</td>
+<td>85</td>
+<td>معاويه، لمعاويه، ومعاويه</td>
+</tr>
+<tr>
+<td>54</td>
+<td>ابصر</td>
+<td>84</td>
+<td>ابصر، يبصرون، يبصر، تبصرون، ابصرنا، ابصرت</td>
+</tr>
+<tr>
+<td>55</td>
+<td>كاد</td>
+<td>84</td>
+<td>كاد، يكاد، كادوا، تكاد، كادت، اكاد</td>
+</tr>
+<tr>
+<td>56</td>
+<td>لعنه</td>
+<td>84</td>
+<td>لعنه، اللعان، اللعنه، بلعنه، لعانا، باللعان</td>
+</tr>
+<tr>
+<td>57</td>
+<td>دام</td>
+<td>82</td>
+<td>دام، دامت، دمت، داموا، تدوم، يدمنها</td>
+</tr>
+<tr>
+<td>58</td>
+<td>نعل</td>
+<td>82</td>
+<td>نعالهم، نعلين، النعل، النعلين، النعال، بنعلي</td>
+</tr>
+<tr>
+<td>59</td>
+<td>صاع</td>
+<td>76</td>
+<td>صاعا، صاع، بصاع، بالصاع، صاعين، الصاع</td>
+</tr>
+<tr>
+<td>60</td>
+<td>بصير</td>
+<td>75</td>
+<td>بصير، بصيرا، البصير، والبصير</td>
+</tr>
+<tr>
+<td>61</td>
+<td>حث</td>
+<td>75</td>
+<td>حث، يحث، وحث، تحثي، ويحث، وحثهم</td>
+</tr>
+<tr>
+<td>62</td>
+<td>زار</td>
+<td>73</td>
+<td>تزورنا، زار، تزر، يزور، يزوره، ازور</td>
+</tr>
+<tr>
+<td>63</td>
+<td>جهر</td>
+<td>71</td>
+<td>الجهر، تجهر، جهرا، يجهرون، جهر، جهرنا</td>
+</tr>
+<tr>
+<td>64</td>
+<td>فقه</td>
+<td>71</td>
+<td>يفقهون، فقه، فقهوا، وفقه، الفقه، يفقهوا</td>
+</tr>
+<tr>
+<td>65</td>
+<td>نخل</td>
+<td>69</td>
+<td>النخل، النخيل، نخلا، والنخل، والنخيل، بنخل</td>
+</tr>
+<tr>
+<td>66</td>
+<td>ابصار</td>
+<td>65</td>
+<td>ابصارهم، الابصار، والابصار، وابصارهم، وابصارنا، بابصارهم</td>
+</tr>
+<tr>
+<td>67</td>
+<td>ٱفتري</td>
+<td>64</td>
+<td>يفترون، افتري، افتراه، يفتري، يفتر، تفترون</td>
+</tr>
+<tr>
+<td>68</td>
+<td>لعن</td>
+<td>61</td>
+<td>اللعن، العن، لعنهم، العنك، وتلعنونهم، ويلعنونكم</td>
+</tr>
+<tr>
+<td>69</td>
+<td>بول</td>
+<td>61</td>
+<td>البول، يبول، بوله، وبوله، وابوالها، والبول</td>
+</tr>
+<tr>
+<td>70</td>
+<td>ذمه</td>
+<td>60</td>
+<td>ذمه، وذمه، ذمته، ذمتك، الذمه، ذمتي</td>
+</tr>
+<tr>
+<td>71</td>
+<td>نافع</td>
+<td>60</td>
+<td>نافع، نافعا، النافع، نافعه، النافعه، وبنافع</td>
+</tr>
+<tr>
+<td>72</td>
+<td>مرء</td>
+<td>59</td>
+<td>المرء، بالمرء، والمرء</td>
+</tr>
+<tr>
+<td>73</td>
+<td>انكح</td>
+<td>59</td>
+<td>ينكح، تنكح، ينكحها، فانكحوا، وانكحوا، انكحتك</td>
+</tr>
+<tr>
+<td>74</td>
+<td>عزا</td>
+<td>59</td>
+<td>وعزتك، اعز، عزا، اعزه، يعز، وتعز</td>
+</tr>
+<tr>
+<td>75</td>
+<td>حرج</td>
+<td>59</td>
+<td>حرج، الحرج، حرجا، وحرج، والحرج</td>
+</tr>
+<tr>
+<td>76</td>
+<td>شكا</td>
+<td>58</td>
+<td>شكوا، يشك، يشكون، يشكو، تشكو، فشكوا</td>
+</tr>
+<tr>
+<td>77</td>
+<td>كتف</td>
+<td>58</td>
+<td>كتفيه، الكتف، كتفه، كتفي، كتفها، كتف</td>
+</tr>
+<tr>
+<td>78</td>
+<td>كتم</td>
+<td>57</td>
+<td>يكتمون، كتم، تكتمون، يكتم، فكتمه، وتكتمون</td>
+</tr>
+<tr>
+<td>79</td>
+<td>وصيه</td>
+<td>57</td>
+<td>الوصيه، وصيه، ووصيته، بوصيه، وصيته، وصيتي</td>
+</tr>
+<tr>
+<td>80</td>
+<td>رجم</td>
+<td>57</td>
+<td>الرجم، رجم، فرجمت، بالرجم، فرجمناه، فرجما</td>
+</tr>
+</tbody>
+</table>
+<p>The full lists (500 lemmas; top 150 words per category) are in <code>categories.json</code> next to this report.</p>
+<h2>Method</h2>
+<ul>
+<li>The corpus is tokenised and normalised exactly as <code>scripts/eval/corpus_eda.py</code> does. The matcher is the app's own (<code>qa_lexicon(...).match_token</code>). Stopwords are <code>arabic_morph.STOPWORDS</code>.</li>
+<li>Every uncovered word type is analysed with CAMeL Tools (<code>calima-msa</code> built-in database, NOAN_PROP back-off). The top-scoring analysis gives the POS, lemma and root. Glosses are analysed the same way.</li>
+<li>Categories are applied in order: no analysis → function-word POS → proper noun → lemma equals a gloss or a gloss's lemma (verb / noun) → shared root → truly missing.</li>
+<li><strong>Limits:</strong> the top analysis is context-free, so ambiguous words can land in the wrong bucket. The projections assume the lemma fix is precise. A precision check on a sample comes with the fix itself.</li>
+</ul></body></html>

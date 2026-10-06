@@ -1,0 +1,178 @@
+\chapter{Introduction}
+\label{sec:intro}
+
+\section{Motivation}
+More than 70 million deaf people use a sign language as their first language, across more than two hundred
+national sign languages \cite{wfd,unsign}, and the World Health Organization projects that by 2050 one in four people
+will live with some degree of hearing loss \cite{whoasl}. For many deaf Muslims the written language of the
+Qur'an and of hadith collections is a second language: Arabic text, even in translation, is not the language in which
+they think and ask questions. Interpreters who know both a sign language and Islamic terminology are rare, and the
+content that does exist in sign language is scattered across short videos of uneven quality, without sources. The
+contrast with other traditions is stark: Bible translations in 98 sign languages, 2,530 hours by more than 1,500
+signers, are already a machine-learning corpus \cite{jwsign}, while for the Qur'an and hadith we found no aligned corpus
+in any sign language (Chapter~\ref{sec:related}). Signed hadith do exist, as several hundred videos by Deaf associations
+and educational channels, but none is aligned to the hadith text or usable by a model (Chapter~\ref{sec:scripture}). A deaf Muslim who asks a question about the faith should be able to
+receive an answer in their own language, taken from the sources and not from a guess.
+
+\paragraph{The Congregational Dilemma and the Medina Precedent.}
+In physical worship, Deaf Muslims regularly attend the five daily prayers and the weekly Friday \textit{Juma'a} gathering, standing shoulder-to-shoulder in prayer ranks (\textit{sufuf}) alongside hearing worshippers. Yet, they endure complete linguistic and cognitive isolation: the imam's melodic Qur'anic recitation, the Friday sermon (\textit{khutbah}), theological admonitions, and communal supplications remain entirely inaudible. While appearing physically integrated, Deaf congregants silently blend into the congregation without comprehending the guidance being delivered.
+
+A commendable institutional benchmark exists at the Prophet's Mosque (\textit{Al-Masjid an-Nabawi}) in Medina, where the General Presidency operates a dedicated hall equipped with closed-circuit television displays and on-site certified human sign language interpreters who translate the Friday khutbah live. While this sanctuary model serves as a vital proof-of-concept, it relies on centralized state resources and full-time certified human interpreters (\$50--\$120/hour) who are in desperately short supply. As a result, this model cannot scale to the more than 100,000 neighborhood and regional mosques across Saudi Arabia, Egypt, Syria, the Gulf, and the wider Muslim world. To eliminate this barrier universally, an automated, low-latency pipeline capable of converting live imam speech into morphologically faithful sign language is urgently required.
+
+\section{Problem statement}
+Machine sign language production (SLP) has made progress on general domains \cite{progressivetransformers,text2sign,
+slpreview,slpsurvey,signllm,slrtp2025}, but religious content and sacred congregational settings raise three critical requirements that general systems do not meet:
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+  \item \textbf{Faithfulness.} An answer about the Qur'an or the Sunnah must not add facts, rulings or attributions.
+        A fluent but invented statement attributed to the Prophet \ar{ﷺ} is worse than no answer.
+  \item \textbf{Correct signs for Islamic terms.} Words such as \emph{salah}, \emph{zakah}, \emph{Hajj} or
+        \ar{محمد رسول الله} have established signs in each sign language; spelling them letter by letter
+        (fingerspelling) is not acceptable to the community, and a wrong sign changes the meaning.
+  \item \textbf{Live congregational speech-to-sign integration.} Live Friday sermons and madrasah lectures are delivered orally in acoustic environments that exclude Deaf worshippers. Scaling accessibility beyond premier sanctuaries like Medina requires real-time automatic speech recognition (ASR) coupled with Semitic morphological gloss synthesis and zero-cost client 3D avatar rendering, deployable in standard local mosques without requiring human interpreters or dedicated television production studios.
+\end{enumerate}
+
+\section{Objectives}
+\begin{enumerate}[label=\textbf{O\arabic*.},leftmargin=*,itemsep=1pt]
+  \item \textbf{Comprehensive sign language toolkit.} Build an end-to-end open-source toolkit and interactive platform supporting bidirectional translation, content generation, Qur'an recitation, and grounded Q\&A in sign languages.
+  \item \textbf{Signs for Islamic vocabulary.} Assemble sign lexicons from public sources, in one standardized pose format, for the
+        sign languages of the English, Arabic, Turkish and Urdu modes, with Islamic terms signed, never fingerspelled.
+  \item \textbf{Grounded Islamic generation.} Answer questions about Islam strictly from the Qur'an and authenticated hadith, with every
+        sentence traceable to a cited passage, verbatim verse quotation, and automatic referral of fatwa/ruling queries to scholars.
+  \item \textbf{High-fidelity signed production.} Render sign pose sequences as joint skeletons and customizable 3D VRM
+        avatars with culturally appropriate modest-dress options (hijab, shemagh, and thobe).
+  \item \textbf{Continuous pose segmentation and alignment.} Integrate pre-trained deep sequence models (RoPE Transformer) to segment continuous signing streams into discrete word gestures and align narrative scripture without speech dependency.
+  \item \textbf{Empirical coverage and verification.} Quantify lexicon coverage across scripture corpora, provide automated weakly supervised sign mining, and establish rigorous evaluation benchmarks (support checking, gloss error rate, back-translation).
+\end{enumerate}
+
+\section{Proposed solution}
+Isharati (\ar{إشارتي}, ``my sign'') is a comprehensive, open-source AI toolkit and multimodal platform for Islamic content generation, bidirectional translation, Qur'an recitation, and grounded question answering in sign languages. Rather than a simple Q\&A chatbot, Isharati provides a modular production engine and developer ecosystem designed to eliminate the severe accessibility gap faced by Deaf Muslims.
+
+The platform unites four tightly integrated capabilities:
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+  \item \textbf{Multimodal Content Studio and Translation}: Users can input spoken text to generate natural sign language sequences, translate between sign glosses and natural text, or synthesize custom signed content with frame-level keypoint editing.
+  \item \textbf{Grounded Theological Q\&A Engine}: Questions are answered using \emph{retrieval-augmented generation} (RAG)~\cite{rag} across the canonical Qur'an and authenticated hadith collections (HadeethEnc). A verification layer enforces per-sentence passage support and verbatim citation fidelity, while ruling requests (\emph{fatwa}) are referred to accredited scholars.
+  \item \textbf{Continuous Signed Qur'an and Tafsir System}: A dedicated recitation module providing verse-by-verse signed interpretations across three major institutional corpora (King Fahd Complex, Al-Mukhtasar fi Tafsir, and the Al-Kharj curriculum), directly rendered on 3D avatars alongside side-by-side video alignments.
+  \item \textbf{3D Avatar and Skeletal Production Engine}: Poses are projected onto customizable 3D VRM avatars with diverse modest-dress options (hijab, shemagh, and thobe) as well as skeletal overlays, featuring variable playback speeds and video export.
+\end{enumerate}
+The platform operates across four languages and sign traditions: American Sign Language (ASL, English mode), Arabic Sign Language (ArSL, Arabic mode), Turkish Sign Language (T\.{I}D, Turkish mode), and Indian Sign Language (ISL, standing in for Urdu), with full web deployment on Hugging Face Spaces and accessible REST APIs.
+
+\section{Contributions}
+
+To address the profound accessibility and resource gap for the global Deaf Muslim community, this work delivers the following pioneering theoretical, technical, and open-source contributions:
+
+\begin{enumerate}[leftmargin=*,itemsep=4pt]
+  \item \textbf{First-of-its-Kind Open-Source Bilingual Text-to-Sign Translation Suite}:
+    While isolated text-to-sign tools have emerged for English in closed proprietary settings, Isharati introduces the \emph{first open-source, bidirectional neural text-to-sign (T2S) and sign-to-text (S2T) translation architecture} natively supporting both Arabic (Arabic Sign Language, ArSL) and English (American Sign Language, ASL), alongside extensible support for Turkish (T\.{I}D) and Urdu (ISL). The translation pipeline incorporates morphological clitic decomposition (via CAMeL Tools for Arabic and spaCy for English), syntactic gloss normalization, and cross-lingual pose alignment, enabling real-time conversion from natural spoken language directly into continuous 3D skeletal kinematic streams.
+
+  \item \textbf{First Machine Learning Digitization of the Qur'an and Tafsir in Sign Language}:
+    We establish the first structured, machine-learning-ready digital corpora of continuous sign language recitations and theological exegesis (*Tafsir*) for the Holy Qur'an. Sourced from three distinguished institutions, the recordings were extracted, anthropometrically normalized, and packaged into per-surah continuous 3D MediaPipe Holistic and 50-joint Isharati coordinates with smart kinematic hold-preservation envelopes:
+    \begin{itemize}[leftmargin=*,itemsep=2pt]
+      \item \textbf{King Fahd Glorious Qur'an Printing Complex (\code{kfc})}:
+        Official continuous signed recitations and verse interpretations across Releases 1--6 (1,066 segments, 7.4\,hours of signing, 558 ayat of 38 Surahs):\\
+        \url{https://huggingface.co/datasets/FatimahEmadEldin/quran-sign-kfc}
+      \item \textbf{Al-Mukhtasar fi Tafsir (\code{mukhtasar})}:
+        Comprehensive sign language exegesis spanning 112 Surahs (6,127 segments, 34.7\,hours of signing, 5,916 ayat):\\
+        \url{https://huggingface.co/datasets/FatimahEmadEldin/tafsir-mukhtasar-sign}
+      \item \textbf{Al-Kharj Educational Curriculum (\code{curriculum})}:
+        Official pedagogical sign language curriculum covering 22 short Surahs for Deaf education (207 segments, 186 ayat):\\
+        \url{https://huggingface.co/datasets/FatimahEmadEldin/quran-sign-curriculum}
+      \item \textbf{Tebyan (\code{tebyan})} and \textbf{Diyanet (\code{diyanet}, Turkish Sign Language)}: publisher-labelled
+        clips per ayah (567 segments, 570 ayat) and Diyanet's two Qur'an episodes (13 segments), labelled from the
+        publisher's own text (Section~\ref{sec:quran_sets}).
+    \end{itemize}
+
+  \item \textbf{A Signed Hadith Corpus}:
+    From 824 YouTube videos (114.4 hours) of hadith signed by Deaf associations and educational channels in ArSL and
+    T\.{I}D, a corpus whose every label is the hadith as printed in its collection, never a transcript: 404 samples and
+    15.4 hours in the 6 October 2026 snapshot, 351 of them verified against the collections, covering 282 distinct
+    hadith and 41 of Nawawi's Forty, with keypoints, the signer's facial expression and a gloss target
+    (Section~\ref{sec:hadith_corpus}):\\
+    \url{https://huggingface.co/datasets/FatimahEmadEldin/hadith-sign}
+
+  \item \textbf{Pose quality across the signed corpora}:
+    An automatic check of every published sample found that all six signed datasets, and the lexicon, stored bodies
+    stretched by the video's aspect ratio (upper arm 1.25--1.44 shoulder widths against an adult's 0.7--0.9); square
+    units, a spike filter and a corrected reference body shape fix it (Section~\ref{sec:pose_qa}).
+
+  \item \textbf{Broad Scripture Coverage Exceeding 70\% Across Arabic and English}:
+    Through systematic linguistic evaluation against canonical Islamic scripture, we demonstrate that our harmonized sign lexicons cover \textbf{over 70\% of content-word occurrences} across both the Arabic Qur'an / Hadith and their standard English translations (66.5\% baseline ASL token coverage expanding to \textbf{80.96\%} via targeted vocabulary mining, and Arabic content-word coverage of \textbf{61.1\%} with morphological lemma matching and reviewed synonyms across all 6,236 Qur'anic ayahs and 5,902 HadeethEnc traditions).
+
+  \item \textbf{End-to-End Deep Continuous Segmentation \& Quality Assurance}:
+    We benchmark a pre-trained 2026 Rotary Position Embedding (RoPE) Transformer segmenter against velocity-minima and uniform-window heuristics on synthetic ArSL streams with exact boundaries and on Isharah, ArabSign, EGCBT and YouTube-ASL (Section~\ref{sec:results_segmentation}). No method is accurate yet: the best boundary F1 within $\pm4$ frames is 44.6\% (RoPE with the package's own preprocessing; velocity minima 40.1\%), the RoPE model through our app wrapper scores 6.5\%, and we found and fixed a label-decoding bug in that wrapper. The model runs at about 290 frames per second on a desktop CPU.
+
+  \item \textbf{Weakly Supervised Sign Spotting \& Back-Translation Quality Assurance (Author Contribution)}:
+    To resolve the long-tail problem of sacred Islamic vocabulary absent from standard conversational dictionaries, we trained a custom 5-layer dilated Temporal Convolutional Network (TCN) under a weakly supervised Multiple Instance Learning (MIL) objective across all 10 parts of the YouTube-ASL archive (357,022 captioned clips, over 21 million pose frames, with 14+ million frames in active training segments). Our spotter achieves a test mAP of \textbf{0.1135} ($60\times$ above the random baseline) and \textbf{0.2011} on held-out words, enabling automated back-translation verification and DTW consensus clustering that successfully mined and validated 153 missing scriptural signs into our ASL lexicon. We openly publish the trained model weights, architecture, and evaluation metrics:
+    \begin{itemize}[leftmargin=*,itemsep=2pt]
+      \item \textbf{YouTube-ASL MIL Sign Spotter (Ours)}:\\
+        \url{https://huggingface.co/FatimahEmadEldin/youtube-asl-spotter}
+    \end{itemize}
+    Additionally, for reproducibility and open benchmarking in continuous pose-to-text translation, we re-packaged the fine-tuned sequence-to-sequence checkpoints (T5-Base, T5-v1.1-Base, and mT5-Base) originally released by the organizers of the Kaggle \emph{Saudi Sign For All Competition} (\url{https://www.kaggle.com/competitions/saudi-signfor-all-competition}) into standardized, drop-in Hugging Face model repositories with full inference code and tokenizers.
+
+  \item \textbf{Production Multimodal Studio with Culturally Respectful 3D Avatars}:
+    We deploy a full-featured web platform and developer API featuring: (a) deterministic citation verification and jurisprudential ruling guards (*fatwa referral*); (b) a synchronized dual-view video player matching human signers with 3D avatars; and (c) procedural modesty attire configurations for avatars (hijab, shemagh, and thobe), ensuring full cultural and religious alignment with Muslim Deaf communities worldwide.
+\end{enumerate}
+
+
+\section{Outcomes}
+Measured against the objectives, the work to date achieves the following (Chapters~\ref{sec:eda}
+and~\ref{sec:results}):
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+  \item \textbf{O1.} Answers in English and Arabic are built only from cited verses and hadith; unsupported sentences are
+        removed, and ruling questions are referred before any language model is called.
+  \item \textbf{O2.} Lexicons of 3,055 ASL, 3,979 ArSL and 6,411 Indian Sign Language glosses, and a Turkish lexicon in
+        progress (1,308 of 5,017 dictionary signs).
+  \item \textbf{O3.} An end-to-end web application that signs answers with a skeleton or an avatar in three outfits
+        (original, hijab, shemagh with thobe), at adjustable speed, with video export.
+  \item \textbf{O4.} The ASL lexicon signs 66.5\% of the word occurrences of the English Qur'an and hadith (vocabulary
+        without names); the 500 most frequent missing words would raise this to 87.6\%. The ArSL lexicon covers 59.6\%
+        of Arabic word occurrences; the Turkish and Urdu lexicons, 16\% and 51\% of content words. In every language the
+        largest gaps are the religious core and the hadith formulas, which a small set of phrase signs can close.
+  \item \textbf{O5.} The Arabic glosser reaches a gloss WER of 0.52--0.55 against ArabSign's gold glosses on held-out
+        sentences; a back-translation baseline is in place, and the stronger recognisers and the Deaf review are the
+        next steps.
+  \item \textbf{O6.} Five signed Qur'an datasets (7,980 segments, 44.9 hours) and a signed hadith corpus (404 samples,
+        282 distinct hadith in the 6 October 2026 snapshot) are published, each segment linked to its source video,
+        and served in the application's Sign Mushaf, Signed Hadith and Academy pages.
+  \item \textbf{O7.} After the pose corrections every signed dataset is in the adult body range (upper arm 0.77--0.87
+        shoulder widths), and the realistic avatars bend their elbows as the signer does (\ar{وضوء}: within
+        0.3--4.1\textdegree{} of the signer, where they had been 44--74\textdegree{} too straight).
+\end{itemize}
+
+\section{Deliverables}
+Table~\ref{tab:deliverables} enumerates the primary public deliverables, interactive systems, neural model checkpoints, and multimodal scripture datasets developed in this project, accompanied by their live access repositories.
+
+\begin{table}[!ht]
+\centering\footnotesize
+\caption{System deliverables, open neural checkpoints, digital scripture corpora, and live repositories.}
+\label{tab:deliverables}
+\begin{tabularx}{\textwidth}{L{2.8cm} Y L{4.6cm} L{1.8cm}}
+\toprule
+\textbf{Deliverable} & \textbf{Description \& Technical Scope} & \textbf{Public Resource / Repository URL} & \textbf{Status} \\
+\midrule
+Interactive Web Studio & Full multimodal web application: real-time text-to-sign, grounded theological Q\&A, signed Qur'an recitation studio, 3D modest avatars (hijab, shemagh, thobe), and skeletal visualization. & \url{https://huggingface.co/spaces/FatimahEmadEldin/isharati-app} & Live Demo \\
+\addlinespace[3pt]
+MIL Sign Spotter \newline \emph{(Author Contribution)} & 5-layer dilated Temporal Convolutional Network (TCN) trained via Multiple Instance Learning on 357k YouTube-ASL clips for weakly supervised scriptural sign spotting and back-translation verification. & \url{https://huggingface.co/FatimahEmadEldin/youtube-asl-spotter} & Model Weights \\
+\addlinespace[3pt]
+Pose-to-Text Back-Translation Checkpoints & Fine-tuned sequence-to-sequence neural architectures (T5-Base, T5-v1.1-Base, and mT5-Base) standardized with inference tokenizers for continuous sign-to-text translation and QA evaluation. & \url{https://huggingface.co/FatimahEmadEldin/ytasl-t5-base} \newline \url{https://huggingface.co/FatimahEmadEldin/ytasl-mt5-base} & Model Weights \\
+\addlinespace[3pt]
+Continuous Sign Recognition (CSLR) & Conformer-based deep continuous sign language recognition model trained on the Isharah Arabic sign benchmark. & \url{https://huggingface.co/FatimahEmadEldin/cslr-conformer-isharah} & Model Weights \\
+\addlinespace[3pt]
+King Fahd Complex Signed Qur'an (\code{kfc}) & 1,066 continuous signed recitation and Tafsir segments across 104 Surahs (8.84 hours) extracted into normalized 50-joint 3D keypoints. & \url{https://huggingface.co/datasets/FatimahEmadEldin/quran-sign-kfc} & Open Dataset \\
+\addlinespace[3pt]
+Al-Mukhtasar fi Tafsir (\code{mukhtasar}) & 6,127 continuous signed theological exegesis segments across 112 Surahs (27.5 hours) with aligned verse transcriptions. & \url{https://huggingface.co/datasets/FatimahEmadEldin/tafsir-mukhtasar-sign} & Open Dataset \\
+\addlinespace[3pt]
+Al-Kharj Educational Curriculum (\code{curriculum}) & 207 pedagogical signed clips covering 22 short Surahs for Deaf education (1.25 hours) with 3D pose extraction. & \url{https://huggingface.co/datasets/FatimahEmadEldin/quran-sign-curriculum} & Open Dataset \\
+\addlinespace[3pt]
+Unified Multimodal Scripture Corpus & Complete 50-joint pose archive, 4-language harmonized lexicons (3,491 ASL, 6,610 ArSL, 6,411 ISL, 1,308 T\.{I}D), and canonical RAG scripture embeddings. & \url{https://huggingface.co/datasets/FatimahEmadEldin/isharati-data} & Open Dataset \\
+\addlinespace[3pt]
+Sign Annotation \& Review Studio Pool & 6,112 signs seeded across 12 dataset categories with Neon PostgreSQL review studio interface for Deaf community evaluation. & \url{https://huggingface.co/datasets/FatimahEmadEldin/isharati-review-signs} & Open Dataset \\
+\addlinespace[3pt]
+Open-Source Platform Codebase & Complete production implementation: FastAPI server, RAG retrieval engine, 3D VRM avatar runtime, and React landing page. & \url{https://github.com/astral-fate/isharati-signs} & Open Source \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Scope of this document}
+This document describes the system as built and measured on 1--2 October 2026. Every number reported was measured on
+the system and data described here; items that are planned but not yet measured are marked as such. Chapter~\ref{sec:discussion} lists the limitations, including the fact that no sign has yet been reviewed
+by Deaf signers for this project.

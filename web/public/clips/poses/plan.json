@@ -1,0 +1,69 @@
+[
+ {
+  "id": "rocketbox_female_06_en",
+  "avatar": "rocketbox_female_06.vrm",
+  "lang": "en",
+  "sign_language": "ASL",
+  "glosses": [
+   "ALLAH",
+   "PRAYER"
+  ],
+  "seconds": 4.8
+ },
+ {
+  "id": "rocketbox_female_10_ar",
+  "avatar": "rocketbox_female_10.vrm",
+  "lang": "ar",
+  "sign_language": "ArSL",
+  "glosses": [
+   "الله",
+   "الصلاة"
+  ],
+  "seconds": 3.72
+ },
+ {
+  "id": "rocketbox_male_15_tr",
+  "avatar": "rocketbox_male_15.vrm",
+  "lang": "tr",
+  "sign_language": "TİD",
+  "glosses": [
+   "merhaba",
+   "barış"
+  ],
+  "seconds": 5.6
+ },
+ {
+  "id": "rocketbox_male_19_ur",
+  "avatar": "rocketbox_male_19.vrm",
+  "lang": "ur",
+  "sign_language": "ISL",
+  "glosses": [
+   "ALLAH",
+   "MOSQUE"
+  ],
+  "seconds": 4.64
+ },
+ {
+  "id": "rocketbox_male_21_ar",
+  "avatar": "rocketbox_male_21.vrm",
+  "lang": "ar",
+  "sign_language": "ArSL",
+  "glosses": [
+   "الزكاة",
+   "فقير",
+   "مال"
+  ],
+  "seconds": 5.52
+ },
+ {
+  "id": "avatar_en",
+  "avatar": "avatar.vrm",
+  "lang": "en",
+  "sign_language": "ASL",
+  "glosses": [
+   "PEACE",
+   "HELLO"
+  ],
+  "seconds": 5.2
+ }
+]

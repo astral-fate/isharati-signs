@@ -1,0 +1,81 @@
+[
+ {
+  "avatar": "rocketbox_female_06.vrm",
+  "lang": "en",
+  "sign_language": "ASL",
+  "glosses": [
+   "ALLAH",
+   "PRAYER"
+  ],
+  "seconds": 4.8,
+  "webm": "/clips/rocketbox_female_06_en.webm",
+  "mp4": "/clips/rocketbox_female_06_en.mp4",
+  "poster": "/clips/rocketbox_female_06_en.jpg"
+ },
+ {
+  "avatar": "rocketbox_female_10.vrm",
+  "lang": "ar",
+  "sign_language": "ArSL",
+  "glosses": [
+   "الله",
+   "الصلاة"
+  ],
+  "seconds": 3.72,
+  "webm": "/clips/rocketbox_female_10_ar.webm",
+  "mp4": "/clips/rocketbox_female_10_ar.mp4",
+  "poster": "/clips/rocketbox_female_10_ar.jpg"
+ },
+ {
+  "avatar": "rocketbox_male_15.vrm",
+  "lang": "tr",
+  "sign_language": "TİD",
+  "glosses": [
+   "merhaba",
+   "barış"
+  ],
+  "seconds": 6.76,
+  "webm": "/clips/rocketbox_male_15_tr.webm",
+  "mp4": "/clips/rocketbox_male_15_tr.mp4",
+  "poster": "/clips/rocketbox_male_15_tr.jpg"
+ },
+ {
+  "avatar": "rocketbox_male_19.vrm",
+  "lang": "ur",
+  "sign_language": "ISL",
+  "glosses": [
+   "ALLAH",
+   "MOSQUE"
+  ],
+  "seconds": 4.64,
+  "webm": "/clips/rocketbox_male_19_ur.webm",
+  "mp4": "/clips/rocketbox_male_19_ur.mp4",
+  "poster": "/clips/rocketbox_male_19_ur.jpg"
+ },
+ {
+  "avatar": "rocketbox_male_21.vrm",
+  "lang": "ar",
+  "sign_language": "ArSL",
+  "glosses": [
+   "الزكاة",
+   "فقير",
+   "مال"
+  ],
+  "seconds": 5.52,
+  "webm": "/clips/rocketbox_male_21_ar.webm",
+  "mp4": "/clips/rocketbox_male_21_ar.mp4",
+  "poster": "/clips/rocketbox_male_21_ar.jpg"
+ },
+ {
+  "avatar": "avatar.vrm",
+  "lang": "en",
+  "sign_language": "ASL",
+  "glosses": [
+   "PEACE",
+   "HELLO"
+  ],
+  "seconds": 5.2,
+  "webm": "/clips/avatar_en.webm",
+  "mp4": "/clips/avatar_en.mp4",
+  "poster": "/clips/avatar_en.jpg"
+ }
+]

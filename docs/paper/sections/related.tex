@@ -1,0 +1,88 @@
+\chapter{Background and related work}
+\label{sec:related}
+
+\section{Sign language processing tasks and how they are evaluated}
+Sign language processing covers four related tasks that differ in their input, output and metric
+(Table~\ref{tab:tasks}); a sign-generation system touches all four, because its own output can be checked only with the
+recognition and translation tasks.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Isolated sign recognition} is a classification task: one clip, one sign, scored by top-1 and top-5
+        accuracy. WLASL \cite{wlasl}, MS-ASL \cite{msasl}, ASL Citizen \cite{aslcitizen}, KArSL \cite{karsl} and AUTSL
+        \cite{autsl} are benchmarks of this kind, and their recordings are the raw material of sign lexicons.
+  \item \textbf{Continuous sign recognition} maps a signed sentence to its \emph{gloss} sequence, the written labels of
+        the signs in signing order. Models are trained with connectionist temporal classification (CTC) \cite{ctc},
+        which needs only the gloss order, not the boundaries, and are scored by gloss word error rate (WER)
+        \cite{koller2015,kollersurvey}. The best systems now reach low error rates on controlled data: the winning
+        skeleton-based model of the ICCV 2025 multimodal sign language recognition challenge \cite{mslr2025,signeval2025}
+        was trained on the Saudi Isharah dataset \cite{isharah}.
+  \item \textbf{Sign language translation} maps a signed sentence to spoken-language text, with or without glosses as an
+        intermediate step \cite{camgoz2018,signlanguagetransformers}. Because the target is free text, it is scored with
+        machine translation metrics: BLEU \cite{bleu}, ROUGE \cite{rouge}, chrF \cite{chrf}, and learned metrics such as
+        BLEURT \cite{bleurt} or BERTScore \cite{bertscore}. Large weakly aligned corpora such as YouTube-ASL
+        \cite{youtubeasl} and How2Sign \cite{how2sign} pair sentences with video but have no glosses; pose-based
+        translation on them has been studied in ablation \cite{t5slt}.
+  \item \textbf{Sign language production} (SLP) is the reverse: text or gloss to a pose sequence or video. Progressive
+        Transformers \cite{progressivetransformers} generate continuous skeleton sequences and introduced
+        \emph{back-translation} evaluation: a translation model reads the generated pose, and its output is scored with
+        BLEU and ROUGE against the source. Pose-level metrics such as DTW-MJE \cite{dtwmje} compare generated and
+        reference joints. Text2Sign \cite{text2sign} combines translation with a motion graph and video generation, and
+        SignLLM \cite{signllm} trains large multilingual production models. Surveys \cite{slpreview,slpsurvey,slpathways}
+        and the SLRTP 2025 production challenge \cite{slrtp2025} report that generated signing still loses hand detail
+        and that automatic metrics only partly agree with Deaf judges.
+\end{itemize}
+
+\begin{table}[ht]
+\centering\small
+\caption{Sign language processing tasks, their standard metrics, and their role in Isharati.}
+\label{tab:tasks}
+\begin{tabularx}{\textwidth}{L{3.0cm} L{2.6cm} L{3.3cm} Y}
+\toprule
+Task & Input $\rightarrow$ output & Standard metrics & Role in Isharati \\
+\midrule
+Isolated recognition & clip $\rightarrow$ one sign & top-1 / top-5 accuracy & source of lexicon signs; sign-level back-translation \\
+Continuous recognition & sentence video $\rightarrow$ glosses & gloss WER & sentence-level back-translation \\
+Translation & sentence video $\rightarrow$ text & BLEU, ROUGE, chrF, BLEURT & meaning-level back-translation \\
+Text-to-gloss & text $\rightarrow$ glosses & gloss WER, BLEU & glossing step, evaluated against ArabSign \\
+Production & text / gloss $\rightarrow$ pose & back-translation BLEU / WER, DTW-MJE, human rating & the output of the system \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Concatenating recorded dictionary signs, the production approach taken here, gives real hand shapes for every sign at
+the cost of transitions between signs; it suits a domain where the vocabulary must be exact. Glosses matter for it
+twice: the answer is translated into glosses, and each gloss is the key into the lexicon.
+
+\section{Religious texts in sign language}
+Religious texts are among the best-resourced content in sign language, but almost entirely for one tradition. Complete
+Bibles exist in American Sign Language \cite{aslv,jwaslbible}; the Deaf Bible Society distributes Scripture in 92 sign
+languages \cite{deafbible}; and the JWSign corpus already makes 2,530 hours of Bible translations in 98 sign languages,
+by more than 1,500 signers, available for machine learning \cite{jwsign}, followed by openly licensed sign Bibles for
+model training \cite{osb}. For Islam, the machine-learning resources we found are small and narrow: image recognition of
+the isolated letters that open some surahs \cite{quransign1,quransign2}, and an Arabic Sign Language production dataset
+of Friday-sermon content with 262 videos \cite{quransign3}, used to train a speech-to-pose model \cite{quransign4},
+which is the closest prior work to ours. We found no aligned Qur'an or hadith corpus in any sign language, no lexicon of
+Islamic signs across sign languages, and no system that answers religious questions in sign language from authenticated
+sources.
+
+\section{Arabic Sign Language}
+Arabic Sign Language is a family of national sign languages; the League of Arab States promoted a unified dictionary
+\cite{arslunified}. Datasets include KArSL (502 isolated signs) \cite{karsl}, ArabSign (continuous sentences with gloss
+annotation) \cite{arabsign} and the Saudi Isharah dataset \cite{isharah}. Recent Arabic systems translate text to gloss
+\cite{arglosstrans}, translate Saudi Sign Language with T5 \cite{saudit5}, build parallel corpora for Syrian ArSL
+\cite{syrisign}, or drive 3D avatars \cite{algerianavatar,arabicavatar2024,arabic3davatar2022}. None of these targets
+religious questions with a grounding guarantee, and none covers several sign languages from the same knowledge base.
+
+\section{Other sign languages used here}
+For ASL: WLASL \cite{wlasl}, MS-ASL \cite{msasl}, ASL Citizen \cite{aslcitizen}, How2Sign \cite{how2sign}, the Boston
+ASLLVD \cite{boston} and YouTube-ASL \cite{youtubeasl,youtubeaslkp}. For Turkish: the official T\.{I}D dictionary
+\cite{tidsozluk} and AUTSL \cite{autsl}. For Indian Sign Language, used for Urdu because large public Pakistan Sign
+Language datasets are lacking \cite{psl}: CISLR \cite{cislr}, iSign \cite{isign} and the WSLP 2025 shared task
+\cite{wslp,wslpislword}. Signs are found in weakly labelled sentence video by sign spotting, using subtitles or mouthings
+as weak labels \cite{bsl1k,momeni2022}. Keypoints throughout come from MediaPipe \cite{mediapipe} Holistic
+\cite{mediapipeholistic,blazepose}.
+
+\section{Grounded generation}
+Retrieval-augmented generation \cite{rag} conditions a language model on retrieved passages. Isharati combines BM25
+\cite{bm25} with multilingual E5 embeddings \cite{e5,me5} through reciprocal rank fusion \cite{rrf}, and adds checks after
+generation, because retrieval alone does not stop a model from adding facts.

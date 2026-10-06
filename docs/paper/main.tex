@@ -1,0 +1,76 @@
+% Isharati — technical documentation. Compile with:  latexmk -xelatex main.tex   (or xelatex, bibtex, xelatex x2)
+\documentclass[11pt,a4paper,oneside]{report}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\setmainfont{TeX Gyre Termes}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Amiri}
+\newfontfamily\arabicfontsf[Script=Arabic]{Noto Naskh Arabic}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,xcolor,booktabs,tabularx,longtable,multirow,array,makecell}
+\usepackage{caption,subcaption}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,shapes.geometric,calc}
+\usepackage{listings}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=teal!70!black,citecolor=teal!70!black,urlcolor=teal!60!black,hyperfootnotes=false]{hyperref}
+\usepackage{cite}
+\usepackage{titlesec}
+% each chapter opens with its name alone on a page
+\titleformat{\chapter}[display]{\normalfont\centering\color{navy}}
+  {\vspace*{0.30\textheight}{\Large\scshape\chaptertitlename\ \thechapter}}{14pt}
+  {\rule{0.35\textwidth}{0.6pt}\\[12pt]\fontsize{30}{36}\selectfont\bfseries}
+  [\vspace{10pt}\rule{0.35\textwidth}{0.6pt}\clearpage]
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\setlength{\parskip}{3pt}
+\captionsetup{font=small,labelfont=bf}
+\definecolor{ink}{HTML}{1D1D1B}\definecolor{tealx}{HTML}{14B8A6}\definecolor{amberx}{HTML}{F59E0B}
+\definecolor{navy}{HTML}{1E3A5F}\definecolor{soft}{HTML}{EEF7F6}
+\newcommand{\ar}[1]{\textarabic{#1}}
+\newcommand{\code}[1]{\texttt{\small #1}}
+\usepackage{seqsplit}
+\newcommand{\idcode}[1]{{\ttfamily\small\seqsplit{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,frame=single,rulecolor=\color{gray!40}}
+\urlstyle{same}
+
+\title{\textbf{Isharati (\ar{إشارتي}): Grounded Sign Language Generation for Islamic Content}\\[4pt]
+\large Technical Documentation --- Bathel AI Challenge 2026: Serving Islamic Content (Track 2)}
+\author{Fatimah Emad Eldin \and Asmaa Al-Mirghani}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+\tableofcontents
+\newpage
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/methodology}
+\input{sections/architecture}
+\input{sections/knowledge}
+\input{sections/lexicons}
+\input{sections/eda}
+\input{sections/scripture}
+\input{sections/production}
+\input{sections/implementation}
+\input{sections/evaluation}
+\input{sections/results}
+\input{sections/verification}
+\input{sections/discussion}
+\input{sections/business}
+\input{sections/statements}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix}
+\end{document}

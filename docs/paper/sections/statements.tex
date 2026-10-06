@@ -1,0 +1,59 @@
+\chapter{Declarations}
+\label{sec:statements}
+
+\paragraph{Data and licences.} Table~\ref{tab:licences} summarises the terms of every source. The Qur'an and hadith texts
+are fetched from the public QuranEnc and HadeethEnc interfaces with their references and links preserved; their
+redistribution terms are not stated in the files we hold and will be confirmed with the publishers before any release
+of the corpora. Sign data are used for research. Poses derived from sources marked non-commercial, no-derivatives or
+no-redistribution (ASL Citizen, Isharah, WSLP) are never published; public-video sources without a stated licence are
+used only inside the prototype, and their owners will be asked for permission before any release. The YouTube-ASL
+keypoints are CC BY 4.0, so their converted form is shared with attribution.
+
+\begin{table}[ht]
+\centering\small
+\caption{Licence summary.}
+\label{tab:licences}
+\begin{tabularx}{\textwidth}{L{4.6cm} L{4.2cm} Y}
+\toprule
+Source & Licence & Use in Isharati \\
+\midrule
+YouTube-ASL Clip Keypoints \cite{youtubeaslkp} & CC BY 4.0 & converted, shared with attribution (1 of 10 parts so far) \\
+How2Sign \cite{how2sign} & CC BY-NC 4.0 (dataset); MIT (README of the feature files used) & recogniser training (planned) \\
+CISLR \cite{cislr} & AFL-3.0 & ISL lexicon \\
+WLASL \cite{wlasl}, MS-ASL \cite{msasl} & C-UDA, research use & ASL lexicon \\
+KArSL \cite{karsl} & research use & ArSL lexicon \\
+ASL Citizen \cite{aslcitizen} & Microsoft Research licence, non-commercial, no redistribution & ASL lexicon, not redistributed \\
+WSLP \cite{wslp} & CC BY-NC-ND 4.0 & ISL lexicon, poses not published \\
+Isharah \cite{isharah} & CC BY-NC-ND 4.0 & experiments only, not in the lexicon \\
+iSign \cite{isign} & CC BY-NC-SA 4.0 & noted for future use \\
+ArabSign \cite{arabsign} & not stated in the paper & evaluation (gold glosses) and recogniser data \\
+YouTube channels (GDM, Noor, Obscure ASL, Tawasol, Al-Kharj, Saudi dictionary, ArabicSignLanguage, DisabilityApps,
+Mrami, T\.{I}D S\"ozl\"u\u{g}\"u, TiDiSLaM) & not stated & prototype only; permission to be requested \\
+VRM avatar (pixiv sample) \cite{vrm} & VRM licence 1.0: modification, redistribution, commercial and religious use allowed & default avatar \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Data availability.} The code, the merged lexicon indexes (glosses, sources and review status, without the
+restricted poses), the evaluation scripts and the result files are in the project repository (private during the challenge). The converted YouTube-ASL keypoints are being published
+as a Hugging Face dataset with the original CC BY 4.0 attribution.
+
+\paragraph{Ethics.} The system answers religious questions only from cited sources and refers ruling questions to
+scholars. No personal data are collected by the application; questions are processed locally, except for the calls to
+the LLM providers (NVIDIA NIM, Groq), which receive the question and the retrieved passages. Sign recordings are of
+signers who published them; they are used for research, and poses are not redistributed where the licence forbids it.
+Outputs are labelled as pending review until Deaf signers approve them.
+
+\paragraph{Author contributions (CRediT).} \emph{Fatimah Emad Eldin}: conceptualization, methodology, software, data
+curation, formal analysis, investigation, visualization, writing (original draft). \emph{Asmaa Al-Mirghani}:
+conceptualization, validation of religious content and sources, methodology (evaluation design), writing (review and
+editing).
+
+\paragraph{Conflicts of interest.} The authors declare no conflict of interest.
+
+\paragraph{Funding.} This work received no external funding.
+
+\paragraph{Use of AI tools.} Large language models are components of the system (query expansion, answer writing under
+the grounding rules, glossing, and proposals of concept mappings), as described above. AI coding and writing assistants
+were used to develop the software and to draft this document; the authors reviewed the content, and every number was
+taken from the project's files.

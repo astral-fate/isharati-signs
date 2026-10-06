@@ -1,0 +1,71 @@
+\chapter{Exploratory analysis of the corpora and lexicons}
+\label{sec:eda}
+
+This section describes the data the system signs from, before any result is reported: how large each corpus is,
+which words dominate it, how much of it each lexicon can sign, and which sources supply the signs.
+
+\section{The corpora}
+Table~\ref{tab:eda_corpora} compares the four corpora. All share the same 6,236 verses; the hadith sets differ because
+not every hadith of the encyclopedia is translated into every language. The hadith make up most of the text (80--89\% of
+tokens), since each carries a title and a scholarly explanation. The Arabic corpus has more than four times the distinct
+words of the English one (62,613 against 13,612) for fewer tokens, because Arabic writes conjunctions, prepositions and
+pronouns as part of the word; Turkish, an agglutinative language, shows the same effect (49,131 distinct words). Lexicon
+matching therefore has to reduce words to their stems (Section~\ref{sec:glossing}), and distinct-word coverage is a poor
+guide for these two languages; occurrence coverage is the figure we report.
+
+\input{sections/gen_eda}
+
+\section{Frequent words}
+Table~\ref{tab:eda_top} lists the most frequent content words. Three patterns hold across languages. First, the name of
+God (\emph{Allah}, \ar{الله}, \emph{Allah}, \ar{اللہ}) is the most frequent word of every corpus, so a single sign
+already covers a large share of the text. Second, the hadith are dominated by the formulas of transmission and respect:
+``peace and blessings be upon him'' (\ar{صلى الله عليه وسلم}, \emph{sallallahu aleyhi ve sellem}, \ar{ﷺ}), ``may Allah be
+pleased with him'' (\ar{رضي الله عنه}, \emph{rad\i{}yallahu anh}), and verbs of narration (\emph{said, reported};
+\ar{قال}; \emph{dedi, rivayet}). In sign language these formulas are signed as fixed units, not word by word, so they are
+the cheapest gaps to close. Third, the Qur'an's frequent words are its theological vocabulary (\emph{Lord, day, people,
+believe}; \ar{الأرض، آمنوا}), which overlaps with general dictionaries more than the vocabulary of the hadith
+explanations does.
+
+\section{How much each lexicon can sign}
+Figure~\ref{fig:covlang} shows the share of content-word occurrences that each mode can sign today. English/ASL is the
+most complete (64\% of the Qur'an, 63\% of the hadith), followed by Arabic/ArSL (46\% and 54\%). The Arabic Qur'an is
+harder than the Arabic hadith because classical Qur'anic forms are rarer in dictionaries; the Qur'an-curriculum signs
+partly offset this.
+
+\paragraph{Turkish.} The T\.{I}D lexicon is still being extracted: 1,308 of the 5,017 dictionary clips have been
+converted (980 single-word glosses), and the Islamic-terms channel has not been processed yet. It covers 16\% of
+content-word occurrences, and its most frequent gaps are exactly the religious words: \emph{Allah, aleyhi, sellem,
+rad\i{}yallahu, ras\^{u}lullah, nebi} (prophet), \emph{rivayet} (narration). A general dictionary does not contain the
+vocabulary of religious texts, which is why the Islamic-terms source matters more than its 589 clips suggest.
+
+\paragraph{Urdu.} The Indian Sign Language lexicons (5,181 single-word glosses) cover 51\% of content-word occurrences
+of the same texts, measured on the English glosses. Their gaps show the same pattern: \emph{peace, blessings, prophet,
+prayer, Lord} have no ISL sign in these general-purpose datasets, so the Urdu mode cannot sign a basic answer until
+Islamic terms are added.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/coverage_languages.pdf}
+\caption{Content-word occurrences of the Qur'an and hadith that each mode's lexicon can sign.}
+\label{fig:covlang}
+\end{figure}
+
+\section{Which sources supply the signs}
+Figure~\ref{fig:attribution} attributes every covered occurrence to the source of the sign the matcher returns. In
+English, ASL Citizen supplies 40.5\% of the content-word occurrences through 1,234 different signs, while the 40 GDM
+Islamic signs supply 10.2\%: forty religious signs do a quarter of the work of a 2,204-sign general dictionary. In Arabic
+the effect is stronger: the 324 signs cut from the Qur'an curriculum cover 28.8\% of all content-word occurrences, more
+than KArSL, the unified dictionary and the Kuwaiti dictionary together (22.3\%). Dictionaries of everyday vocabulary
+(children's, scouts', Levantine) contribute below 1\% each. Table~\ref{tab:eda_signs} lists the individual signs used
+most: \ar{الله} alone signs 5.9\% of all Arabic content-word occurrences (ALLAH: 5.7\% in English), followed by
+\ar{على}, \ar{صلى} and \ar{قال}, which come from the hadith formulas. Two
+conclusions follow for collecting data: a small set of religious signs recorded by Deaf signers is worth more than a large
+general dictionary, and the hadith formulas should be recorded as phrase signs.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/source_attribution.pdf}
+\caption{Share of the corpus's content-word occurrences signed by each lexicon source (in brackets, the number of that
+source's signs that are used).}
+\label{fig:attribution}
+\end{figure}

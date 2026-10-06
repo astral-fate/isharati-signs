@@ -1,0 +1,227 @@
+{
+ "lexicon_signs": 3654,
+ "synonyms_signed": 44,
+ "old_glosses": 3079,
+ "old": {
+  "quran": {
+   "content_tokens": 84026,
+   "content_token_coverage": 0.4029,
+   "content_types": 17337,
+   "content_type_coverage": 0.3444
+  },
+  "hadith": {
+   "content_tokens": 388675,
+   "content_token_coverage": 0.4226,
+   "content_types": 40969,
+   "content_type_coverage": 0.322
+  },
+  "all": {
+   "content_tokens": 472701,
+   "content_token_coverage": 0.4191,
+   "content_types": 48998,
+   "content_type_coverage": 0.3229,
+   "content_token_coverage_excl_fragments": 0.435
+  },
+  "by_route_tokens": {
+   "exact": 113550,
+   "prefix5": 84565
+  }
+ },
+ "new": {
+  "quran": {
+   "content_tokens": 84026,
+   "content_token_coverage": 0.6363,
+   "content_types": 17337,
+   "content_type_coverage": 0.4834
+  },
+  "hadith": {
+   "content_tokens": 388675,
+   "content_token_coverage": 0.6473,
+   "content_types": 40969,
+   "content_type_coverage": 0.4125
+  },
+  "all": {
+   "content_tokens": 472701,
+   "content_token_coverage": 0.6453,
+   "content_types": 48998,
+   "content_type_coverage": 0.4085,
+   "content_token_coverage_excl_fragments": 0.6697
+  },
+  "by_route_tokens": {
+   "lemma": 146258,
+   "exact": 103420,
+   "phrase": 41546,
+   "synonym": 13568,
+   "prefix": 193,
+   "compound": 60
+  },
+  "by_route_types": {
+   "lemma": 17852,
+   "exact": 1666,
+   "synonym": 397,
+   "prefix": 84,
+   "compound": 16
+  }
+ },
+ "new_no_prefix": {
+  "quran": {
+   "content_tokens": 84026,
+   "content_token_coverage": 0.6362,
+   "content_types": 17337,
+   "content_type_coverage": 0.483
+  },
+  "hadith": {
+   "content_tokens": 388675,
+   "content_token_coverage": 0.6468,
+   "content_types": 40969,
+   "content_type_coverage": 0.4106
+  },
+  "all": {
+   "content_tokens": 472701,
+   "content_token_coverage": 0.6449,
+   "content_types": 48998,
+   "content_type_coverage": 0.4068
+  },
+  "by_route_tokens": {
+   "lemma": 146258,
+   "exact": 103420,
+   "phrase": 41546,
+   "synonym": 13568,
+   "compound": 60
+  },
+  "by_route_types": {
+   "lemma": 17852,
+   "exact": 1666,
+   "synonym": 397,
+   "compound": 16
+  }
+ },
+ "suffix_fragment_tokens": 17241,
+ "old_prefix5_tokens_now": {
+  "same sign": 46718,
+  "now unmatched": 28169,
+  "other sign": 9678
+ },
+ "top_uncovered_lemmas": [
+  [
+   "sallallahu",
+   8352
+  ],
+  [
+   "sellem",
+   8321
+  ],
+  [
+   "kimse",
+   2940
+  ],
+  [
+   "anh",
+   2820
+  ],
+  [
+   "rivayet",
+   2573
+  ],
+  [
+   "el",
+   1765
+  ],
+  [
+   "yan",
+   1342
+  ],
+  [
+   "haber",
+   1244
+  ],
+  [
+   "söz",
+   1228
+  ],
+  [
+   "ebû",
+   1214
+  ],
+  [
+   "ara",
+   1147
+  ],
+  [
+   "bulunmak",
+   1135
+  ],
+  [
+   "kadın",
+   1044
+  ],
+  [
+   "teala",
+   1037
+  ],
+  [
+   "iç",
+   1007
+  ],
+  [
+   "hal",
+   994
+  ],
+  [
+   "şekil",
+   950
+  ],
+  [
+   "baş",
+   857
+  ],
+  [
+   "hiçbir",
+   804
+  ],
+  [
+   "karşı",
+   795
+  ],
+  [
+   "emretmek",
+   789
+  ],
+  [
+   "sahip",
+   760
+  ],
+  [
+   "azap",
+   735
+  ],
+  [
+   "dolayı",
+   729
+  ],
+  [
+   "anha",
+   665
+  ],
+  [
+   "ebu",
+   641
+  ],
+  [
+   "ibn",
+   608
+  ],
+  [
+   "aişe",
+   607
+  ],
+  [
+   "abdullah",
+   595
+  ],
+  [
+   "üzeri",
+   584
+  ]
+ ]
+}

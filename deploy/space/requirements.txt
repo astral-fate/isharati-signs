@@ -1,0 +1,12 @@
+fastapi==0.142.0
+uvicorn==0.54.0
+pydantic==2.13.5
+numpy==1.26.4
+requests==2.34.2
+huggingface_hub==1.33.0
+opencv-python-headless==4.11.0.86
+imageio==2.38.0
+imageio-ffmpeg==0.6.0
+python-multipart>=0.0.12
+psycopg2-binary>=2.9.9
+zeyrek==0.1.3

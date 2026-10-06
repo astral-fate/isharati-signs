@@ -1,0 +1,17 @@
+{
+ "per_lesson": {
+  "pillars": 0.3,
+  "intention": 0.0,
+  "wudu": 0.25,
+  "prayer_zakat": 0.5,
+  "tawhid": 0.0,
+  "mercy": 0.25,
+  "honesty": 0.6666666666666666,
+  "salam": 0.2,
+  "fasting": 0.14285714285714285,
+  "parents": 0.3333333333333333
+ },
+ "overall": 0.23684210526315788,
+ "git_sha": "093f64f",
+ "created": "2026-09-30T02:03:45"
+}

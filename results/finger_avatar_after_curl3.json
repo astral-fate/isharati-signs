@@ -1,0 +1,8 @@
+{
+ "tag": "after_curl3",
+ "model": "avatar.vrm",
+ "hand_frames": 1472,
+ "implausible_keypoints": 0.226,
+ "implausible_avatar": 0.011,
+ "fidelity_deg": 0.4
+}

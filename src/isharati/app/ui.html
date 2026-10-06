@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isharati ASL</title>
+<script type="importmap">{"imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/",
+  "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3.1.0/lib/three-vrm.module.min.js"}}</script>
+<style>
+:root {
+  --bg: #f7f6f2; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a64; --line: #e3e1d9;
+  --accent: #1f6f5c; --accent-ink: #ffffff; --missing: #b3261e; --missing-bg: #fbe9e7; --now: #fff1b8;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #151614; --panel: #1f201d; --ink: #ecebe6; --muted: #9c9b94; --line: #33342f;
+          --accent: #4fb89c; --accent-ink: #0d1f1a; --missing: #f2877d; --missing-bg: #3a1f1c; --now: #5a4d12; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+       font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+form { display: flex; gap: 8px; }
+input { flex: 1; min-width: 0; padding: 12px 14px; font: inherit; color: var(--ink); background: var(--panel);
+        border: 1px solid var(--line); border-radius: 8px; }
+button { padding: 12px 18px; font: inherit; font-weight: 600; border: 0; border-radius: 8px;
+         background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+.examples { margin: 10px 0 24px; display: flex; flex-wrap: wrap; gap: 6px; }
+.examples button { background: transparent; color: var(--accent); border: 1px solid var(--line);
+                   padding: 5px 10px; font-weight: 500; font-size: 14px; }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
+.answer { font-size: 18px; }
+.sources a { color: var(--accent); font-size: 14px; display: block; }
+.gloss { display: flex; flex-wrap: wrap; gap: 6px; }
+.gloss span { font: 600 14px/1 ui-monospace, Consolas, monospace; padding: 7px 9px; border-radius: 6px;
+              border: 1px solid var(--line); cursor: pointer; }
+.gloss span.missing { color: var(--missing); background: var(--missing-bg); border-color: transparent; }
+.gloss span.now { background: var(--now); }
+video { width: 100%; border-radius: 8px; background: #000; display: block; }
+.meta { color: var(--muted); font-size: 13px; margin-top: 10px; }
+.dropped { color: var(--muted); font-size: 13px; margin-top: 10px; }
+.status { padding: 14px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); }
+.spin { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent);
+        border-radius: 50%; animation: s 1s linear infinite; vertical-align: -2px; margin-right: 8px; }
+@keyframes s { to { transform: rotate(360deg); } }
+[hidden] { display: none !important; }
+.stage { position: relative; }
+#avatar { width: 100%; aspect-ratio: 1 / 1; display: block; border-radius: 8px;
+          background: radial-gradient(circle at 50% 35%, #fbfaf6, #dcd9cf); }
+@media (prefers-color-scheme: dark) { #avatar { background: radial-gradient(circle at 50% 35%, #3a3c37, #1c1d1a); } }
+.modes { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+.modes button { background: transparent; color: var(--ink); border-radius: 0; font-weight: 500; padding: 6px 12px; font-size: 14px; }
+.modes button.on { background: var(--accent); color: var(--accent-ink); }
+.transport { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.transport button { padding: 6px 12px; font-size: 14px; }
+.transport input { flex: 1; min-width: 0; }
+.transport select { font: inherit; font-size: 14px; padding: 5px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); }
+#avstatus { color: var(--muted); font-size: 13px; }
+.custom { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 10px; font-size: 14px; }
+.custom label { display: inline-flex; gap: 6px; align-items: center; }
+.custom select { font: inherit; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); }
+.custom input[type=color] { width: 34px; height: 26px; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: none; }
+.langs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+.langs button { background: transparent; color: var(--ink); border-radius: 0; font-weight: 500; padding: 7px 14px; }
+.langs button.on { background: var(--accent); color: var(--accent-ink); }
+[dir=rtl] { font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif; }
+.gloss[dir=rtl] span { font-family: "Segoe UI", Tahoma, sans-serif; font-size: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="en">English → ASL</button>
+    <button type="button" data-lang="ar">العربية → لغة الإشارة العربية</button>
+  </div>
+  <h1 id="title"></h1>
+  <p class="sub" id="sub"></p>
+  <form id="f">
+    <input id="q" autocomplete="off" autofocus>
+    <button id="go"></button>
+  </form>
+  <div class="examples" id="ex"></div>
+
+  <div id="status" class="status" hidden></div>
+
+  <div id="result" hidden>
+    <div class="steps">
+      <div>
+        <div class="card">
+          <h2 id="h1"></h2>
+          <div class="answer" id="answer"></div>
+          <div class="sources" id="sources" style="margin-top:10px"></div>
+          <div class="dropped" id="dropped"></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h2 id="h2"></h2>
+          <div class="gloss" id="gloss"></div>
+          <div class="meta" id="gmeta"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 id="h3"></h2>
+        <div class="modes" role="group" aria-label="View">
+          <button type="button" data-mode="avatar" class="on">Avatar</button>
+          <button type="button" data-mode="skeleton">Skeleton</button>
+        </div>
+        <div class="stage">
+          <canvas id="avatar"></canvas>
+          <video id="video" controls playsinline muted hidden></video>
+        </div>
+        <div class="transport" id="transport">
+          <button type="button" id="play">Play</button>
+          <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="Position">
+          <select id="speed" aria-label="Speed">
+            <option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1">1×</option><option value="1.25">1.25×</option>
+          </select>
+          <button type="button" id="export">Export video</button>
+        </div>
+        <div class="custom" id="custom">
+          <label><span id="l_model">Avatar</span> <select id="c_model"></select></label>
+          <label><span id="l_style">Style</span> <select id="c_style">
+            <option value="original">Original</option><option value="hijab">Hijab</option><option value="shemagh">Shemagh &amp; thobe</option>
+          </select></label>
+          <label><span id="l_head">Headwear</span> <input type="color" id="c_head"></label>
+          <label><span id="l_clothes">Clothes</span> <input type="color" id="c_clothes"></label>
+          <label><input type="checkbox" id="c_sleeves"> <span id="l_sleeves">Long sleeves</span></label>
+        </div>
+        <div class="meta" id="avstatus"></div>
+        <div class="meta" id="vmeta"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const UI = {
+  en: {title: "Isharati · English to ASL", dir: "ltr",
+       sub: "A question in plain English → an answer from approved sources → ASL glosses → a signed skeleton video.",
+       ph: "Ask about Islam, e.g. What is Ramadan?", go: "Sign it",
+       h: ["1 · Answer from approved sources", "2 · ASL gloss", "3 · Signed video"],
+       ex: ["What is Ramadan?", "Tell me about Islam", "What is the Quran?", "how many prayers a day?", "Is music haram?"],
+       wait: "Retrieving sources, writing the answer, glossing and rendering… (about 20–60 s)",
+       referred: "<b>Referred to a qualified scholar.</b> Questions about rulings (halal, haram, fatwa) or disputed matters are not answered or signed.",
+       unanswered: "<b>Not answered.</b> ", error: "<b>Error:</b> ", coverage: "Coverage",
+       missing: "no sign yet (shown red, held in the video)",
+       dropped: n => `${n} sentence(s) removed: not supported by the cited passages.`, replay: "replayed from an earlier run",
+       segs: "segments", nosign: "no sign yet", play: "click to play", sep: ", ",
+       avatar: "Avatar", skeleton: "Skeleton", playBtn: "Play", pauseBtn: "Pause", exportBtn: "Export video",
+       custom: {l_model: "Avatar", l_style: "Style", l_head: "Headwear", l_clothes: "Clothes", l_sleeves: "Long sleeves",
+                styles: ["Original", "Hijab", "Shemagh & thobe"]}},
+  ar: {title: "إشارتي · من العربية إلى لغة الإشارة", dir: "rtl",
+       sub: "سؤال بالعربية ← إجابة من مصادر معتمدة ← مسرد الإشارات ← فيديو هيكلي بلغة الإشارة.",
+       ph: "اسأل عن الإسلام، مثلًا: ما هو رمضان؟", go: "ترجم بالإشارة",
+       h: ["١ · الإجابة من المصادر المعتمدة", "٢ · مسرد الإشارات", "٣ · فيديو الإشارة"],
+       ex: ["ما هو الإسلام؟", "ما هو رمضان؟", "كم عدد الصلوات في اليوم؟", "ما هي الزكاة؟", "هل الموسيقى حرام؟"],
+       wait: "جارٍ البحث في المصادر وكتابة الإجابة وتحويلها إلى إشارات… (من ٢٠ إلى ٦٠ ثانية)",
+       referred: "<b>يُحال إلى عالم مؤهل.</b> أسئلة الأحكام (الحلال والحرام والفتوى) والمسائل الخلافية لا يُجاب عنها ولا تُترجم.",
+       unanswered: "<b>لا توجد إجابة.</b> ", error: "<b>خطأ:</b> ", coverage: "التغطية",
+       missing: "لا توجد إشارة بعد (بالأحمر، ثبات في الفيديو)",
+       dropped: n => `حُذفت ${n} جملة لأن المصادر المذكورة لا تدعمها.`, replay: "من تشغيل سابق",
+       segs: "مقاطع", nosign: "لا توجد إشارة بعد", play: "اضغط للتشغيل", sep: "، ",
+       avatar: "الشخصية", skeleton: "الهيكل", playBtn: "تشغيل", pauseBtn: "إيقاف", exportBtn: "تصدير الفيديو",
+       custom: {l_model: "الشخصية", l_style: "اللباس", l_head: "غطاء الرأس", l_clothes: "الملابس", l_sleeves: "أكمام طويلة",
+                styles: ["الأصلي", "حجاب", "شماغ وثوب"]}},
+};
+const params = new URLSearchParams(location.search);
+let lang = params.get("lang") === "ar" ? "ar" : "en";
+function setLang(l) {
+  lang = l; const u = UI[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll(".langs button").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
+  $("title").textContent = u.title; $("sub").textContent = u.sub; $("go").textContent = u.go;
+  $("q").placeholder = u.ph; $("title").dir = $("sub").dir = $("q").dir = $("f").dir = u.dir;
+  u.h.forEach((h, i) => $("h" + (i + 1)).textContent = h);
+  window.ui = u;
+  document.querySelector('.modes [data-mode="avatar"]').textContent = u.avatar;
+  document.querySelector('.modes [data-mode="skeleton"]').textContent = u.skeleton;
+  $("export").textContent = u.exportBtn;
+  for (const [id, text] of Object.entries(u.custom)) if (id !== "styles") $(id).textContent = text;
+  [...$("c_style").options].forEach((o, i) => (o.textContent = u.custom.styles[i]));
+  $("custom").dir = u.dir;
+  $("play").textContent = $("video").paused ? u.playBtn : u.pauseBtn;
+  ["answer", "gloss", "dropped", "gmeta", "status", "h1", "h2", "h3"].forEach(id => $(id).dir = u.dir);
+  $("ex").innerHTML = ""; $("ex").dir = u.dir;
+  u.ex.forEach(t => { const b = document.createElement("button"); b.type = "button"; b.textContent = t;
+    b.onclick = () => { $("q").value = t; ask(); }; $("ex").append(b); });
+}
+document.querySelectorAll(".langs button").forEach(b => b.onclick = () => {
+  if (b.dataset.lang !== lang) { $("q").value = ""; $("result").hidden = true; $("status").hidden = true; }
+  setLang(b.dataset.lang);
+});
+setLang(lang);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+let segments = [];
+
+$("f").onsubmit = e => { e.preventDefault(); ask(); };
+
+async function ask() {
+  const q = $("q").value.trim();
+  if (!q) return;
+  $("go").disabled = true; $("result").hidden = true;
+  $("status").hidden = false;
+  const u = UI[lang];
+  $("status").innerHTML = '<span class="spin"></span>' + u.wait;
+  try {
+    const r = await fetch("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"},
+                                       body: JSON.stringify({question: q, lang})});
+    // a proxy or sign-in page answers with HTML, not JSON
+    const d = (r.headers.get("content-type") || "").includes("json") ? await r.json()
+      : {detail: `the server sent a web page instead of an answer (HTTP ${r.status}); reload the page or open the Space in its own tab`};
+    if (!r.ok || d.status === undefined) throw new Error(d.detail || r.statusText);
+    if (d.status !== "signed") {
+      $("status").innerHTML = d.status === "referred" ? u.referred : u.unanswered + esc(d.reason);
+      return;
+    }
+    $("status").hidden = true;
+    show(d);
+  } catch (err) {
+    $("status").innerHTML = u.error + esc(err.message);
+  } finally {
+    $("go").disabled = false;
+  }
+}
+
+function show(d) {
+  const u = UI[lang];
+  $("answer").textContent = d.answer;
+  $("sources").innerHTML = d.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.reference)}</a>`).join("");
+  $("dropped").textContent = d.dropped_unsupported.length ? u.dropped(d.dropped_unsupported.length) : "";
+  // one chip per signed or missing segment, in video order
+  segments = d.segments;
+  $("gloss").innerHTML = segments.map((s, i) =>
+    `<span data-i="${i}" class="${s.kind === "missing" ? "missing" : ""}" title="${s.kind === "missing" ? u.nosign : u.play}">${esc(s.label)}</span>`).join("");
+  $("gloss").querySelectorAll("span").forEach(el => el.onclick = () => {
+    const v = $("video"); v.currentTime = segments[+el.dataset.i].start_s; v.play(); });
+  $("gmeta").textContent = `${u.coverage} ${Math.round(d.coverage * 100)}%` +
+    (d.missing_signs.length ? ` · ${u.missing}: ${d.missing_signs.join(u.sep)}` : "") +
+    (d.llm ? ` · LLM: ${d.llm}` : "") + (d.cached ? ` · ${u.replay}` : "");
+  const v = $("video"); v.src = `/video/${d.id}.mp4?t=${Date.now()}`; v.play().catch(() => {});
+  window.lastResult = d;  // the avatar module may load after the first result
+  if (window.avatarShow) window.avatarShow(d);
+  $("vmeta").textContent = `${segments.length} ${u.segs} · ${segments.length ? segments[segments.length - 1].end_s.toFixed(1) : 0} s`;
+  $("result").hidden = false;
+}
+
+const initial = params.get("q");  // a shareable link: /?q=What+is+Ramadan%3F (add &lang=ar for Arabic)
+if (initial) { $("q").value = initial; ask(); }
+
+$("video").ontimeupdate = () => {
+  const t = $("video").currentTime;
+  $("gloss").querySelectorAll("span").forEach((el, i) =>
+    el.classList.toggle("now", t >= segments[i].start_s && t < segments[i].end_s));
+};
+</script>
+<script type="module">
+import { SignAvatar } from "/static/avatar.js";
+import { PRESETS, applyOutfit } from "/static/outfits.js";
+const $ = (id) => document.getElementById(id);
+const video = $("video"), canvas = $("avatar");
+let avatar = null, mode = "avatar", loading = null, frames = null;
+
+// the look: saved in this browser only
+const LOOK_KEY = "isharati.look";
+let look = { model: "rocketbox_female_06.vrm", ...PRESETS.original, preset: "original" };
+try { look = { ...look, ...JSON.parse(localStorage.getItem(LOOK_KEY) || "{}") }; } catch {}
+const saveLook = () => { try { localStorage.setItem(LOOK_KEY, JSON.stringify(look)); } catch {} };
+
+async function ensureAvatar() {
+  if (avatar) return avatar;
+  loading ||= (async () => {
+    $("avstatus").textContent = "Loading the avatar…";
+    const a = await new SignAvatar(canvas).load("/static/" + look.model);
+    applyOutfit(a, look);
+    avatar = a;
+    window.__avatar = avatar;  // for debugging from the console
+    if (frames) avatar.setFrames(frames);
+    $("avstatus").textContent = "";
+    return avatar;
+  })();
+  return loading;
+}
+
+function showLook() {
+  $("c_style").value = look.preset;
+  $("c_head").value = look.head || "#2f3e5c";
+  $("c_clothes").value = look.clothes || "#6d5a78";
+  $("c_sleeves").checked = !!look.sleeves;
+  const off = look.preset === "original";
+  for (const id of ["c_head", "c_clothes", "c_sleeves"]) $(id).disabled = off;
+}
+function restyle() { saveLook(); showLook(); if (avatar) applyOutfit(avatar, look); }
+$("c_style").onchange = (e) => { look = { ...look, ...PRESETS[e.target.value], preset: e.target.value }; restyle(); };
+$("c_head").oninput = (e) => { look.head = e.target.value; restyle(); };
+$("c_clothes").oninput = (e) => { look.clothes = e.target.value; restyle(); };
+$("c_sleeves").onchange = (e) => { look.sleeves = e.target.checked; restyle(); };
+// realistic avatars (Microsoft Rocketbox, MIT) come dressed modestly: no added headwear or sleeves
+const AVATAR_NAMES = {
+  "avatar.vrm": "Stylised (pixiv sample)",
+  "rocketbox_female_06.vrm": "Realistic · woman, white hijab",
+  "rocketbox_female_10.vrm": "Realistic · woman, black abaya",
+  "rocketbox_male_15.vrm": "Realistic · man, thobe and cap",
+  "rocketbox_male_19.vrm": "Realistic · man, red shemagh",
+  "rocketbox_male_21.vrm": "Realistic · man, white shemagh",
+};
+const dressed = (model) => model.startsWith("rocketbox_");
+$("c_model").onchange = async (e) => {
+  look.model = e.target.value;
+  if (dressed(look.model)) look = { ...look, ...PRESETS.original, preset: "original" };
+  saveLook(); showLook();
+  avatar?.renderer.dispose(); avatar = null; loading = null;  // a new renderer reuses the same canvas
+  await ensureAvatar();
+};
+fetch("/api/avatars").then((r) => r.json()).then((names) => {
+  $("c_model").innerHTML = names.map((n) => `<option value="${n}">${AVATAR_NAMES[n] || n.replace(/\.vrm$/, "")}</option>`).join("");
+  if (!names.includes(look.model)) look.model = names[0];
+  $("c_model").value = look.model;
+});
+showLook();
+
+window.avatarShow = async (d) => {
+  try {
+    const [a, r] = await Promise.all([ensureAvatar(), fetch(`/pose/${d.id}.json`)]);
+    if (!r.ok) throw new Error("no pose for this run");
+    frames = await r.json();
+    a.setFrames(frames);
+  } catch (e) {
+    $("avstatus").textContent = "Avatar unavailable (" + e.message + "); showing the skeleton.";
+    setMode("skeleton");
+  }
+};
+
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll(".modes button").forEach((b) => b.classList.toggle("on", b.dataset.mode === m));
+  canvas.hidden = m !== "avatar";
+  video.hidden = m === "avatar";
+  video.controls = m !== "avatar";
+  $("transport").hidden = m !== "avatar";
+}
+document.querySelectorAll(".modes button").forEach((b) => (b.onclick = () => setMode(b.dataset.mode)));
+
+// playback speed: the avatar follows the video's clock, so this slows the avatar, the skeleton and the export alike
+const SPEED_KEY = "isharati.speed";
+let speed = 0.75;
+try { speed = parseFloat(localStorage.getItem(SPEED_KEY)) || 0.75; } catch {}
+const applySpeed = () => { video.playbackRate = speed; video.defaultPlaybackRate = speed; $("speed").value = String(speed); };
+$("speed").onchange = (e) => { speed = parseFloat(e.target.value); try { localStorage.setItem(SPEED_KEY, speed); } catch {} applySpeed(); };
+video.addEventListener("loadedmetadata", applySpeed);
+applySpeed();
+$("play").onclick = () => (video.paused ? video.play() : video.pause());
+video.addEventListener("play", () => ($("play").textContent = window.ui?.pauseBtn || "Pause"));
+video.addEventListener("pause", () => ($("play").textContent = window.ui?.playBtn || "Play"));
+$("scrub").oninput = (e) => { if (video.duration) video.currentTime = (e.target.value / 1000) * video.duration; };
+
+let last = performance.now();
+function tick(now) {
+  if (avatar && mode === "avatar") {
+    avatar.render(video.currentTime, (now - last) / 1000);
+    if (video.duration) $("scrub").value = Math.round((video.currentTime / video.duration) * 1000);
+  }
+  last = now;
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+new ResizeObserver(() => avatar && avatar.resize()).observe(canvas);
+
+$("export").onclick = async () => {
+  if (!avatar || !video.duration) return;
+  const type = ["video/mp4;codecs=avc1", "video/webm;codecs=vp9", "video/webm"].find((t) => MediaRecorder.isTypeSupported(t));
+  const rec = new MediaRecorder(canvas.captureStream(30), { mimeType: type, videoBitsPerSecond: 6e6 });
+  const chunks = [];
+  rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+  rec.onstop = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob(chunks, { type }));
+    a.download = `isharati_avatar.${type.startsWith("video/mp4") ? "mp4" : "webm"}`;
+    a.click();
+    $("export").disabled = false; $("avstatus").textContent = "Exported.";
+  };
+  $("export").disabled = true; $("avstatus").textContent = "Recording…";
+  video.pause(); video.currentTime = 0;
+  await new Promise((r) => video.addEventListener("seeked", r, { once: true }));
+  rec.start();
+  video.addEventListener("ended", () => rec.stop(), { once: true });
+  video.play();
+};
+setMode("avatar");
+if (window.lastResult) window.avatarShow(window.lastResult);
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+{
+ "_comment": "Words fingerspelled in Arabic Sign Language: word -> its letters (separated by spaces; words by |, which become a pause), who decided it and when. scripts/lexicon/arsl/fingerspelled.py builds each from the KArSL letter signs; the result replaces any other sign for the word in the lexicon. Entries marked pending have not been seen by the native signer yet. KArSL has no letter sign for ة or the hamza seats, so ة is spelled ه and ئ ي (to be confirmed with the reviewer); ال is KArSL's single sign for the article. Names that collide with a word (علي / على, خالد = abiding in «خالدين») are entered with their honorific instead, or left out. Phrases a signer has recorded (e.g. «عائشة رضي الله عنها», Sheikh Muhammad al-Shamali, new_arabic_sources) are not composed here: the recording wins.",
+ "words": {
+  "عابد": {
+   "letters": "ع ا ب د",
+   "is_religious": true,
+   "reviewed_by": "native ArSL signer (team review)",
+   "reviewed_on": "2026-10-04"
+  },
+  "أبو بكر": {
+   "letters": "ا ب و | ب ك ر",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "عمر": {
+   "letters": "ع م ر",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "عثمان": {
+   "letters": "ع ث م ا ن",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "عائشة": {
+   "letters": "ع ا ي ش ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabiyya name; ئ spelled ي, ة spelled ه"
+  },
+  "خديجة": {
+   "letters": "خ د ي ج ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabiyya name; ة spelled ه"
+  },
+  "فاطمة": {
+   "letters": "ف ا ط م ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabiyya name; ة spelled ه"
+  },
+  "أبو هريرة": {
+   "letters": "ا ب و | ه ر ي ر ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name; ة spelled ه"
+  },
+  "بلال": {
+   "letters": "ب ل ا ل",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "الحسن": {
+   "letters": "ال ح س ن",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "الحسين": {
+   "letters": "ال ح س ي ن",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "أنس": {
+   "letters": "ا ن س",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "معاذ": {
+   "letters": "م ع ا ذ",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "سلمان": {
+   "letters": "س ل م ا ن",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "طلحة": {
+   "letters": "ط ل ح ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name; ة spelled ه"
+  },
+  "الزبير": {
+   "letters": "ال ز ب ي ر",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "حفصة": {
+   "letters": "ح ف ص ه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabiyya name; ة spelled ه"
+  },
+  "زينب": {
+   "letters": "ز ي ن ب",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabiyya name"
+  },
+  "جابر": {
+   "letters": "ج ا ب ر",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "سعد": {
+   "letters": "س ع د",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "أبو ذر": {
+   "letters": "ا ب و | ذ ر",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "مصعب": {
+   "letters": "م ص ع ب",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "صهيب": {
+   "letters": "ص ه ي ب",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name"
+  },
+  "علي رضي الله عنه": {
+   "letters": "ع ل ي",
+   "then": "رضي الله عنه",
+   "is_religious": true,
+   "review_status": "pending",
+   "note": "Sahabi name with its honorific (the bare «علي» is left to the preposition «على»)"
+  }
+ }
+}

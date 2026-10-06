@@ -1,0 +1,54 @@
+\chapter{Source endpoints and URLs}
+\label{app:urls}
+\begin{longtable}{L{4.3cm} L{11.2cm}}
+\toprule
+Resource & URL / identifier \\
+\midrule
+\endhead
+QuranEnc translation API & \url{https://quranenc.com/api/v1/translation/sura/english_saheeh/{n}} (also \code{turkish\_rwwad}, \code{urdu\_junagarhi}) \\
+HadeethEnc API & \url{https://hadeethenc.com/api/v1} (languages \code{ar}, \code{en}, \code{tr}, \code{ur}; root categories 1--7) \\
+Example hadith page & \url{https://hadeethenc.com/ar/browse/hadith/4563} \\
+Embedding model & \url{https://huggingface.co/intfloat/multilingual-e5-large} \\
+NVIDIA NIM models & \code{nvidia/nemotron-3-super-120b-a12b}, \code{nvidia/nemotron-3-ultra-550b-a55b} \cite{nvidianim} \\
+YouTube-ASL MIL Sign Spotter (Ours) & \url{https://huggingface.co/FatimahEmadEldin/youtube-asl-spotter} \\
+YouTube-ASL T5-Base SLT (Kaggle Baseline) & \url{https://huggingface.co/FatimahEmadEldin/ytasl-t5-base} \\
+YouTube-ASL T5-v1.1-Base SLT (Kaggle Baseline) & \url{https://huggingface.co/FatimahEmadEldin/ytasl-t5-v1_1-base} \\
+YouTube-ASL mT5-Base SLT (Kaggle Baseline) & \url{https://huggingface.co/FatimahEmadEldin/ytasl-mt5-base} \\
+Continuous RoPE Transformer Segmenter & \url{https://huggingface.co/sign-language-processing/segmentation} \\
+YouTube-ASL keypoints & \url{http://hdl.handle.net/11234/1-5898} \\
+WLASL & \url{https://github.com/dxli94/WLASL} \\
+KArSL-502 & \url{https://www.kaggle.com/datasets/yousefdotpy/karsl-502} \\
+ArabSign & \url{https://github.com/HamzahLuqman/ArabSign} \\
+WSLP & \url{https://huggingface.co/datasets/Exploration-Lab/WSLP} \\
+Obscure ASL & \url{https://www.youtube.com/@obscureasl} \\
+Tawasol Center & \url{https://www.youtube.com/@tawasol9282} \\
+Al-Kharj Qur'an curriculum & \url{https://www.youtube.com/channel/UCRpE_0EQWEJhf_8WCW6hxKg} \\
+Saudi sign dictionary explained & \url{https://www.youtube.com/channel/UCQiTnBVnBfvVYilcfjpKkMA} \\
+ArabicSignLanguage (unified dictionary) & \url{https://www.youtube.com/channel/UCg85d6jX2GANVz1msIvFvnA} \\
+DisabilityApps (Kuwaiti, unified, children's, scouts') & \url{https://www.youtube.com/channel/UCiILcu4Zyk_j4L8tEe2UmVQ} \\
+Mrami for Languages (Levantine Shorts) & \url{https://www.youtube.com/playlist?list=PLqZ7C4R4F6EJOnp0lRkKSM9RswCr6WBSG} \\
+T\.{I}D S\"ozl\"u\u{g}\"u channel & \url{https://www.youtube.com/channel/UCq2tlBndwWjJb2Zlf9QoOzQ} \\
+TiDiSLaM & \url{https://www.youtube.com/channel/UC7zHDrJRMxSd65cE3vxfksg} \\
+GDM 40 Islamic signs & \url{https://www.youtube.com/watch?v=L-lWEt7OeJk} \\
+Noor For Sign, Ramadan lesson & \url{https://www.youtube.com/watch?v=VWzAH0j56f4} \\
+\bottomrule
+\end{longtable}
+
+\chapter{Pose format}
+\label{app:pose}
+\begin{tabular}{l p{13cm}}
+\toprule
+Index & Joint \\
+\midrule
+0 & nose \\
+1 & neck (mid-shoulders; origin) \\
+2, 3, 4 & right shoulder, elbow, wrist \\
+5, 6, 7 & left shoulder, elbow, wrist \\
+8--28 & left hand, 21 MediaPipe landmarks (wrist, thumb 1--4, index 5--8, middle 9--12, ring 13--16, little 17--20) \\
+29--49 & right hand, same order \\
+\bottomrule
+\end{tabular}
+
+\noindent Units: the clip's median shoulder width; axes: $x$ right, $y$ down, $z$ away from the camera; 25 frames per
+second. Each lexicon entry records gloss, sign id, source dataset, path to the pose file, review status and whether the
+sign is religious or a letter.

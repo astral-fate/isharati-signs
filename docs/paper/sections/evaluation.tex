@@ -1,0 +1,61 @@
+\chapter{Experimental setup and evaluation metrics}
+\label{sec:evaluation}
+
+Isharati makes three kinds of claim, and each needs its own evidence: that the answer is faithful to the sources, that
+the right signs are chosen in an acceptable order, and that the produced signing can be understood. Table~\ref{tab:metrics}
+lists the measures, the reference each is checked against, and whether it has been measured.
+
+\begin{table}[ht]
+\centering\small
+\caption{Evaluation framework: what each metric verifies and where the verification comes from.}
+\label{tab:metrics}
+\begin{tabularx}{\textwidth}{L{2.7cm} L{3.3cm} Y L{2.2cm}}
+\toprule
+Metric & Verifies & Reference (where the verification comes from) & Status \\
+\midrule
+Per-sentence support & answer adds no facts & the cited Qur'an/hadith passages (automatic, every run) & built in \\
+Referral / unanswered rate & the system declines rather than guesses & question set with expected behaviour & planned \\
+Vocabulary coverage & the lexicon can sign the sources & every word of the Qur'an and hadith corpora & measured (4 modes) \\
+Gloss WER and recall & right signs, right order & ArabSign gold gloss sequences \cite{arabsign} (held-out half) & measured (AR) \\
+Back-translation gloss accuracy / WER & the produced pose is recognisable as the intended signs & a recogniser applied to the output, compared with the source glosses & baseline measured \\
+Back-translation BLEU / ROUGE & the signing carries the meaning & sentence recogniser + translation, compared with the answer text \cite{bleu,rouge} & measured (AR, 10 sentences) \\
+Human rating & comprehension and naturalness & Deaf signers and interpreters & planned \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Vocabulary coverage.} Every word of a corpus is counted, and a word is \emph{covered} if the lexicon matches
+it the way the glosser does (normalised form, lemma, prefix and plural rules). Two figures are reported: \emph{distinct
+words} covered, and \emph{occurrences} covered, where frequent words weigh more because a reader meets them more often.
+Function words that sign languages do not sign (\emph{the, of, is}; \ar{في، من}) are excluded from ``content words''.
+In English, proper names (1,142 words written capitalised at least 90\% of the time) are fingerspelled or given name
+signs in ASL, so the English \emph{vocabulary} figure excludes them; the rule is automatic and also removes some
+capitalised Islamic terms (\emph{fajr, ihram, witr, asr, jihad, ansar}), which the ``content words'' figure keeps.
+
+\paragraph{Gloss word error rate.} For text-to-gloss translation we compare the produced gloss sequence with a gold
+sequence by
+\begin{equation}
+\mathrm{WER} = \frac{S + D + I}{N},
+\end{equation}
+with $S$, $D$, $I$ the substitutions, deletions and insertions of a minimum edit alignment and $N$ the reference length
+\cite{wer}, the standard metric of continuous sign language recognition \cite{koller2015,signlanguagetransformers}. We
+also report recall, the share of gold glosses that appear in the output, which is not penalised by word order. The gold
+sequences are those of ArabSign \cite{arabsign}, produced by Deaf signers for 50 Arabic sentences; the odd-numbered
+sentences supply the glosser's ten word-order examples (dev), and the 25 even-numbered sentences are held out (test).
+
+\paragraph{Back-translation.} Faithfulness of the \emph{text} is verified against the sources by the support check.
+Faithfulness of the \emph{signing} is verified by back-translation, the standard automatic evaluation of sign
+production \cite{progressivetransformers}: the generated pose is recognised by a model that has not seen that
+recording, and the result is compared with what was meant to be signed. At the sign level the recognised glosses are
+scored by gloss accuracy and WER against the source glosses; at the sentence level, a pose-to-text model's output is
+scored by BLEU \cite{bleu} and ROUGE \cite{rouge} against the grounded answer. A low score flags a sign that is
+ambiguous, badly cut or distorted by the joins. The recogniser is used only to check the output and is never trained on
+Isharati's own outputs, which would let the system grade itself.
+
+\paragraph{Human evaluation (protocol).} No sign has been reviewed by Deaf signers for this project. Entries from the two
+curated datasets recorded by Deaf signers are marked approved on the strength of their source (ASL Citizen: 2,194
+entries; KArSL: 229); all other entries are \emph{pending review}. The protocol: (i) Deaf reviewers approve or reject
+each sign used by the demo answers, starting with religious terms; (ii) for a fixed set of 50 questions per language,
+reviewers rate comprehension (what was said) and naturalness on a 5-point scale for the skeleton and the avatar; (iii) a
+scholar checks the answers and the referral decisions. A video is released only when its source text is approved, every
+sign in it is approved and its back-translation accuracy passes a threshold.

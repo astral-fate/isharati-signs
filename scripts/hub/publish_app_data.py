@@ -1,0 +1,68 @@
+"""Publish the data files the application reads besides the corpora and lexicons (isharati-data) to their own private
+Hugging Face dataset, isharati-app-data, with a card that names each file's source, attribution and licence status.
+The code carries no data: the server downloads these on first use (isharati.app_data).
+
+  academy/diyanet_letters.npz   the Arabic letters in sign (Diyanet), per letter l01..l28: pose, face, blend
+  quran/quran.json              the Qur'an text, Uthmani and simple-clean, by surah and ayah
+
+  py scripts/hub/publish_app_data.py --letters PATH --quran PATH [--dry-run]
+
+Run with `env -u HF_TOKEN` (the hub login token is used).
+"""
+import shutil
+import sys
+from pathlib import Path
+
+REPO = "isharati-app-data"
+BUILD = Path(r"D:\islam\hub_build") / REPO
+
+CARD = """---
+license: other
+license_name: mixed
+pretty_name: "Isharati application data"
+tags:
+- sign-language
+- arabic-sign-language
+- quran
+---
+
+# Isharati application data
+
+Data files that the Isharati application downloads at start-up, kept out of the code repository so that every
+third-party source is published here once, with its attribution and licence status.
+
+| File | Content | Source | Licence status |
+|---|---|---|---|
+| `academy/diyanet_letters.npz` | The 28 Arabic letters in sign (Academy alphabet lessons): per letter `lNN/pose` [T,50,3] Isharati pose at 25 fps, `lNN/face` face contour points, `lNN/blend` face blendshape scores | Diyanet İşleri Başkanlığı, «İşaret Dili ile Kur'an», episode 30 (Arabic finger alphabet), cut per letter by `scripts/academy/diyanet_letters.py` | No licence stated by the publisher; private, permission to be requested from Diyanet İşleri Başkanlığı. Do not redistribute. |
+| `quran/quran.json` | The Qur'an by surah and ayah: `uthmani` and `clean` (no diacritics) text | Tanzil Project text (Uthmani and Simple-Clean editions), retrieved through the AlQuran Cloud API (api.alquran.cloud) | Tanzil Qur'an text, Creative Commons Attribution 3.0: copied verbatim, with this attribution to the Tanzil Project (tanzil.net). |
+
+The keypoints contain no video. The Diyanet clips' source videos belong to Diyanet İşleri Başkanlığı and are not included.
+
+Part of the Isharati project: https://github.com/astral-fate/isharati-signs
+"""
+
+
+def main():
+    a = sys.argv[1:]
+    letters = Path(a[a.index("--letters") + 1])
+    quran = Path(a[a.index("--quran") + 1])
+    if BUILD.exists():
+        shutil.rmtree(BUILD)
+    (BUILD / "academy").mkdir(parents=True)
+    (BUILD / "quran").mkdir()
+    shutil.copy(letters, BUILD / "academy" / "diyanet_letters.npz")
+    shutil.copy(quran, BUILD / "quran" / "quran.json")
+    (BUILD / "README.md").write_text(CARD, encoding="utf-8")
+    print("staged", sorted(str(p.relative_to(BUILD)) for p in BUILD.rglob("*") if p.is_file()))
+    if "--dry-run" in a:
+        return
+    from huggingface_hub import HfApi
+    api = HfApi()
+    repo = f"{api.whoami()['name']}/{REPO}"
+    api.create_repo(repo, repo_type="dataset", private=True, exist_ok=True)
+    api.upload_folder(repo_id=repo, repo_type="dataset", folder_path=str(BUILD), commit_message="Isharati application data")
+    print("published (private):", f"https://huggingface.co/datasets/{repo}")
+
+
+if __name__ == "__main__":
+    main()

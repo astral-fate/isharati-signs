@@ -1,0 +1,34 @@
+# data and secrets never enter the repository
+data/
+.env
+*.env
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+build/
+dist/
+# LaTeX build files
+docs/paper/*.aux
+docs/paper/*.log
+docs/paper/*.toc
+docs/paper/*.out
+docs/paper/*.bbl
+docs/paper/*.blg
+docs/paper/*.fls
+docs/paper/*.fdb_latexmk
+
+# editor and agent state
+.omc/
+.superpowers/
+.claude/
+
+web/node_modules/
+web/dist/
+
+# app data lives in the isharati-app-data dataset on the Hub (isharati.app_data)
+src/isharati/academy_data/
+web/public/data/
+src/isharati/app/static/data/

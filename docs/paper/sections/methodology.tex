@@ -1,0 +1,140 @@
+\chapter{Methodology}
+\label{sec:method}
+
+This section defines the concepts the system is built on and the models it uses; Chapters~\ref{sec:architecture}
+to~\ref{sec:production} then describe how they are combined.
+
+\section{Glosses, sign lexicons and poses}
+\paragraph{Gloss.} A gloss is the written label of a sign, conventionally in capitals (PRAYER, \ar{الصلاة}). A signed
+sentence is written as a gloss sequence in the order of the sign language, which differs from the spoken language:
+articles and the copula are dropped, and several words may become one sign. Glosses are the interface between text and
+signing: the answer is translated into glosses, and each gloss is looked up in the lexicon.
+
+\paragraph{Sign lexicon.} A sign lexicon is a dictionary from glosses to recorded signs. Each entry holds the gloss, a
+sign identifier, the source dataset, the recorded pose, a review status (\emph{approved} or \emph{pending}), and flags
+for religious terms and fingerspelling letters. One gloss may have several recordings; one is the canonical sign and
+another, by a different signer, is kept as a recognition template. The lexicon defines what the system can sign: a word
+is signable if, and only if, it can be matched to an entry.
+
+\paragraph{Pose.} A sign is stored not as video but as a pose sequence $P \in \mathbb{R}^{T\times 50\times 3}$: for each
+of $T$ frames (25 per second), 8 upper-body joints and 21 landmarks per hand, extracted with MediaPipe Holistic
+\cite{mediapipe,mediapipeholistic}. Raw coordinates $\mathbf{x}_{t,j}$ are normalised per clip,
+\begin{equation}
+\hat{\mathbf{x}}_{t,j} = \frac{\mathbf{x}_{t,j} - \mathbf{x}_{t,\mathrm{neck}}}{\operatorname{median}_t \lVert
+\mathbf{x}_{t,\mathrm{Rsh}} - \mathbf{x}_{t,\mathrm{Lsh}} \rVert},
+\end{equation}
+so that the neck is the origin and the unit is the signer's shoulder width; signs recorded by different people at
+different distances then share one coordinate system and can be joined (Appendix~\ref{app:pose}).
+
+\paragraph{Comparing signs.} Two recordings of a sign differ in speed, so they are compared by dynamic time warping
+(DTW) \cite{dtw}, which aligns the frames of two sequences $A$ and $B$ monotonically before summing their distances:
+\begin{equation}
+D(i,j) = \lVert \mathbf{a}_i - \mathbf{b}_j \rVert + \min\{D(i-1,j),\, D(i,j-1),\, D(i-1,j-1)\}.
+\end{equation}
+The canonical sign of a gloss is the DTW medoid of its recordings (the recording with the smallest total distance to
+the others), and the back-translation baseline recognises a sign by its DTW nearest neighbour among templates.
+
+\section{Lexical matching and morphological analysis}
+\emph{Lexical matching} compares a word with the lexicon's glosses as written, after orthographic normalisation.
+It fails whenever the text uses a form the dictionary does not list: a plural, a conjugated verb, or a word with an
+attached conjunction or preposition. \emph{Morphological analysis} recovers the parts of a word (prefixes, stem,
+suffixes) and its \emph{lemma}, the dictionary form shared by all its inflections, so that \ar{الصلوات} (the prayers)
+finds the sign \ar{الصلاة} (prayer). How much analysis is needed depends on the language (Table~\ref{tab:morph}).
+
+\begin{table}[ht]
+\centering\small
+\caption{Lexical normalisation and morphological analysis per language, applied in the same way to the corpus, the
+retrieval index, the support check and the lexicon lookup.}
+\label{tab:morph}
+\begin{tabularx}{\textwidth}{L{1.6cm} L{4.2cm} Y}
+\toprule
+Language & Morphology & Analysis used \\
+\midrule
+English & light inflection & lower-casing, accent folding, possessive removal; irregular forms (\emph{went} $\rightarrow$
+\emph{go}) and suffix rules (\emph{-ies, -es, -s, -ing, -ed, -ly}) \\
+Arabic & root-and-pattern words; attached conjunctions, prepositions, article and pronouns; broken plurals &
+orthographic normalisation (alef and hamza forms, taa marbuta, diacritics); clitic stripping (\ar{و، ف، ب، ك، ل، ال},
+pronoun suffixes); lemmas from the CAMeL Tools morphological analyser \cite{camel}; regular plurals to singular; number
+words to digits \\
+Turkish & agglutinative: chains of suffixes on a stem & Turkish-specific casing (\emph{I/\i}, \emph{\.I/i}); the first five
+letters as the stem, a simple and robust choice for Turkish retrieval \\
+Urdu & separate postpositions; plural and oblique suffixes & folding of Arabic-script letter variants
+(\ar{ي/ی}, \ar{ك/ک}, \ar{ه/ہ}); removal of the plural and oblique suffixes \ar{وں، یں، ات، ے} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Arabic in detail.} Arabic is the hardest case. A written word such as \ar{وبالصلوات} is \ar{و} (and) +
+\ar{ب} (with) + \ar{ال} (the) + \ar{صلوات} (prayers), and \ar{صلوات} is the plural of \ar{صلاة}. CAMeL Tools proposes,
+for each word, all its morphological analyses with part of speech and lemma; we keep the noun and adjective lemmas,
+most frequent first. Because Arabic is written without short vowels, one spelling can be several words: \ar{كفر}
+(disbelief) and the verb \ar{تكفر} (expiates) share letters, and \ar{شر} (evil) is a prefix of \ar{شرك} (polytheism).
+Three guards keep analysis from changing the meaning: a word that can only be a verb matches only its exact form; a
+two-letter sign matches only after a prefix was removed or when the analyser gives it as the lemma; and a sign is never
+matched inside a longer word that keeps an initial alef (\ar{إسلام} is not \ar{سلام}, peace).
+
+\section{Retrieval-augmented generation}
+A large language model writes fluent text, but on its own it answers from what it absorbed in training and can state
+plausible errors. \emph{Retrieval-augmented generation} (RAG) \cite{rag} separates knowing from writing: a
+\emph{retriever} first selects passages from a trusted collection, and the \emph{generator} (the language model) writes
+the answer from those passages, citing them. In Isharati the collection is the Qur'an and the authenticated hadith
+(Chapter~\ref{sec:knowledge}), and grounding is enforced after generation by checking every sentence against its
+citations. Two complementary retrievers are combined.
+
+\paragraph{Lexical retrieval (BM25).} BM25 \cite{bm25} scores a passage $d$ for a query $q$ by the query terms it
+contains, weighting rare terms more and long passages less:
+\begin{equation}
+\mathrm{BM25}(q,d) = \sum_{t \in q} \mathrm{IDF}(t)\,
+\frac{f(t,d)\,(k_1 + 1)}{f(t,d) + k_1\left(1 - b + b\,\frac{|d|}{\mathrm{avgdl}}\right)},
+\end{equation}
+with $f(t,d)$ the frequency of term $t$ in $d$, $|d|$ the passage length, avgdl the average length, and $k_1 = 1.2$,
+$b = 0.75$. Terms are the normalised forms of Table~\ref{tab:morph}. BM25 is exact: it finds names and technical terms,
+but misses a passage that says the same thing in other words.
+
+\paragraph{Dense retrieval (embeddings).} An \emph{embedding} model maps a text to a vector such that texts with similar
+meaning have nearby vectors; relevance is the cosine similarity $\cos(\mathbf{e}_q, \mathbf{e}_d)$ between the query and
+passage vectors. Dense retrieval finds paraphrases and related wording (\ar{الخسوف} also finds \ar{كسوف}, both eclipse
+terms) that share no word with the query. We use multilingual E5-large \cite{me5}, initialised from XLM-RoBERTa-large
+\cite{xlmr}: 24 layers, 1024-dimensional embeddings, 100 languages, trained first by contrastive learning on more than a
+billion weakly paired texts and then fine-tuned on labelled retrieval data. Inputs are prefixed with \code{query:} or
+\code{passage:} as the model requires, truncated to its 512-token limit, and vectors are unit-normalised. One model
+serves all four languages. Every passage of each corpus is embedded once; a question is embedded at query time.
+
+\paragraph{Fusion.} The two rankings are combined by reciprocal rank fusion \cite{rrf} (Chapter~\ref{sec:knowledge}),
+which adds $1/(K + \mathrm{rank})$ over the rankings and so rewards passages that both retrievers place high, without
+having to calibrate their scores against each other.
+
+\section{Language models}
+Language models are used for five tasks: expanding the question into search keywords, choosing the most direct
+passage, writing the cited answer, translating the answer into glosses, and (offline) proposing concept mappings for
+uncovered words. All calls use temperature 0. The models are open-weight, so the system can be moved to self-hosted
+inference; for the prototype they are called through hosted APIs, in a fallback chain: if a model does not answer within
+25\,s, the next is tried (Table~\ref{tab:llms}).
+
+\begin{table}[ht]
+\centering\small
+\caption{Language models used, in fallback order.}
+\label{tab:llms}
+\begin{tabularx}{\textwidth}{L{3.3cm} L{2.4cm} Y L{2.1cm}}
+\toprule
+Model & Parameters & Architecture & Access \\
+\midrule
+Nemotron 3 Super 120B-A12B \cite{nemotron3super} & 120B total, 12B active per token & hybrid Mamba-2 / attention mixture
+of experts, 1M-token context; NVIDIA open model licence & NVIDIA NIM \cite{nvidianim} \\
+Nemotron 3 Ultra 550B-A55B \cite{nemotron3ultra} & 550B total, 55B active & same family, larger & NVIDIA NIM \\
+gpt-oss-120b \cite{gptoss} & 117B total, 5.1B active & mixture of experts, reasoning model; Apache 2.0 & Groq \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Nemotron's step-by-step reasoning mode is switched off, because the outputs must be short, structured answers. A reply
+that turns out to be the model's reasoning rather than its answer is treated as a failure and passed to the next model.
+For gpt-oss, a reasoning model, the token budget is raised so that its reasoning does not exhaust it before the answer.
+
+\section{Lexicon-constrained glossing}
+Translation into glosses is done by the language model, not by rules, because sign order and the choice between
+synonyms need context. The model is given the answer, the lexicon's gloss list and examples of sign-language order, and
+must use only listed glosses; every gloss it returns is checked against the lexicon, so it cannot invent a sign. Words
+with no sign are reported as missing rather than fingerspelled. The Arabic glosser adds the morphological matching above,
+phrase signs (\ar{محمد رسول الله}), pronoun mapping and ten word-order examples from ArabSign \cite{arabsign}
+(Section~\ref{sec:glossing}).

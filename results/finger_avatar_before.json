@@ -1,0 +1,8 @@
+{
+ "tag": "before",
+ "model": "avatar.vrm",
+ "hand_frames": 1472,
+ "implausible_keypoints": 0.231,
+ "implausible_avatar": 0.224,
+ "fidelity_deg": 0.3
+}

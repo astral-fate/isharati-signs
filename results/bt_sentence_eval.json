@@ -1,0 +1,1191 @@
+{
+ "recognizer": "dtw-1nn-heldout-signer",
+ "llm": "nvidia/nemotron-3-super-120b-a12b",
+ "sentences": [
+  [
+   "إنما الأعمال بالنيات",
+   "Bukhari 1"
+  ],
+  [
+   "الدين النصيحة",
+   "Muslim 55"
+  ],
+  [
+   "المسلم أخو المسلم",
+   "Bukhari 2442"
+  ],
+  [
+   "الطهور شطر الإيمان",
+   "Muslim 223"
+  ],
+  [
+   "الصدق يهدي إلى البر",
+   "Bukhari 6094"
+  ],
+  [
+   "الحمد لله رب العالمين",
+   "al-Fatihah 1:2"
+  ],
+  [
+   "أقيموا الصلاة وآتوا الزكاة",
+   "al-Baqarah 2:43"
+  ],
+  [
+   "صوم رمضان فرض على كل مسلم",
+   "statement"
+  ],
+  [
+   "الحج ركن من أركان الإسلام",
+   "statement"
+  ],
+  [
+   "الله رحيم بعباده",
+   "statement"
+  ]
+ ],
+ "runs": [
+  {
+   "rows": [
+    {
+     "text": "إنما الأعمال بالنيات",
+     "source": "Bukhari 1",
+     "glosses": [
+      "النية"
+     ],
+     "missing": [],
+     "recognized": [
+      "غدر"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "النية",
+     "pose_to_text": "غدر",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.998483487123902,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 0.0,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الدين النصيحة",
+     "source": "Muslim 55",
+     "glosses": [
+      "نصيحة",
+      "دين"
+     ],
+     "missing": [],
+     "recognized": [
+      "سكين",
+      "التهاب"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "نصيحة في الدين",
+     "pose_to_text": "سكين التهاب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 47.58417508417508,
+       "rouge1": 40.0,
+       "rouge2": 0.0,
+       "rougeL": 40.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 18.74923141016471,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "المسلم أخو المسلم",
+     "source": "Bukhari 2442",
+     "glosses": [
+      "مسلم",
+      "أخ",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "وجه",
+      "إسهال",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 3,
+     "gloss_to_text": "مسلم أخ مسلم",
+     "pose_to_text": "وجه - إسهال - وجه",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 41.76814178005915,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 7.131264785168069,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الطهور شطر الإيمان",
+     "source": "Muslim 223",
+     "glosses": [
+      "طهارة",
+      "نصف",
+      "إيمان"
+     ],
+     "missing": [],
+     "recognized": [
+      "طهارة",
+      "غدر",
+      "واجبات"
+     ],
+     "gloss_acc": 0.3333333333333333,
+     "gloss_wer": 0.6666666666666666,
+     "in_templates": 2,
+     "gloss_to_text": "نصف الإيمان طهارة",
+     "pose_to_text": "طهارة - غدر - واجبات",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 38.05748907902552,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 9.68857463003748,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الصدق يهدي إلى البر",
+     "source": "Bukhari 6094",
+     "glosses": [
+      "صدق",
+      "بر"
+     ],
+     "missing": [
+      "يهدي"
+     ],
+     "recognized": [
+      "أناني",
+      "إمام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صدق - بر",
+     "pose_to_text": "أنا أناني - إمام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.642280221614044,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 5.559735808042806,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحمد لله رب العالمين",
+     "source": "al-Fatihah 1:2",
+     "glosses": [
+      "الحمد",
+      "هو",
+      "رب",
+      "عالم"
+     ],
+     "missing": [],
+     "recognized": [
+      "التهاب",
+      "فروض",
+      "الشهادتين",
+      "أركان الإسلام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الحمد لله رب العالمين",
+     "pose_to_text": "التهاب فروض الشهادتين أركان الإسلام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 14.728548930503326,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "أقيموا الصلاة وآتوا الزكاة",
+     "source": "al-Baqarah 2:43",
+     "glosses": [
+      "الصلاة",
+      "الزكاة"
+     ],
+     "missing": [
+      "أقيموا",
+      "آتوا"
+     ],
+     "recognized": [
+      "مرتبك",
+      "الزكاة"
+     ],
+     "gloss_acc": 0.5,
+     "gloss_wer": 0.5,
+     "in_templates": 2,
+     "gloss_to_text": "الصلاة والزكاة",
+     "pose_to_text": "الزكاة مرتبك",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 46.57226970655865,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 20.24493105372506,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      }
+     }
+    },
+    {
+     "text": "صوم رمضان فرض على كل مسلم",
+     "source": "statement",
+     "glosses": [
+      "صوم",
+      "رمضان",
+      "فرض",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "ينام",
+      "إمام",
+      "فروض",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صوم رمضان فرض على المسلم",
+     "pose_to_text": "الإمام يواجه فروضه وهو نائم",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 54.75182535069452,
+       "chrf": 78.83793429652562,
+       "rouge1": 72.72727272727272,
+       "rouge2": 66.66666666666666,
+       "rougeL": 72.72727272727272
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 9.750022814587455,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحج ركن من أركان الإسلام",
+     "source": "statement",
+     "glosses": [
+      "الحج",
+      "رُكن",
+      "إسلام"
+     ],
+     "missing": [
+      "أركان"
+     ],
+     "recognized": [
+      "حول",
+      "فلاح",
+      "2"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "الحج ركن من أركان الإسلام",
+     "pose_to_text": "حول الفلاح 2",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 8.128688368551305,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الله رحيم بعباده",
+     "source": "statement",
+     "glosses": [
+      "الله",
+      "رحيم",
+      "عابد"
+     ],
+     "missing": [],
+     "recognized": [
+      "إمام",
+      "نبض القلب",
+      "يدخل"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الله رحيم عابد",
+     "pose_to_text": "الإمام يدخل نبض القلب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 55.03212081491043,
+       "chrf": 53.21358974437088,
+       "rouge1": 66.66666666666666,
+       "rouge2": 50.0,
+       "rougeL": 66.66666666666666
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 11.342921725181379,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    }
+   ],
+   "gloss_to_text": {
+    "bleu": 50.57847714810896,
+    "chrf": 57.16665433007847,
+    "rouge1": 44.6060606060606,
+    "rouge2": 31.666666666666664,
+    "rougeL": 44.6060606060606
+   },
+   "pose_to_text": {
+    "bleu": 2.0723588031392803,
+    "chrf": 10.780237891776995,
+    "rouge1": 3.3333333333333335,
+    "rouge2": 0.0,
+    "rougeL": 3.3333333333333335
+   },
+   "gloss_acc": 0.08333333333333333,
+   "gloss_wer": 0.9166666666666666
+  },
+  {
+   "rows": [
+    {
+     "text": "إنما الأعمال بالنيات",
+     "source": "Bukhari 1",
+     "glosses": [
+      "النية"
+     ],
+     "missing": [
+      "الأعمال"
+     ],
+     "recognized": [
+      "غدر"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "النية",
+     "pose_to_text": "غدر",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.998483487123902,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 0.0,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الدين النصيحة",
+     "source": "Muslim 55",
+     "glosses": [
+      "نصيحة",
+      "دين"
+     ],
+     "missing": [],
+     "recognized": [
+      "سكين",
+      "التهاب"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "نصيحة في الدين",
+     "pose_to_text": "سكين - التهاب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 47.58417508417508,
+       "rouge1": 40.0,
+       "rouge2": 0.0,
+       "rougeL": 40.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 18.74923141016471,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "المسلم أخو المسلم",
+     "source": "Bukhari 2442",
+     "glosses": [
+      "مسلم",
+      "أخ",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "وجه",
+      "إسهال",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 3,
+     "gloss_to_text": "مسلم أخ مسلم",
+     "pose_to_text": "وجه - إسهال - وجه",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 41.76814178005915,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 7.131264785168069,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الطهور شطر الإيمان",
+     "source": "Muslim 223",
+     "glosses": [
+      "طهارة",
+      "نصف",
+      "إيمان"
+     ],
+     "missing": [],
+     "recognized": [
+      "طهارة",
+      "غدر",
+      "واجبات"
+     ],
+     "gloss_acc": 0.3333333333333333,
+     "gloss_wer": 0.6666666666666666,
+     "in_templates": 2,
+     "gloss_to_text": "نصف الإيمان طهارة",
+     "pose_to_text": "طهارة - غدر - واجبات",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 38.05748907902552,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 9.68857463003748,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الصدق يهدي إلى البر",
+     "source": "Bukhari 6094",
+     "glosses": [
+      "صدق",
+      "بر"
+     ],
+     "missing": [
+      "يهدي"
+     ],
+     "recognized": [
+      "أناني",
+      "إمام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صدق - بر",
+     "pose_to_text": "أنا أناني - إمام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.642280221614044,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 5.559735808042806,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحمد لله رب العالمين",
+     "source": "al-Fatihah 1:2",
+     "glosses": [
+      "الحمد",
+      "هو",
+      "رب",
+      "عالم"
+     ],
+     "missing": [],
+     "recognized": [
+      "التهاب",
+      "فروض",
+      "الشهادتين",
+      "أركان الإسلام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الحمد لله رب العالمين",
+     "pose_to_text": "التهاب فروض الشهادتين أركان الإسلام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 14.728548930503326,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "أقيموا الصلاة وآتوا الزكاة",
+     "source": "al-Baqarah 2:43",
+     "glosses": [
+      "الصلاة",
+      "الزكاة"
+     ],
+     "missing": [
+      "أقيموا",
+      "آتوا"
+     ],
+     "recognized": [
+      "مرتبك",
+      "الزكاة"
+     ],
+     "gloss_acc": 0.5,
+     "gloss_wer": 0.5,
+     "in_templates": 2,
+     "gloss_to_text": "الصلاة والزكاة",
+     "pose_to_text": "الزكاة مرتبك",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 46.57226970655865,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 20.24493105372506,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      }
+     }
+    },
+    {
+     "text": "صوم رمضان فرض على كل مسلم",
+     "source": "statement",
+     "glosses": [
+      "صوم رمضان",
+      "فرض",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "تحت",
+      "فروض",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صوم رمضان فرض على المسلم",
+     "pose_to_text": "تحت - فروض - وجه",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 54.75182535069452,
+       "chrf": 78.83793429652562,
+       "rouge1": 72.72727272727272,
+       "rouge2": 66.66666666666666,
+       "rougeL": 72.72727272727272
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 4.684317718940936,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحج ركن من أركان الإسلام",
+     "source": "statement",
+     "glosses": [
+      "الحج",
+      "رُكن",
+      "إسلام"
+     ],
+     "missing": [
+      "أركان"
+     ],
+     "recognized": [
+      "حول",
+      "فلاح",
+      "2"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "الحج ركن من أركان الإسلام",
+     "pose_to_text": "حول الفلاح 2",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 8.128688368551305,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الله رحيم بعباده",
+     "source": "statement",
+     "glosses": [
+      "الله",
+      "رحيم",
+      "عابد"
+     ],
+     "missing": [],
+     "recognized": [
+      "إمام",
+      "نبض القلب",
+      "يدخل"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الله رحيم عابد",
+     "pose_to_text": "الإمام يدخل نبض القلب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 55.03212081491043,
+       "chrf": 53.21358974437088,
+       "rouge1": 66.66666666666666,
+       "rouge2": 50.0,
+       "rougeL": 66.66666666666666
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 11.342921725181379,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    }
+   ],
+   "gloss_to_text": {
+    "bleu": 50.57847714810896,
+    "chrf": 57.16665433007847,
+    "rouge1": 44.6060606060606,
+    "rouge2": 31.666666666666664,
+    "rougeL": 44.6060606060606
+   },
+   "pose_to_text": {
+    "bleu": 2.3663632867826205,
+    "chrf": 10.249309161264533,
+    "rouge1": 3.3333333333333335,
+    "rouge2": 0.0,
+    "rougeL": 3.3333333333333335
+   },
+   "gloss_acc": 0.08333333333333333,
+   "gloss_wer": 0.9166666666666666
+  },
+  {
+   "rows": [
+    {
+     "text": "إنما الأعمال بالنيات",
+     "source": "Bukhari 1",
+     "glosses": [
+      "النية"
+     ],
+     "missing": [
+      "الأعمال"
+     ],
+     "recognized": [
+      "غدر"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "النية",
+     "pose_to_text": "غدر",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.998483487123902,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 0.0,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الدين النصيحة",
+     "source": "Muslim 55",
+     "glosses": [
+      "نصيحة",
+      "دين"
+     ],
+     "missing": [],
+     "recognized": [
+      "سكين",
+      "التهاب"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "نصيحة في الدين",
+     "pose_to_text": "سكين التهاب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 47.58417508417508,
+       "rouge1": 40.0,
+       "rouge2": 0.0,
+       "rougeL": 40.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 18.74923141016471,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "المسلم أخو المسلم",
+     "source": "Bukhari 2442",
+     "glosses": [
+      "مسلم",
+      "أخ",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "وجه",
+      "إسهال",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 3,
+     "gloss_to_text": "مسلم أخ مسلم",
+     "pose_to_text": "وجه - إسهال - وجه",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 41.76814178005915,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 7.131264785168069,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الطهور شطر الإيمان",
+     "source": "Muslim 223",
+     "glosses": [
+      "طهارة",
+      "نصف",
+      "إيمان"
+     ],
+     "missing": [],
+     "recognized": [
+      "طهارة",
+      "غدر",
+      "واجبات"
+     ],
+     "gloss_acc": 0.3333333333333333,
+     "gloss_wer": 0.6666666666666666,
+     "in_templates": 2,
+     "gloss_to_text": "نصف الإيمان طهارة",
+     "pose_to_text": "طهارة - غدر - واجبات",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 27.516060407455225,
+       "chrf": 38.05748907902552,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 9.68857463003748,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الصدق يهدي إلى البر",
+     "source": "Bukhari 6094",
+     "glosses": [
+      "صدق",
+      "بر"
+     ],
+     "missing": [
+      "يهدي"
+     ],
+     "recognized": [
+      "أناني",
+      "إمام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صدق - بر",
+     "pose_to_text": "أنا أناني - إمام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 0.0,
+       "chrf": 13.642280221614044,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 5.559735808042806,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحمد لله رب العالمين",
+     "source": "al-Fatihah 1:2",
+     "glosses": [
+      "الحمد",
+      "هو",
+      "رب",
+      "عالم"
+     ],
+     "missing": [],
+     "recognized": [
+      "التهاب",
+      "فروض",
+      "الشهادتين",
+      "أركان الإسلام"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الحمد لله رب العالمين",
+     "pose_to_text": "التهاب فروض الشهادتين أركان الإسلام",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 14.728548930503326,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "أقيموا الصلاة وآتوا الزكاة",
+     "source": "al-Baqarah 2:43",
+     "glosses": [
+      "الصلاة",
+      "الزكاة"
+     ],
+     "missing": [
+      "أقيموا",
+      "آتوا"
+     ],
+     "recognized": [
+      "مرتبك",
+      "الزكاة"
+     ],
+     "gloss_acc": 0.5,
+     "gloss_wer": 0.5,
+     "in_templates": 2,
+     "gloss_to_text": "الصلاة والزكاة",
+     "pose_to_text": "الزكاة مرتبك",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 46.57226970655865,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      },
+      "pose_to_text": {
+       "bleu": 18.393972058572114,
+       "chrf": 20.24493105372506,
+       "rouge1": 33.33333333333333,
+       "rouge2": 0.0,
+       "rougeL": 33.33333333333333
+      }
+     }
+    },
+    {
+     "text": "صوم رمضان فرض على كل مسلم",
+     "source": "statement",
+     "glosses": [
+      "صوم رمضان",
+      "فرض",
+      "مسلم"
+     ],
+     "missing": [],
+     "recognized": [
+      "تحت",
+      "فروض",
+      "وجه"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 1,
+     "gloss_to_text": "صوم رمضان فرض على المسلم",
+     "pose_to_text": "تحت - فروض - وجه",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 54.75182535069452,
+       "chrf": 78.83793429652562,
+       "rouge1": 72.72727272727272,
+       "rouge2": 66.66666666666666,
+       "rougeL": 72.72727272727272
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 4.684317718940936,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    },
+    {
+     "text": "الحج ركن من أركان الإسلام",
+     "source": "statement",
+     "glosses": [
+      "الحج",
+      "رُكن",
+      "أركان الإسلام",
+      "إسلام"
+     ],
+     "missing": [],
+     "recognized": [
+      "حول",
+      "فلاح",
+      "الحج",
+      "2"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 2,
+     "gloss_to_text": "الحج ركن من أركان الإسلام",
+     "pose_to_text": "حول الفلاح الحج 2",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 100.00000000000004,
+       "chrf": 100.0,
+       "rouge1": 100.0,
+       "rouge2": 100.0,
+       "rougeL": 100.0
+      },
+      "pose_to_text": {
+       "bleu": 12.44023474812678,
+       "chrf": 15.078171013098766,
+       "rouge1": 22.222222222222225,
+       "rouge2": 0.0,
+       "rougeL": 22.222222222222225
+      }
+     }
+    },
+    {
+     "text": "الله رحيم بعباده",
+     "source": "statement",
+     "glosses": [
+      "الله",
+      "رحيم",
+      "عابد"
+     ],
+     "missing": [],
+     "recognized": [
+      "إمام",
+      "نبض القلب",
+      "يدخل"
+     ],
+     "gloss_acc": 0.0,
+     "gloss_wer": 1.0,
+     "in_templates": 0,
+     "gloss_to_text": "الله رحيم عابد",
+     "pose_to_text": "الإمام يدخل نبض القلب",
+     "scores": {
+      "gloss_to_text": {
+       "bleu": 55.03212081491043,
+       "chrf": 53.21358974437088,
+       "rouge1": 66.66666666666666,
+       "rouge2": 50.0,
+       "rougeL": 66.66666666666666
+      },
+      "pose_to_text": {
+       "bleu": 0.0,
+       "chrf": 11.342921725181379,
+       "rouge1": 0.0,
+       "rouge2": 0.0,
+       "rougeL": 0.0
+      }
+     }
+    }
+   ],
+   "gloss_to_text": {
+    "bleu": 50.57847714810896,
+    "chrf": 57.16665433007847,
+    "rouge1": 44.6060606060606,
+    "rouge2": 31.666666666666664,
+    "rougeL": 44.6060606060606
+   },
+   "pose_to_text": {
+    "bleu": 2.6120178746485485,
+    "chrf": 11.073931530767808,
+    "rouge1": 5.555555555555555,
+    "rouge2": 0.0,
+    "rougeL": 5.555555555555555
+   },
+   "gloss_acc": 0.08333333333333333,
+   "gloss_wer": 0.9166666666666666
+  }
+ ]
+}

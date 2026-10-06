@@ -1,0 +1,119 @@
+{
+ "per_lesson": {
+  "pillars": {
+   "gloss_acc": 0.3333333333333333,
+   "wer": 0.6666666666666666,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.0003334999782964587,
+    "pose": 0.10523709998233244,
+    "backtranslate": 1.3647133000195026,
+    "render": 2.8416527999797836
+   }
+  },
+  "intention": {
+   "gloss_acc": 0.0,
+   "wer": 0.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00020379998022690415,
+    "pose": 0.03467850002925843,
+    "backtranslate": 1.479999627918005e-05,
+    "render": 1.796120399958454
+   }
+  },
+  "wudu": {
+   "gloss_acc": 0.3333333333333333,
+   "wer": 0.6666666666666666,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00028440001187846065,
+    "pose": 0.01057419995777309,
+    "backtranslate": 1.2740697999834083,
+    "render": 2.880678500048816
+   }
+  },
+  "prayer_zakat": {
+   "gloss_acc": 0.3333333333333333,
+   "wer": 0.6666666666666666,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00017909996677190065,
+    "pose": 0.005530000024009496,
+    "backtranslate": 1.4436692000017501,
+    "render": 1.1513859000406228
+   }
+  },
+  "tawhid": {
+   "gloss_acc": 0.0,
+   "wer": 0.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00025679997634142637,
+    "pose": 0.005878700001630932,
+    "backtranslate": 1.5400000847876072e-05,
+    "render": 3.407041999977082
+   }
+  },
+  "mercy": {
+   "gloss_acc": 1.0,
+   "wer": 0.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.0001238000113517046,
+    "pose": 0.002958600001875311,
+    "backtranslate": 0.42464869999093935,
+    "render": 1.0879177000024356
+   }
+  },
+  "honesty": {
+   "gloss_acc": 0.0,
+   "wer": 1.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00017899996601045132,
+    "pose": 0.05075190000934526,
+    "backtranslate": 1.9734552000300027,
+    "render": 1.0521944000502117
+   }
+  },
+  "salam": {
+   "gloss_acc": 1.0,
+   "wer": 0.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00012509996304288507,
+    "pose": 0.0030998000293038785,
+    "backtranslate": 0.4191422999720089,
+    "render": 1.273094400006812
+   }
+  },
+  "fasting": {
+   "gloss_acc": 0.0,
+   "wer": 1.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00018960004672408104,
+    "pose": 0.0006635000463575125,
+    "backtranslate": 0.5043601999641396,
+    "render": 1.934927600028459
+   }
+  },
+  "parents": {
+   "gloss_acc": 0.0,
+   "wer": 1.0,
+   "publishable": false,
+   "timings": {
+    "gloss": 0.00016679998952895403,
+    "pose": 0.006517399975564331,
+    "backtranslate": 0.9013292000163347,
+    "render": 1.3444622999522835
+   }
+  }
+ },
+ "recognizer": "dtw-1nn-heldout-signer",
+ "mean_gloss_acc": 0.3,
+ "mean_wer": 0.5,
+ "git_sha": "093f64f",
+ "created": "2026-09-30T02:04:23"
+}

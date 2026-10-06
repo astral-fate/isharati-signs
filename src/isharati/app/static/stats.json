@@ -1,0 +1,126 @@
+{
+ "languages": [
+  {
+   "code": "en",
+   "name": "English",
+   "sign_language": "ASL",
+   "signs": 3677,
+   "glosses": 3677,
+   "passages": 8564,
+   "coverage": 0.8305
+  },
+  {
+   "code": "ar",
+   "name": "Arabic",
+   "sign_language": "ArSL",
+   "signs": 6658,
+   "glosses": 6610,
+   "passages": 9810,
+   "coverage": 0.6128
+  },
+  {
+   "code": "tr",
+   "name": "Turkish",
+   "sign_language": "TİD",
+   "signs": 4827,
+   "glosses": 4491,
+   "passages": 8386,
+   "coverage": 0.7567
+  },
+  {
+   "code": "ur",
+   "name": "Urdu",
+   "sign_language": "ISL · PSL",
+   "signs": 10233,
+   "glosses": 8402,
+   "passages": 8456,
+   "coverage": 0.7207,
+   "signs_by_source": {
+    "cislr": 3965,
+    "wslp": 4056,
+    "islrtc": 966,
+    "psl": 1246
+   },
+   "glosses_by_source": {
+    "cislr": 3965,
+    "wslp": 4020,
+    "islrtc": 966,
+    "psl": 1246
+   }
+  }
+ ],
+ "distinct_passages": 9810,
+ "licences": [
+  {
+   "source": "Qur'an, Arabic (IslamicEval 2025 canonical text)",
+   "licence": "shared-task release",
+   "use": "corpus"
+  },
+  {
+   "source": "Qur'an translations (QuranEnc: Saheeh Intl., Rowwad, Junagarhi)",
+   "licence": "QuranEnc terms (to be confirmed)",
+   "use": "corpus"
+  },
+  {
+   "source": "Hadith (HadeethEnc)",
+   "licence": "HadeethEnc terms (to be confirmed)",
+   "use": "corpus"
+  },
+  {
+   "source": "ASL Citizen",
+   "licence": "Microsoft Research licence: non-commercial, no redistribution",
+   "use": "en lexicon"
+  },
+  {
+   "source": "WLASL, MS-ASL",
+   "licence": "C-UDA, research use",
+   "use": "en lexicon"
+  },
+  {
+   "source": "GDM Islamic signs, Noor For Sign, Obscure ASL (YouTube)",
+   "licence": "not stated; permission to be requested",
+   "use": "en lexicon"
+  },
+  {
+   "source": "KArSL-502",
+   "licence": "research use",
+   "use": "ar lexicon"
+  },
+  {
+   "source": "Qur'an curriculum, Tawasol, Saudi/Arabic dictionary, ArabicSignLanguage, DisabilityApps, Levantine Shorts (YouTube)",
+   "licence": "not stated; permission to be requested",
+   "use": "ar lexicon"
+  },
+  {
+   "source": "TİD Sözlüğü (YouTube)",
+   "licence": "not stated; permission to be requested",
+   "use": "tr lexicon"
+  },
+  {
+   "source": "TiDiSLaM (YouTube, Islamic terms in TİD)",
+   "licence": "not stated; permission to be requested",
+   "use": "tr lexicon"
+  },
+  {
+   "source": "AUTSL (Ankara University TSL dataset)",
+   "licence": "academic and research use only, no commercial use",
+   "use": "tr lexicon"
+  },
+  {
+   "source": "WSLP 2025",
+   "licence": "CC BY-NC-ND 4.0",
+   "use": "ur lexicon"
+  },
+  {
+   "source": "CISLR",
+   "licence": "AFL-3.0",
+   "use": "ur lexicon"
+  },
+  {
+   "source": "PSL dictionary, FESF / Deaf Reach (psl.org.pk)",
+   "licence": "all rights reserved; permission to be requested",
+   "use": "ur lexicon"
+  }
+ ],
+ "created": "2026-10-06"
+}

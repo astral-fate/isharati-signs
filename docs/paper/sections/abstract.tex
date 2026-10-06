@@ -1,0 +1,48 @@
+\begin{abstract}
+\noindent Deaf Muslims often meet the Qur'an and hadith only in a written second language, and the signed Islamic
+content that exists is scarce and unsourced. We present Isharati, a system that answers a question about Islam in a
+sign language using only verified sources. Hybrid retrieval (BM25 fused with multilingual E5 embeddings by reciprocal
+rank fusion) selects passages from the Qur'an (6,236 verses) and the HadeethEnc encyclopedia of authenticated hadith
+(2,150--3,574 hadith per language); a language model writes a short answer whose every sentence must be supported by the
+passages it cites, a sentence that cites only Qur'an verses must reproduce a verse's wording, and questions asking for a religious ruling are referred to
+scholars. The answer is translated into a gloss sequence by a language model restricted to a sign lexicon, with Arabic
+morphological normalisation so that Islamic terms find their sign; words without a sign are reported, not
+fingerspelled; recorded signs are joined into one pose
+sequence and rendered as a skeleton video or a 3D VRM avatar with modest-dress options (hijab, shemagh and thobe). We
+converted 21 public sign dictionaries, datasets and video channels to one pose format; the resulting lexicons hold 3,055
+American Sign Language glosses, 3,979 Arabic Sign Language glosses, 6,411 Indian Sign Language words for Urdu, and a Turkish
+dictionary in progress. The English and Arabic modes run end to end in a web application built on the Hugging Face Hub, OpenRouter and a Hugging Face Space. The ASL lexicon covers
+66.5\% of the word occurrences in the English Qur'an and hadith (28.9\% of distinct words), and adding the 500 most
+frequent missing words would raise this to 87.6\%. For Arabic the ArSL lexicon covers 59.6\% of all word occurrences; the Turkish and Urdu lexicons, still incomplete,
+cover 16\% and 51\% of content-word occurrences, and their gaps are the religious terms. Against the gold glosses of ArabSign, the Arabic glosser reaches a gloss
+word error rate of 0.52--0.55 on held-out sentences. For continuous signing we publish five signed Qur'an datasets
+(7,980 segments, 44.9 hours) and a signed hadith corpus built from 824 videos by Deaf associations (404 samples and
+282 distinct hadith in its first snapshot), in which every label is the hadith as printed in its collection, never a
+transcript. A check of every sample found the bodies in all of these datasets, and in the lexicon, stretched by the
+video's aspect ratio; after correction they fall in the adult range, and the realistic avatars bend their elbows as the
+signer does. We describe the data sources and their licences, the evaluation
+framework (coverage, gloss WER, back-translation and a human-review protocol) and the limitations of the prototype.
+\end{abstract}
+
+\begin{Arabic}
+\noindent\textbf{الملخّص.}
+كثيرًا ما يتلقى الصمُّ المسلمون القرآنَ الكريم والحديث الشريف بلغةٍ مكتوبة ليست لغتهم الأولى، والمحتوى الإسلامي
+المتاح بلغة الإشارة قليلٌ وغير موثَّق المصادر. نقدّم «إشارتي»، وهو نظامٌ يجيب عن سؤالٍ في الإسلام بلغة الإشارة
+اعتمادًا على مصادر موثَّقة فقط: يسترجع النظام النصوص من القرآن الكريم (6236 آية) ومن موسوعة الأحاديث النبوية
+المترجمة باسترجاعٍ هجين يجمع البحث المعجمي والتضمينات الدلالية، ثم يكتب نموذجٌ لغوي إجابةً قصيرة يجب أن تكون كلُّ
+جملة فيها مدعومةً بالنصوص التي تستشهد بها، ويُشترط في الاستشهاد بالقرآن النقلُ الحرفي للآية، وتُحال أسئلة الفتوى
+إلى أهل العلم. تُحوَّل الإجابة إلى تسلسل إشارات (Gloss) بنموذجٍ لغوي مقيَّد بمعجم الإشارات، مع معالجةٍ صرفية للعربية
+تضمن ألّا تُهجّأ المصطلحات الإسلامية حرفًا حرفًا، ثم تُوصل الإشارات المسجَّلة في حركةٍ واحدة تُعرض هيكلًا عظميًّا أو
+شخصيةً ثلاثية الأبعاد بلباسٍ محتشم (حجاب، أو شماغ وثوب). حوّلنا 21 مصدرًا عامًّا إلى صيغة حركة موحّدة، فصارت المعاجم: 3055 إشارة بلغة الإشارة
+الأمريكية، و3979 إشارة بلغة الإشارة العربية، و6411 كلمة بلغة الإشارة الهندية للأردية، ومعجمًا تركيًّا قيد المعالجة.
+يغطي المعجم الأمريكي 66.5٪ من مواضع الكلمات في ترجمة القرآن والحديث الإنجليزية، وتبلغ نسبة خطأ الإشارات للنظام
+العربي 0.52–0.55 على جمل ArabSign المحجوزة للاختبار. وننشر للإشارة المتصلة خمس مجموعات من القرآن الكريم بلغة الإشارة
+(7980 مقطعًا، 44.9 ساعة) ومدوّنةً للحديث الشريف بلغة الإشارة جُمعت من 824 مقطعًا لجمعيات الصم (404 عينات و282 حديثًا
+مختلفًا في أول إصدار)، نصُّ الوسم فيها هو نص الحديث في كتابه لا نص التفريغ. وكشف فحصُ كل العينات أن الأجسام في هذه
+المجموعات وفي المعجم مُطَوَّلة بنسبة أبعاد الفيديو، فصُحّحت لتقع في المدى الطبيعي للبالغين، وصارت الشخصيات الواقعية
+تثني مرفقها كما يثنيه المترجم. ونصف مصادر البيانات وتراخيصها، وإطار التقييم، وحدود النموذج
+الأولي.
+\end{Arabic}
+
+\noindent\textbf{Keywords:} sign language production, Arabic Sign Language, American Sign Language, retrieval-augmented
+generation, grounding, Qur'an, hadith, accessibility, 3D avatar.

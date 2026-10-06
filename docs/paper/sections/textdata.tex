@@ -1,0 +1,97 @@
+\section{Qur'an and hadith text data}
+\label{sec:textdata}
+All answers come from two kinds of authoritative text, the Qur'an and the hadith. Their sources, how they are split
+into passages, and the record format are described here before the sign data, because everything else (retrieval,
+grounding, coverage) is defined over these passages.
+
+\subsection{Sources}
+\begin{table}[ht]
+\centering\small
+\caption{Sources of the Qur'an and hadith text.}
+\label{tab:textsources}
+\begin{tabularx}{\textwidth}{L{3.4cm} L{1.9cm} Y}
+\toprule
+Source & Languages & Content and use \\
+\midrule
+IslamicEval 2025 canonical Qur'an \cite{islamiceval} & Arabic & the 6,236 verses in Uthmani script with diacritics, one
+record per verse (surah, verse number, surah name, text); the Arabic Qur'an passages \\
+IslamicEval 2025 canonical hadith \cite{islamiceval} & Arabic & 34,994 records of the six canonical hadith books
+(book, chapter title, text with chain of narration); kept as a reference collection, not yet indexed \\
+QuranEnc translations \cite{quranenc} & English, Turkish, Urdu & Saheeh International (English), Rowwad Translation Center
+(Turkish) and Muhammad Junagarhi (Urdu), one record per verse; the translated Qur'an passages \\
+HadeethEnc \cite{hadeethenc} & Arabic, English, Turkish, Urdu & authenticated hadith with title, text, attribution,
+grade and scholarly explanation, in parallel translations; the hadith passages of all four languages \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The IslamicEval 2025 shared task on hallucination in Islamic content \cite{islamiceval} released these canonical texts
+so that systems can check quoted verses and hadith against them; Isharati uses the same Qur'an text for the same purpose
+(verbatim checking of verse citations, Chapter~\ref{sec:knowledge}). HadeethEnc is chosen for the hadith because every
+record carries a grade and an explanation written by scholars, so an answer can quote both the hadith and its accepted
+meaning, and because the same hadith is available in all four languages under one identifier.
+
+\subsection{Signed Qur'an and Tafsir Dataset}
+\label{sec:tafsirdataset}
+To ground the application's vocabulary in continuous religious signing and provide direct video translations of the passages, Isharati introduces a newly curated dataset of Qur'an recitation and tafsir (exegesis) translated into Arabic Sign Language. The dataset is sourced from three major institutional efforts:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+  \item \textbf{King Fahd Complex for the Printing of the Holy Qur'an (\code{kfc})}: Official sign language translations of the Qur'an accompanied by tafsir, providing high-quality, authoritative interpretations.
+  \item \textbf{Al-Mukhtasar fi Tafsir (\code{mukhtasar})}: A popular concise exegesis, rendered into sign language to make the meanings of the Qur'an accessible to the Deaf community.
+  \item \textbf{Al-Kharj Education Department Curriculum (\code{curriculum})}: Educational videos covering selected surahs designed for Deaf students.
+\end{itemize}
+This dataset aligns the Arabic source text directly with the corresponding video clips of the signed performance. Furthermore, to enable 3D avatar animation and detailed linguistic analysis, the video clips are processed through Google MediaPipe Holistic to extract their skeletal keypoints (poses). The pose sequences are stored alongside the original video segments, allowing the dashboard to render both the original human performance and a stylised avatar reciting the verses or explaining the tafsir.
+
+\subsection{From source records to passages}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+  \item \textbf{One verse is one passage.} Verses are short and are cited individually, so no further chunking is needed;
+        the identifier is the surah and verse number (\code{q2:43}), shared by all languages.
+  \item \textbf{One hadith is one passage}: its title, its text (with the narrator) and its explanation are joined, so
+        that a passage answers a question on its own; the identifier is the HadeethEnc number (\code{h5907}), shared by
+        all languages, and the grade is part of the reference.
+  \item \textbf{Every passage keeps a reference and a link} to its source page, which the interface shows with the
+        answer.
+  \item \textbf{Embedding input} is the passage text truncated to 1,500 characters with the \code{passage:} prefix
+        (Chapter~\ref{sec:method}); the full text is kept for the support check.
+\end{itemize}
+Each corpus is one JSON Lines file (one passage per line) with five fields: \code{pid} (identifier), \code{kind}
+(\code{quran} or \code{hadith}), \code{reference}, \code{text} and \code{url}. Figure~\ref{fig:json} shows the source
+records and the resulting passages for the same verse and the same hadith in Arabic and English.
+
+\newcommand{\jk}[1]{\texttt{\small "#1":}}
+\newcommand{\js}[1]{\texttt{\small "#1"}}
+\begin{figure}[ht]
+\centering\small
+\fbox{\begin{minipage}{0.97\textwidth}
+\textbf{(a) Source record, IslamicEval Qur'an (Arabic)}\\[2pt]
+\texttt{\{}\jk{surah\_id} 1, \jk{surah\_name} \ar{"الفاتحة"}, \jk{ayah\_id} 1,\\
+\hspace*{1em}\jk{ayah\_text} \ar{"بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ"}\texttt{\}}\\[6pt]
+\textbf{(b) Source record, HadeethEnc (fields, abridged)}\\[2pt]
+\texttt{\{}\jk{id} \js{5907}, \jk{title} \js{Keep on reciting this Qur'an, ...}, \jk{hadeeth} \js{Abu Musa al-Ash`ari
+reported: ...},\\
+\hspace*{1em}\jk{attribution} \js{...}, \jk{grade} \js{Authentic}, \jk{explanation} \js{The Prophet ordered the Companions
+...},\\
+\hspace*{1em}\jk{hadeeth\_ar} \ar{"تَعَاهَدُوا هَذَا الْقُرْآنَ ..."}, \jk{grade\_ar} \ar{"صحيح"}, \jk{translations}
+\texttt{["ar", "en", "tr", "ur", ...]}\texttt{\}}\\[6pt]
+\textbf{(c) Passages in the English corpus}\\[2pt]
+\texttt{\{}\jk{pid} \js{q1:1}, \jk{kind} \js{quran}, \jk{reference} \js{Qur'an 1:1},\\
+\hspace*{1em}\jk{text} \js{In the name of Allah, the Entirely Merciful, the Especially Merciful.},\\
+\hspace*{1em}\jk{url} \js{https://quranenc.com/en/browse/english\_saheeh/1\#1}\texttt{\}}\\[2pt]
+\texttt{\{}\jk{pid} \js{h5907}, \jk{kind} \js{hadith}, \jk{reference} \js{HadeethEnc 5907 (Authentic)},\\
+\hspace*{1em}\jk{text} \js{Keep on reciting this Qur'an ... Abu Musa al-Ash`ari reported: The Prophet said: "..."
+Explanation: ...},\\
+\hspace*{1em}\jk{url} \js{https://hadeethenc.com/en/browse/hadith/5907}\texttt{\}}\\[6pt]
+\textbf{(d) The same passages in the Arabic corpus}\\[2pt]
+\texttt{\{}\jk{pid} \js{q1:1}, \jk{kind} \js{quran}, \jk{reference} \ar{"القرآن الفاتحة 1:1"},\\
+\hspace*{1em}\jk{text} \ar{"بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ"}, \jk{url} \js{https://quran.com/1/1}\texttt{\}}\\[2pt]
+\texttt{\{}\jk{pid} \js{h5907}, \jk{kind} \js{hadith}, \jk{reference} \ar{"موسوعة الأحاديث 5907 (صحيح)"},\\
+\hspace*{1em}\jk{text} \ar{"تعاهدوا هذا القرآن ... عن أبي موسى الأشعري رضي الله عنه ... الشرح: أمر النبي ﷺ بمعاهدة القرآن ..."},\\
+\hspace*{1em}\jk{url} \js{https://hadeethenc.com/ar/browse/hadith/5907}\texttt{\}}
+\end{minipage}}
+\caption{Record formats: (a, b) source records; (c, d) the resulting passages, one JSON object per line, for the same
+verse (Qur'an 1:1) and the same hadith (HadeethEnc 5907) in English and Arabic. Identifiers are shared across languages.}
+\label{fig:json}
+\end{figure}
+
+\paragraph{Size.} The four corpora hold 8,564 (English), 9,810 (Arabic), 8,386 (Turkish) and 8,456 (Urdu) passages,
+each with all 6,236 verses and 2,150--3,574 hadith (Table~\ref{tab:corpora}). Hadith make up 80--89\% of the words,
+because of their explanations (Chapter~\ref{sec:eda}).

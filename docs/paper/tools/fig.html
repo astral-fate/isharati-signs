@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<script type="importmap">{"imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/",
+  "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3.1.0/lib/three-vrm.module.min.js"}}</script>
+<style>html,body{margin:0;background:#ffffff}canvas{display:block}</style></head><body>
+<canvas id="c" width="600" height="760" style="width:600px;height:760px"></canvas>
+<script type="module">
+// figure harness: /fig.html?preset=hijab&id=<run id>&t=<seconds>  -> renders the avatar at that moment
+import { SignAvatar } from "/static/avatar.js";
+import { PRESETS, applyOutfit } from "/static/outfits.js";
+const p = new URLSearchParams(location.search);
+try {
+  const a = await new SignAvatar(document.getElementById("c")).load("/static/avatar.vrm");
+  if (a.resize) a.resize();
+  applyOutfit(a, { ...PRESETS[p.get("preset") || "original"], preset: p.get("preset") || "original" });
+  const t = parseFloat(p.get("t") || "0");
+  if (p.get("id")) {
+    const frames = await (await fetch(`/pose/${p.get("id")}.json`)).json();
+    a.setFrames(frames);
+    for (let s = Math.max(0, t - 1.5); s <= t + 1e-6; s += 1 / frames.fps) a.render(s, 1 / frames.fps);  // let the smoothing settle
+  }
+  a.render(t);
+  document.title = "done";
+} catch (e) { document.title = "error " + e.message; document.body.append(String(e.stack)); }
+</script></body></html>

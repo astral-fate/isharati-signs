@@ -1,0 +1,93 @@
+\chapter{Knowledge sources and grounded answering}
+\label{sec:knowledge}
+
+\section{Qur'an and hadith corpora}
+The system answers only from two kinds of passage: Qur'an verses and hadith from HadeethEnc, the Encyclopedia of
+Translated Prophetic Hadiths \cite{hadeethenc}, which publishes authenticated hadith with a grade, a title and a
+scholarly explanation in many languages. Translations of the Qur'an come from QuranEnc \cite{quranenc}; the Arabic
+corpus uses the Uthmani text with diacritics (linked to quran.com; see also Tanzil \cite{tanzil}).
+Every passage keeps its reference and URL, which the interface shows next to the answer. Table~\ref{tab:corpora}
+gives the four corpora. The hadith counts differ because HadeethEnc has not translated every hadith into every
+language; every hadith in the English, Turkish and Urdu corpora also exists in the Arabic one.
+
+\begin{table}[ht]
+\centering\small
+\caption{Knowledge corpora (one passage = one verse or one hadith with its title and explanation). Embeddings:
+\code{intfloat/multilingual-e5-large}, 1024 dimensions, float16.}
+\label{tab:corpora}
+\begin{tabularx}{\textwidth}{l r r r Y Y}
+\toprule
+Language & Passages & Qur'an & Hadith & Qur'an text / translation & Hadith source \\
+\midrule
+English & 8,564 & 6,236 & 2,328 & Saheeh International (QuranEnc \code{english\_saheeh}) & HadeethEnc API, \code{en} \\
+Arabic  & 9,810 & 6,236 & 3,574 & Uthmani text with diacritics (quran.com) & HadeethEnc API, \code{ar} \\
+Turkish & 8,386 & 6,236 & 2,150 & Rowwad Translation Center (QuranEnc \code{turkish\_rwwad}) & HadeethEnc API, \code{tr} \\
+Urdu    & 8,456 & 6,236 & 2,220 & Muhammad Junagarhi (QuranEnc \code{urdu\_junagarhi}) & HadeethEnc API, \code{ur} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The English hadith are graded \emph{authentic} (\emph{sahih}; 2,114 of 2,328) or \emph{good} (\emph{hasan}; 147), the
+remainder carrying other grades as given by HadeethEnc. The source endpoints are listed in Appendix~\ref{app:urls}.
+
+\section{Hybrid retrieval}
+Each language has a BM25 index ($k_1=1.2$, $b=0.75$, hadith scores multiplied by 1.3 so that the Sunnah's explanations
+are not crowded out by verse fragments) and a dense index of E5 passage embeddings (\code{passage:} and \code{query:}
+prefixes, unit vectors, passages truncated to 1,500 characters). For a question $q$, the LLM adds up to 14 keywords,
+giving $q'$; BM25 ranks for $q'$, the dense index for $q$ as asked, and the rankings are fused:
+\begin{equation}
+\mathrm{RRF}(d) = \sum_{r \in \{\mathrm{BM25},\,\mathrm{dense}\}} \frac{1}{K + \mathrm{rank}_r(d)}, \qquad K = 60.
+\end{equation}
+The ten best passages are passed on. If the embedding service is not running, retrieval
+falls back to BM25 alone. Dense retrieval was added after lexical matching alone returned an off-topic hadith
+for \ar{ما هو الإسلام؟}: the matching hadith used the words of the answer, not of the question. Hadith titles are indexed
+with their text for the same reason.
+
+\section{Grounding rules}
+\label{sec:grounding}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Ruling questions are referred} before retrieval (Chapter~\ref{sec:architecture}).
+  \item \textbf{Best passage first.} The LLM chooses the single passage that answers the question most directly; it
+        becomes passage [1].
+  \item \textbf{Answer with citations.} The LLM writes 2--4 sentences, each citing passages as [n], or replies
+        \code{REFER} or \code{NO\_ANSWER}. It is told to use only the passages and to add nothing.
+  \item \textbf{Support check, per sentence.} A sentence is kept only if at least 80\% of its content words
+        (after normalisation and light lemmatisation) occur in the passages it cites.
+        A sentence whose citations are all Qur'an verses must contain, as a contiguous run, the content-word sequence
+        (stop words removed, lemmatised) of a cited verse for the text after its first colon; this stops a
+        paraphrase presented as a quotation. A sentence citing a verse together with a hadith is checked only by
+        the support rule. A short list of framing words (\emph{Muslims, people, also}) is exempt from the count.
+        Very short replies (fewer than 6 words in English, 4 in Arabic, 5 in Turkish and Urdu) are rejected.
+  \item \textbf{Drop, and rewrite if too little survives.} Unsupported sentences are dropped and listed in the
+        report as dropped. If fewer than two sentences survive, the model is shown the failures
+        and rewrites once. If nothing survives the status is \emph{unanswered}. (The answer prompt shows each
+        passage truncated to 700 characters; the support check uses the full passage.)
+\end{enumerate}
+These rules came from observed failures: an early Ramadan answer added a fact absent from the cited hadith, which the
+support check now removes; and bare-phrase replies are prevented by the minimum length. The cost is that some
+answerable questions are declined. ``What is Ramadan?'' was unanswered in the run of 2 October 2026 because no sentence
+reached the support threshold, while ``What are the pillars of Islam?'' was answered from two authentic hadith
+(HadeethEnc 65000 and 66512; Figure~\ref{fig:ui}). We prefer this trade-off for religious content.
+
+\begin{table}[ht]
+\centering\small
+\caption{Two runs of the live system (2 October 2026).}
+\label{tab:runs}
+\begin{tabularx}{\textwidth}{L{2.6cm} Y}
+\toprule
+Question & What are the pillars of Islam? (English $\rightarrow$ ASL) \\
+Answer & Islam is built on five: testifying that there is no god but Allah and that Muhammad is His slave and
+Messenger, establishing prayer, giving Zakah, performing Hajj to the (Sacred) House, and fasting Ramad\=an. \\
+Glosses (23) & ISLAM BUILD FIVE TESTIFY NO GOD BUT ALLAH AND MUHAMMAD HIS SLAVE AND MESSENGER ESTABLISH PRAYER GIVE ZAKAH
+HAJJ TO HOUSE FAST RAMADAN \\
+Lexicon coverage & 23 of the 25 gloss items have a sign (92\%); the other two are shown as holds and reported \\
+\midrule
+Question & \ar{ما هو الإسلام؟} (Arabic $\rightarrow$ ArSL) \\
+Answer & \ar{الإسلام أن تشهد أن لا إله إلا الله، وأن محمدا رسول الله، وتقيم الصلاة، وتؤتي الزكاة، وتصوم رمضان، وتحج البيت إن استطعت إليه سبيلا.} \\
+Source & HadeethEnc 4563 (\emph{sahih}), \url{https://hadeethenc.com/ar/browse/hadith/4563} \\
+Glosses (8) & \ar{إسلام} \;·\; \ar{الله} \;·\; \ar{محمد رسول الله} \;·\; \ar{الصلاة} \;·\; \ar{الزكاة} \;·\; \ar{رمضان}
+\;·\; \ar{بيت} \;·\; \ar{الحج} \\
+Lexicon coverage & 8 of 8 gloss items (100\%); model \code{nvidia/nemotron-3-super-120b-a12b} \\
+\bottomrule
+\end{tabularx}
+\end{table}
