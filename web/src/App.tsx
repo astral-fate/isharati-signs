@@ -13,7 +13,6 @@ import { Lexicon } from "./sections/Lexicon";
 import { Nav } from "./sections/Nav";
 import { Pricing } from "./sections/Pricing";
 import { ReviewStudio } from "./sections/ReviewStudio";
-import { Sources } from "./sections/Sources";
 import { Team } from "./sections/Team";
 import { Translator } from "./sections/Translator";
 import { UseCases } from "./sections/UseCases";
@@ -79,7 +78,6 @@ export default function App() {
             <UseCases />
             <Pricing />
             <Team />
-            <Sources />
           </main>
         </>
       )}

@@ -11,10 +11,11 @@ afterEach(() => vi.unstubAllGlobals());
 
 test("the page renders every section, with built-in figures when the API is unreachable", async () => {
   await act(async () => { render(<I18nProvider initial="en"><App /></I18nProvider>); });
-  for (const key of ["hero.title", "try.title", "how.title", "lex.title", "av.title", "src.title"]) {
+  for (const key of ["hero.title", "try.title", "how.title", "lex.title", "av.title"]) {
     expect(screen.getAllByText(en[key as keyof typeof en]).length).toBeGreaterThan(0);
   }
-  for (const id of ["try", "how", "lexicon", "avatars", "sources"]) expect(document.getElementById(id)).not.toBeNull();
+  for (const id of ["try", "how", "lexicon", "avatars"]) expect(document.getElementById(id)).not.toBeNull();
+  expect(document.getElementById("sources")).toBeNull();  // no references and licences table on the landing page
   expect(screen.getAllByText(/TİD/).length).toBeGreaterThan(0);
   expect(screen.getAllByText(/ISL/).length).toBeGreaterThan(0);
 });
