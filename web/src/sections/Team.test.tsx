@@ -24,7 +24,7 @@ describe("Team section", () => {
   it("renders credentials, bullets, and external social links", () => {
     renderWithI18n(<Team />);
     expect(screen.getAllByText(/ARSL-GEN/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/KAUST/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/ICCV 2025/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Applied Statistics/i).length).toBeGreaterThanOrEqual(1);
 
     const links = screen.getAllByRole("link");

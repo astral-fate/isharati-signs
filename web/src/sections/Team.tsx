@@ -32,7 +32,7 @@ export function Team() {
       badge: isAr ? "الذكاء الاصطناعي والأبحاث" : "AI & Computer Vision",
       tags: [
         "10+ Papers",
-        "MenaML 2026 (KAUST)",
+        "ICCV 2025 · 3rd place",
         "Hugging Face",
         "ARSL-GEN",
       ],
