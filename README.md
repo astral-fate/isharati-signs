@@ -13,7 +13,7 @@
 [![Qur'an in sign language](https://img.shields.io/badge/🤗%20Collection-Qur'an%20in%20sign%20language-F9D371)](https://huggingface.co/collections/FatimahEmadEldin/quran-in-sign-language-6abf892cb1940477ad57971b)
 [![Hadith in sign language](https://img.shields.io/badge/🤗%20Collection-Hadith%20in%20sign%20language-F9D371)](https://huggingface.co/collections/FatimahEmadEldin/hadith-in-sign-language-6ac3f8c150af9e5417c0d93d)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-isharati--data-F9D371)](https://huggingface.co/datasets/FatimahEmadEldin/isharati-data)
-[![Video](https://img.shields.io/badge/YouTube-Demo%20video%20(soon)-FF0000)](#demo-video)
+[![Video](https://img.shields.io/badge/YouTube-Demo%20video-FF0000)](https://youtu.be/MhDm_XLl8fI)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 </div>
@@ -271,7 +271,9 @@ blender --background --python scripts/avatars/rocketbox_to_vrm.py -- <Rocketbox 
 
 ## Demo video
 
-Coming soon.
+[![Isharati demo video](https://img.youtube.com/vi/MhDm_XLl8fI/hqdefault.jpg)](https://youtu.be/MhDm_XLl8fI)
+
+Watch on YouTube: https://youtu.be/MhDm_XLl8fI
 
 ## Citation
 

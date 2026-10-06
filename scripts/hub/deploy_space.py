@@ -26,8 +26,15 @@ def stage() -> Path:
     out = Path(tempfile.mkdtemp(prefix="isharati_space_"))
     for f in (ROOT / "deploy" / "space").iterdir():
         shutil.copy2(f, out / f.name)
-    shutil.copytree(ROOT / "src" / "isharati", out / "src" / "isharati",
-                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    # only files tracked in git: a local copy of data (src/isharati/academy_data, app/static/data) is git-ignored
+    # because it belongs in the datasets, and must never reach the Space, which may be public
+    import subprocess
+    tracked = subprocess.run(["git", "ls-files", "src/isharati"], cwd=ROOT, capture_output=True, text=True,
+                             encoding="utf-8", check=True).stdout.splitlines()
+    for rel in tracked:
+        if (ROOT / rel).is_file():
+            (out / rel).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / rel, out / rel)
     # the React landing page, built here (cd web && npm run build): deploy/space/Dockerfile copies web/dist as it is
     if not (ROOT / "web" / "dist" / "index.html").exists():
         raise SystemExit("web/dist is missing: run `cd web && npm run build` first")
@@ -75,7 +82,9 @@ def main():
     else:
         print("OPENROUTER_API_KEY not found: add it in the Space settings")
     api.add_space_variable(space, "ISHARATI_HUB_DATASET", dataset)
-    api.upload_folder(repo_id=space, repo_type="space", folder_path=str(folder), commit_message="deploy Isharati")
+    # files the app no longer has are removed from the Space (an upload alone only adds and replaces)
+    api.upload_folder(repo_id=space, repo_type="space", folder_path=str(folder), commit_message="deploy Isharati",
+                      delete_patterns=["src/**", "web/**", "isharati/**", "scripts/**"])
     print("deployed (private):", f"https://huggingface.co/spaces/{space}")
 
 
