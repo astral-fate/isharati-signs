@@ -50,6 +50,18 @@ def lexicon_paths(lang: str) -> list[Path]:
     return [LEX / "lexicon_all.jsonl", LEX / ALPHABET, LEX / NAMES]
 
 
+_DIGESTS: dict = {}
+
+
+def _digest(f: Path) -> str:
+    """Content hash of a file, read once per (path, mtime, size): stamp() runs on every request."""
+    st = f.stat()
+    key = (str(f), st.st_mtime_ns, st.st_size)
+    if key not in _DIGESTS:
+        _DIGESTS[key] = hashlib.sha1(f.read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:16]
+    return _DIGESTS[key]
+
+
 def stamp(lang: str = "en") -> str:
     """Changes whenever the lexicon or the answering/glossing code changes; a saved answer is replayed only while its
     stamp still matches (server.py), so fixes and new signs show up instead of an old result."""
@@ -59,7 +71,9 @@ def stamp(lang: str = "en") -> str:
             pkg / "text" / "arabic_morph.py", pkg / "lexicon" / "arabic.py", pkg / "lexicon" / "turkish.py",
             pkg / "lexicon" / "isl.py", pkg / "pose" / "poser.py", Path(__file__)]
     files = [*lexicon_paths(lang), *code]
-    parts = [f"{f.name}:{f.stat().st_mtime_ns}:{f.stat().st_size}" for f in files if f.exists()]
+    # by content, not modification time: an answer computed on one machine replays on another (the Space downloads
+    # the same lexicon and gets the same code, with other timestamps)
+    parts = [f"{f.name}:{_digest(f)}" for f in files if f.exists()]
     parts.append(f"files:{len(lexicon_paths(lang))}")  # Urdu: CISLR alone or CISLR + WSLP
     return hashlib.sha1("|".join(parts).encode()).hexdigest()[:12]
 

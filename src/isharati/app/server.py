@@ -6,6 +6,7 @@ calls. The previous single-file page stays at /classic.
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import threading
@@ -18,7 +19,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from isharati import hub
+from isharati import app_data, hub
 from isharati.config import ROOT
 from isharati.types import FPS
 
@@ -137,6 +138,35 @@ def _replay(saved: Path, lang: str):
     return None
 
 
+_ANSWER_FILES = ("report.json", "pose.npy", "face.npy", "blend.npy", "blend_names.json", "video.mp4")
+
+
+def _from_hub(qid: str) -> Path | None:
+    """A precomputed answer (the page's suggested questions, scripts/hub/precompute_answers.py) from the
+    isharati-app-data dataset, copied into OUT so it replays like a local one: a suggestion is shown at once instead
+    of calling the models again after every restart of the Space. None when the dataset has no answer for qid."""
+    index = app_data.path("answers/index.json")
+    if index is None or qid not in json.loads(index.read_text(encoding="utf-8")):
+        return None
+    dest = OUT / qid
+    dest.mkdir(parents=True, exist_ok=True)
+    for name in json.loads(index.read_text(encoding="utf-8"))[qid]["files"]:
+        src = app_data.path(f"answers/{qid}/{name}")
+        if src is None:
+            return None
+        shutil.copyfile(src, dest / name)
+    return dest / "report.json"
+
+
+def _saved(qid: str, lang: str):
+    """The saved answer for qid: this container's own, else a precomputed one from the Hub; None to run the models."""
+    local = OUT / qid / "report.json"
+    if (r := _replay(local, lang)) is not None:
+        return r
+    hub = _from_hub(qid)
+    return _replay(hub, lang) if hub is not None else None
+
+
 def _fail(e: Exception):
     if "free-models-per-day" in str(e):
         raise HTTPException(503, "The free language-model quota for today is used up. Try again tomorrow, "
@@ -151,7 +181,7 @@ def ask(body: Ask):  # sync: FastAPI runs it in a worker thread, so the page sta
         raise HTTPException(400, "Ask a question of 1 to 300 characters.")
     if body.lang not in LANGS:
         raise HTTPException(400, "lang must be one of " + ", ".join(LANGS))
-    if not body.fresh and (r := _replay(OUT / question_id(q, body.lang) / "report.json", body.lang)):
+    if not body.fresh and (r := _saved(question_id(q, body.lang), body.lang)):
         return r
     try:
         return pipeline(body.lang).run(q)
