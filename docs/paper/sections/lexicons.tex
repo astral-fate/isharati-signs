@@ -253,6 +253,19 @@ fingerspelled until one is recorded.
 many of them were already matched; lemma matching adds 4.5 points (verbs 4.1, nouns 0.4). This is below the 73.7\,\% projected
 from Table~\ref{tab:ar_missing} because the guards trade recall for precision.
 
+\paragraph{Second pass: 72.9\,\%.} Four further changes raise Arabic coverage to \textbf{72.9\,\%} (Qur'an 67.5\,\%,
+hadith 73.5\,\%; 74.2\,\% when proper names without a sign are shown by fingerspelling, as ArSL shows names). (1) Words are
+analysed as spelled: folding the hamza seats (\ar{المؤمنين} $\to$ \ar{المومنين}) had hidden many words from the analyser.
+(2) The alef guard of the string matcher no longer applies to lemmas the analyser gives, so broken plurals beginning with
+alef reach their sign (\ar{أيام} $\to$ \ar{يوم}, \ar{أعمال} $\to$ \ar{عمل}). (3) 249 reviewed lemmas (178 verbs, 71 nouns)
+map every form to a sign of the same meaning (\ar{آمنوا} $\to$ \ar{آمن}, \ar{المؤمنين} $\to$ \ar{إيمان}); they were proposed
+by a language model from the lexicon's own signs and checked one by one, and a vowelled entry names one verb exactly
+(\ar{كَفَر}, disbelieve, not \ar{كَفَّر}, expiate). (4) Phrase signs match in context in any case of \ar{أبو}
+(\ar{أبي هريرة}), and function words with no sign, which ArSL drops, are not counted. The negation \ar{لا} is signed with
+the curriculum's general negation sign \ar{ليس}. Against the signs Deaf signers used for the words of a sentence (Isharah and
+ArabSign), the matcher chooses the right sign for 98.3\,\% of the words of religious sentences and 90.8\,\% of general
+ones, with no wrong sign on the religious sentences (\code{scripts/eval/matching\_eval.py}).
+
 \paragraph{Next: derivation and attached pronouns.} Two layers remain: a reviewed derivation table for the same root \emph{and}
 the same meaning (\ar{الإجابة، فتجيبك} $\to$ \ar{جواب}; \ar{عابد، يعبد} $\to$ \ar{عبادة}), and attached pronouns signed after the word, as a
 Deaf signer would (\ar{ربك} $\to$ \ar{رب} + \ar{أنت}; \ar{فتجيبك} $\to$ \ar{جواب} + \ar{هو}).

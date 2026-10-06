@@ -20,6 +20,51 @@
 
 ---
 
+## Overview
+
+Isharati is an AI-powered platform that brings the Qur'an and the Sunnah to Deaf and hard-of-hearing people in their
+first language, sign language, and gives preachers and Islamic content creators integrated tools to reach them without
+barriers. More than 70 million Deaf people live worldwide (more than 15 million of them Muslims). Religious content
+reaches them written or spoken in a language that is not theirs, the signed content that exists is scarce and
+unsourced, and preachers lack translation tools that respect the precision of the scripture and use the established
+signs of Islamic terms instead of spelling them letter by letter.
+
+Isharati brings education, answers and content creation together on documented sources:
+
+- **Verified question and answer** in Arabic, English, Turkish or Urdu: the relevant verses and hadith are retrieved by
+  RAG, no sentence its source does not support is accepted, and questions asking for a ruling go to scholars.
+- **Academy**: interactive paths for the letters and religious terms in four sign languages, with a certificate of
+  completion, and a **Qur'an and hadith corpus** of about 8,000 signed Qur'an segments (about 45 hours, five sources
+  such as the King Fahd Complex and the Al-Kharj curriculum) and more than 300 labelled hadith.
+- **Content Studio**: texts, audio or video lessons signed at once, with speed control, avatars in modest dress and
+  video export.
+
+**Dictionary coverage** (content words of the Qur'an and hadith that the lexicon signs): English → ASL **83.1%**
+(3,677 signs), Turkish → TİD **75.7%** (4,827), Arabic → ArSL **72.9%** (6,663; 74.2% with names fingerspelled),
+Urdu → ISL/PSL **72.1%** (10,233). Against Deaf signers' signs, the Arabic matcher picks the right sign for **98.3%** of
+the words of religious sentences, with no wrong sign.
+
+<div dir="rtl">
+
+### نبذة عن المشروع
+
+تُعد «إشارتي» منصة رائدة مدعومة بالذكاء الاصطناعي تهدف إلى جعل القرآن الكريم والسنة النبوية في متناول الصم وضعاف
+السمع بلغتهم الأم (لغة الإشارة)، مع منح الدعاة وصُنّاع المحتوى الإسلامي أدوات متكاملة تُمكّنهم من الوصول إلى هذه الفئة
+دون حواجز. يعيش أكثر من 70 مليون أصم حول العالم (من بينهم أكثر من 15 مليون مسلم أصم)، يصلهم المحتوى الديني مكتوباً أو
+مسموعاً بلغة ليست لغتهم، والمحتوى الإشاري قليل ومتفرّق ويفتقر إلى المصادر الموثقة.
+
+تجمع «إشارتي» التعليم والإجابة وصناعة المحتوى في منصة واحدة استناداً إلى مصادر موثقة: «سؤال وجواب موثق» بأربع لغات
+عبر تقنية التوليد المعزز بالاسترجاع (RAG) مع إحالة أسئلة الفتوى لأهل العلم، و«الأكاديمية» لتعليم الحروف والمصطلحات
+الدينية بأربع لغات تنتهي بشهادة إتمام، و«مدونة القرآن والحديث» (نحو 8,000 مقطع قرآني في قرابة 45 ساعة، وأكثر من 300
+حديث نبوي موسوم)، و«استوديو صناعة المحتوى» لتحويل النصوص والدروس الصوتية والمرئية إلى إشارة فورية.
+
+**تغطية المعاجم الإشارية** (نسبة الكلمات ذات المعنى في القرآن والحديث التي يملك المعجم إشارةً لها): الإنجليزية إلى
+لغة الإشارة الأمريكية **83.1٪**، والتركية إلى لغة الإشارة التركية **75.7٪**، والعربية إلى لغة الإشارة العربية
+**72.9٪** (74.2٪ مع تهجئة أسماء الأعلام)، والأردية إلى لغة الإشارة الهندية والباكستانية **72.1٪**. ويختار النظام
+العربي الإشارة الصحيحة لـ**98.3٪** من كلمات الجمل الدينية مقارنةً بإشارات مترجمين صمّ، دون أي إشارة خاطئة.
+
+</div>
+
 ## The problem
 
 More than 70 million deaf people use a sign language as their first language. For many deaf Muslims, the Qur'an and the
@@ -82,7 +127,7 @@ nothing about whether the meaning is signed.
 | English | ASL | 3,677 | 3,677 | 8,564 | 86.9% | 82.3% | **83.1%** |
 | Turkish | TİD | 4,827 | 4,491 | 8,386 | 75.4% | 75.7% | **75.7%** |
 | Urdu | ISL · PSL | 10,233 | 8,402 | 8,456 | 72.4% | 72.0% | **72.1%** |
-| Arabic | ArSL | 6,662 | 6,614 | 9,810 | 67.3% | 73.4% | **72.8%** |
+| Arabic | ArSL | 6,663 | 6,615 | 9,810 | 67.5% | 73.5% | **72.9%** |
 
 Urdu signs by source: CISLR 3,965, WSLP 4,056, ISLRTC 966, PSL 1,246 (Urdu coverage is measured on the English glosses).
 
@@ -91,7 +136,7 @@ or when it is part of a phrase sign the text contains («صلى الله علي�
 spelled (CAMeL Tools reads «المؤمنين» and «رأيت», not their hamza-folded forms), and 249 reviewed lemmas reach a sign of
 the same meaning from every form (178 verbs such as «آمنوا» -> آمن, «يعلم» -> علم; 71 nouns such as «المؤمنين» ->
 إيمان, «أبواب» -> باب), each checked by hand. Function words with no sign, which ArSL drops, are not counted; with
-proper names shown by fingerspelling, 74.0% of content words are shown. The words still missing are mostly ones that
+proper names shown by fingerspelling, 74.2% of content words are shown. The words still missing are mostly ones that
 need their own recorded sign («الدنيا», «شيء», «مثل», «قبل», «الآخرة», «عذاب»).
 
 Each synonym is reviewed before it is added (`src/isharati/lexicon/synonyms_ar.json`), because a wrong synonym signs the
