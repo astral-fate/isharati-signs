@@ -58,6 +58,13 @@ def body_checks(p):
         m["frozen_share"] = round(float(still.mean()), 3)
         if still.mean() > 0.3:
             flags.append("frozen")
+    # the body turned round or laid on its side: shoulders swapped against the clip's usual facing, or tilted past 35°
+    dx, dy = p[:, L_SH, 0] - p[:, R_SH, 0], p[:, L_SH, 1] - p[:, R_SH, 1]
+    with np.errstate(invalid="ignore"):
+        turned = (np.sign(dx) != np.sign(np.nanmedian(dx))) | (np.abs(np.degrees(np.arctan2(dy, np.abs(dx)))) > 35)
+    m["turned_share"] = round(float(turned.mean()), 3)
+    if turned.sum() > max(3, 0.01 * len(p)):
+        flags.append("body_turned")
     for hand, wrist, name in ((slice(8, 29), L_WR, "left"), (slice(29, 50), R_WR, "right")):
         d = np.linalg.norm(p[:, hand][:, 0, :2] - p[:, wrist, :2], axis=-1) / med
         if np.nanmedian(d) > 0.35:

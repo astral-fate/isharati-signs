@@ -25,7 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 # building lexicons from video, corpora and embeddings (not needed to run the app)
-data = ["mediapipe==0.10.14", "yt-dlp", "py7zr", "sentence-transformers", "scipy", "matplotlib", "pillow"]
+data = ["mediapipe>=0.10.14", "yt-dlp", "py7zr", "sentence-transformers", "scipy", "matplotlib", "pillow"]
 dev = ["pytest>=8", "httpx"]
 
 [tool.setuptools.packages.find]

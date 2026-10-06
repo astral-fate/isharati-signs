@@ -82,19 +82,17 @@ nothing about whether the meaning is signed.
 | English | ASL | 3,677 | 3,677 | 8,564 | 86.9% | 82.3% | **83.1%** |
 | Turkish | TİD | 4,827 | 4,491 | 8,386 | 75.4% | 75.7% | **75.7%** |
 | Urdu | ISL · PSL | 10,233 | 8,402 | 8,456 | 72.4% | 72.0% | **72.1%** |
-| Arabic | ArSL | 6,658 | 6,610 | 9,810 | 56.1% | 63.1% | **62.3%** |
+| Arabic | ArSL | 6,662 | 6,614 | 9,810 | 60.0% | 69.4% | **68.4%** |
 
 Urdu signs by source: CISLR 3,965, WSLP 4,056, ISLRTC 966, PSL 1,246 (Urdu coverage is measured on the English glosses).
 
-**Why Arabic is at 62% and how to reach ~80%.** Arabic text is dense: one written word often carries a clitic, a
-pronoun and a conjunction («فلا», «سبيله»), and the hadith formulas repeat thousands of times. The largest uncovered
-tokens are «وسلم» (12,493, part of the phrase sign ﷺ, which the lexicon has but which is counted word by word), «لا»,
-«بن», «ولا», «شيء» and «فلا». Giving a sign or a reviewed synonym to the most frequent missing words raises coverage as
-follows:
-
-| Missing words added | 1 | 10 | 50 | 200 | 500 | 1,000 |
-|---|---|---|---|---|---|---|
-| Arabic coverage | 63.4% | 67.0% | 69.7% | 73.0% | 76.1% | 79.0% |
+**Arabic at 68%, and the way to ~80%.** A word counts as covered when it, its lemma or a reviewed synonym has a sign,
+or when it is part of a phrase sign the text contains word for word («صلى الله عليه وسلم», «عز وجل», «أبو هريرة»), as
+the glosser uses them. Reviewed mappings close most of the gap so far: the negation «لا» to the curriculum's «ليس»,
+«بن» to «ابن», 112 verbs recorded in their dictionary form («يكتب») reached from every conjugation («كتبوا», «فكتب»),
+and a verb reading preferred over a doubtful clitic split («فتحت» is *she opened*, not *and under*). The most frequent
+words still unsigned are «قبل», «الدنيا», «شيء», «مثل», «المؤمنين», «آمنوا» and the companions' names (هريرة، عباس،
+بكر، عمرو), which a few recorded signs or name signs would close.
 
 Each synonym is reviewed before it is added (`src/isharati/lexicon/synonyms_ar.json`), because a wrong synonym signs the
 wrong meaning in a religious text.
@@ -132,11 +130,11 @@ published, with jitter smoothed (0.2 s) and unusable skeletons left out:
 
 | Samples | Distinct hadith | Hours | ArSL | TİD |
 |---|---|---|---|---|
-| 372 | 298 | 15.5 | 354 | 18 |
+| 375 | 301 | 15.5 | 357 | 18 |
 
 | Source | Samples |
 |---|---|
-| القناة التعليمية للصم: شرح عمدة الأحكام بلغة الإشارة | 142 |
+| القناة التعليمية للصم: شرح عمدة الأحكام بلغة الإشارة | 145 |
 | Islamweb for Deaf: الحديث الشريف بلغة الإشارة | 99 |
 | جمعية إنسان: الأربعون النووية بلغة الإشارة | 50 |
 | القناة التعليمية للصم: رياض الصالحين | 21 |

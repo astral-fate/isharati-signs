@@ -132,6 +132,37 @@ def square_units(z, aspect: float | None) -> dict:
     return d
 
 
+MAX_TILT = 35  # degrees: a shoulder line steeper than this is not the signer facing the camera
+
+
+def signer_frames(pose: np.ndarray) -> np.ndarray:
+    """bool [T]: frames that show the signer as in the rest of the clip. The shoulders must be at the clip's usual
+    width (an intro zoom, a tiny figure on a title card or a one-frame misdetection 5x narrower would collapse the
+    avatar), face the camera the same way (left shoulder on the same side) and lie within MAX_TILT of level: a false
+    body between an intro and the signing (Nawawi 42: shoulders swapped at the frame's bottom edge) otherwise turns
+    the avatar round and lays it on its side. Use on square units (square_units) so the angle is a true angle."""
+    pose = np.asarray(pose, np.float32)
+    dx, dy = pose[:, 11, 0] - pose[:, 12, 0], pose[:, 11, 1] - pose[:, 12, 1]
+    width = np.hypot(dx, dy)
+    if not np.isfinite(width).any():
+        return np.zeros(len(pose), bool)
+    med = np.nanmedian(width)
+    with np.errstate(invalid="ignore"):
+        good = np.isfinite(width) & (width > 0.6 * med) & (width < 1.6 * med)
+        if good.any():
+            good &= np.sign(dx) == np.sign(np.nanmedian(dx[good]))
+        good &= np.abs(np.degrees(np.arctan2(dy, np.abs(dx)))) < MAX_TILT
+    return good
+
+
+def blank_non_signer(d: dict) -> dict:
+    """NaN the frames signer_frames rejects, so interpolation bridges them from the real signing on either side."""
+    bad = ~signer_frames(d["pose"])
+    for k in ("pose", "left_hand", "right_hand"):
+        d[k][bad] = np.nan
+    return d
+
+
 def despike(d: dict, window: int = 7, limit: float = 0.5) -> dict:
     """Blank MediaPipe's one- or two-frame glitches so interpolation fills them: a body joint (or a whole hand, by its
     root) that sits more than `limit` shoulder widths from the median of its neighbouring frames. Real signing never
@@ -234,7 +265,7 @@ def build(key: str, src_root: Path = GATHERED, out_root: Path = BUILD) -> Path:
                 aspect = (meta["width"] / meta["height"]) if meta.get("width") else aspects.get(r.get("video"))
                 if aspect is None:
                     raise SystemExit(f"{key}: no frame size for {r.get('video')} ({r['id']}): the pose would be stretched")
-                p = to_isharati(despike(square_units(z, aspect)))
+                p = to_isharati(despike(blank_non_signer(square_units(z, aspect))))
                 if p is not None:
                     ish[r["id"]] = p
                 row["isharati"] = p is not None

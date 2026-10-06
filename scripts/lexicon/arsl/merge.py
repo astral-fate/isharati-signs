@@ -28,6 +28,7 @@ SOURCES = [  # first source wins per gloss: Saudi signers first, other dialects 
     BASE / "arabic_dictionaries" / "entries_kuwaiti_dictionary.jsonl",   # Gulf: the Kuwaiti sign dictionary
     BASE / "arabic_dictionaries" / "entries_children_dictionary.jsonl",
     BASE / "arabic_dictionaries" / "entries_scouts_dictionary.jsonl",
+    BASE / "ayman_abbas" / "entries.jsonl",           # «إشارتي هي لغتي» (Ayman Abbas) captioned vocabulary videos
     BASE / "isharah_final" / "accepted.jsonl",        # Isharah sentence-final signs that passed validation
     BASE / "new_arabic_sources" / "entries.jsonl",    # Newly extracted Islamic & educational signs from drive E:
     BASE / "jordan_shorts" / "entries.jsonl",         # Levantine one-word Shorts, last

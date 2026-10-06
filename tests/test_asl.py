@@ -143,7 +143,8 @@ def test_arabic_qa_normalisation():
     g = ar_glossing.ArabicQAGlosser(lex, None)
     assert "محمد رسول الله" in g.phrases_in("لا إله إلا الله وأن محمدًا عبده ورسوله")
     assert "آلة الكمان" not in g.phrases_in("وتحج البيت إن استطعت إليه سبيلا")  # «ال» stems are not words
-    assert lex.match_token("الصلوات").gloss == "الصلاة"         # a plural finds its singular sign
+    assert lex.match_token("المساجد").gloss == "مسجد"           # a plural finds its singular sign
+    assert lex.match_token("الصلوات").gloss in ("صلوات", "الصلاة")  # its own sign once the lexicon has one
     tk = lex.match_token("تكفر")                                   # «expiates»: never the sign «كفر» (disbelief)
     assert tk is None or tk.gloss != "كفر"
     assert lex.match_token("وحج").gloss in ("الحج", "حج")                # a noun reading keeps its sign

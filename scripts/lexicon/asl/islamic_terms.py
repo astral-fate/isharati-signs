@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
 from isharati.config import DATA  # noqa: E402
 from isharati.text.arabic import normalize_ar  # noqa: E402
-from isharati.pose.keypoints import L_SH, L_WR, LH, R_SH, R_WR, RH, frame_from_holistic, interpolate_missing, normalize  # noqa: E402
+from isharati.pose.keypoints import L_SH, L_WR, LH, R_SH, R_WR, RH, Holistic, frame_from_holistic, interpolate_missing, normalize  # noqa: E402
 from isharati.types import FPS  # noqa: E402
 
 SRC = DATA / "asl" / "islamic_terms"
@@ -67,7 +67,6 @@ TERMS, DATASET, PREFIX = GDM_TERMS, "gdm_islamic_signs", "isl"
 
 
 def extract():
-    import mediapipe as mp
     cap = cv2.VideoCapture(str(VIDEO))
     src_fps = cap.get(cv2.CAP_PROP_FPS)
     frames = []
@@ -78,8 +77,8 @@ def extract():
         frames.append(cv2.cvtColor(img[:, CROP_X0:], cv2.COLOR_BGR2RGB))
     cap.release()
     picks = np.linspace(0, len(frames) - 1, int(round(len(frames) * FPS / src_fps))).round().astype(int)
-    with mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1) as holo:
-        raw = np.stack([frame_from_holistic(holo.process(frames[i])) for i in picks])
+    with Holistic() as holo:
+        raw = np.stack([frame_from_holistic(holo.process(frames[i], i * 1000 / src_fps)) for i in picks])
     return raw, picks / src_fps
 
 

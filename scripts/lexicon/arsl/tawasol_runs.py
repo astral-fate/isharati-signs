@@ -21,7 +21,7 @@ from isharati.config import DATA  # noqa: E402
 sys.path.insert(0, str(ROOT / "scripts" / "lexicon" / "asl"))
 from islamic_terms import signing_runs  # noqa: E402
 
-from isharati.pose.keypoints import frame_from_holistic, interpolate_missing, normalize  # noqa: E402
+from isharati.pose.keypoints import Holistic, frame_from_holistic, interpolate_missing, normalize  # noqa: E402
 from isharati.types import FPS  # noqa: E402
 
 SRC = Path(r"D:\islam\gathring data\tawasol_videos")
@@ -44,19 +44,18 @@ def extract(num):
     cache = OUT / f"raw_{num}.npz"
     if cache.exists():
         return
-    import mediapipe as mp
     cap = cv2.VideoCapture(str(video_path(num)))
     src_fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
     n_src = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     picks = set(np.linspace(0, n_src - 1, int(round(n_src * FPS / src_fps))).round().astype(int).tolist())
     raw, times, i = [], [], 0
-    with mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1) as holo:
+    with Holistic() as holo:
         while True:
             ok, img = cap.read()
             if not ok:
                 break
             if i in picks:
-                raw.append(frame_from_holistic(holo.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))))
+                raw.append(frame_from_holistic(holo.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), i * 1000 / src_fps)))
                 times.append(i / src_fps)
             i += 1
     cap.release()

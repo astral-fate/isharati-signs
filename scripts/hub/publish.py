@@ -107,7 +107,8 @@ LICENCES = [
     ("WLASL, MS-ASL", "C-UDA, research use", "en lexicon"),
     ("GDM Islamic signs, Noor For Sign, Obscure ASL (YouTube)", "not stated; permission to be requested", "en lexicon"),
     ("KArSL-502", "research use", "ar lexicon"),
-    ("Qur'an curriculum, Tawasol, Saudi/Arabic dictionary, ArabicSignLanguage, DisabilityApps, Levantine Shorts (YouTube)",
+    ("Qur'an curriculum, Tawasol, Saudi/Arabic dictionary, ArabicSignLanguage, DisabilityApps, Levantine Shorts, "
+     "«إشارتي هي لغتي» (Ayman Abbas) (YouTube)",
      "not stated; permission to be requested", "ar lexicon"),
     ("TİD Sözlüğü (YouTube)", "not stated; permission to be requested", "tr lexicon"),
     ("TiDiSLaM (YouTube, Islamic terms in TİD)", "not stated; permission to be requested", "tr lexicon"),

@@ -46,7 +46,11 @@ def summary(c, stop, covered=None, top=25, covered_tokens=None):
                    else sum(n for w, n in content.items() if covered(w)))
             s["content_token_coverage"] = round(cov / max(1, s["content_tokens"]), 4)
             s["content_type_coverage"] = round(sum(1 for w in content if covered(w)) / max(1, len(content)), 4)
-            s["top_uncovered"] = [(w, n) for w, n in Counter(content).most_common() if not covered(w)][:top]
+            if covered_tokens is not None:  # occurrences left unsigned in context, most first
+                left = Counter({w: n - min(n, covered_tokens[k][w]) for w, n in content.items()})
+                s["top_uncovered"] = [(w, n) for w, n in left.most_common(top) if n > 0]
+            else:
+                s["top_uncovered"] = [(w, n) for w, n in Counter(content).most_common() if not covered(w)][:top]
         out[k] = s
     return out
 
@@ -116,7 +120,27 @@ def main():
         if w not in amemo:
             amemo[w] = alex.match_token(w)
         return amemo[w]
-    res["ar"] = {"passages": len(ar_rows), **summary(ca, ar_morph.STOPWORDS, lambda w: ar_match(w) is not None),
+    # as for Turkish, a word is covered in context when it is signed by a multi-word sign the text contains word for
+    # word («صلى الله عليه وسلم», «عز وجل», «أبو هريرة»): the glosser uses those phrase signs (phrases_in), and «وسلم»
+    # has no sign of its own. A phrase word matches the text word with or without a leading «و/ف/ب/ل».
+    phrases = {}
+    for e in alex.sign_entries():
+        pw = normalize_ar(e.gloss).split()
+        if len(pw) >= 2:
+            phrases.setdefault(pw[0], []).append(pw)
+    same = lambda tok, w: tok == w or (tok[:1] in "وفبل" and tok[1:] == w)
+    acov = {"quran": Counter(), "hadith": Counter()}
+    for r in ar_rows:
+        ws = ar_words(r["text"])
+        hit = [ar_match(w) is not None for w in ws]
+        for i, w in enumerate(ws):
+            for pw in phrases.get(w, []) + (phrases.get(w[1:], []) if w[:1] in "وفبل" else []):
+                if i + len(pw) <= len(ws) and all(same(ws[i + k], pw[k]) for k in range(len(pw))):
+                    hit[i:i + len(pw)] = [True] * len(pw)
+        acov[r["kind"]].update(w for w, h in zip(ws, hit) if h)
+    acov["all"] = acov["quran"] + acov["hadith"]
+    res["ar"] = {"passages": len(ar_rows), **summary(ca, ar_morph.STOPWORDS, lambda w: ar_match(w) is not None,
+                                                     covered_tokens=acov),
                  "attribution": attribution(ca, ar_morph.STOPWORDS, ar_match)}
     print("ar done", flush=True)
 

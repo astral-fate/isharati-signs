@@ -22,7 +22,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.insert(0, str(Path(__file__).parents[1] / "eval"))
-from publish_quran_sign import FPS, despike, to_isharati  # noqa: E402
+from publish_quran_sign import FPS, despike, signer_frames, to_isharati  # noqa: E402
 from qa_sign_datasets import body_checks  # noqa: E402
 
 GATHERED = Path(r"D:\islam\gathring data")
@@ -75,7 +75,7 @@ def to_face(z) -> dict:
 ARM_JOINTS = (13, 14, 15, 16)  # MediaPipe elbows and wrists
 MIN_VISIBILITY = 0.5            # below this MediaPipe is guessing the joint (a hand below the frame's edge)
 SMOOTH_FRAMES = 5               # 0.2 s at 25 fps
-BROKEN = {"no_shoulders", "scale_flicker", "upper_arm_out_of_range", "forearm_out_of_range"}
+BROKEN = {"no_shoulders", "scale_flicker", "upper_arm_out_of_range", "forearm_out_of_range", "body_turned"}
 
 
 def smooth(p: np.ndarray, w: int = SMOOTH_FRAMES) -> np.ndarray:
@@ -131,11 +131,12 @@ def build() -> tuple[Path, list]:
                     hol[f"{r['id']}/{k}"] = z[k]
                 # the avatar pose only covers the signing: drop the title cards before and after (no body seen), and
                 # skip clips where the signer is still missing from most frames (cropped or off screen)
-                # a frame counts as the signer only at the clip's usual body size: intro zooms, a tiny figure in a
-                # title card or a one-frame misdetection (shoulders 5x narrower) would collapse the avatar
-                width = np.linalg.norm(z["pose"][:, 11, :2] - z["pose"][:, 12, :2], axis=-1)
-                med = np.nanmedian(width) if np.isfinite(width).any() else np.nan
-                good = np.isfinite(width) & (width > 0.6 * med) & (width < 1.6 * med)
+                # a frame counts as the signer only at the clip's usual size, facing the camera, shoulders level
+                # (publish_quran_sign.signer_frames), measured in square units so the tilt is a true angle
+                aspect = json.loads(str(z["meta"]))["width"] / json.loads(str(z["meta"]))["height"]
+                square = np.array(z["pose"], np.float32)
+                square[..., 0] *= aspect
+                good = signer_frames(square)
                 seen = np.flatnonzero(good)
                 p = None
                 if len(seen) and good[seen[0]:seen[-1] + 1].mean() >= MIN_SEEN:

@@ -187,8 +187,7 @@ def extract_trimmed(video_path, fps=25, pad=2):
     """Like isharati.lexicon.asl_citizen.extract_trimmed, tuned for small dictionary clips: lower detection and
     tracking confidence, and more missing hand frames allowed inside the signing. Returns (pose, missing share)."""
     import cv2
-    import mediapipe as mp
-    from isharati.pose.keypoints import LH, R_SH, RH, frame_from_holistic, interpolate_missing, normalize
+    from isharati.pose.keypoints import LH, R_SH, RH, Holistic, frame_from_holistic, interpolate_missing, normalize
     cap = cv2.VideoCapture(str(video_path))
     src_fps = cap.get(cv2.CAP_PROP_FPS) or fps
     frames = []
@@ -201,9 +200,8 @@ def extract_trimmed(video_path, fps=25, pad=2):
     if not frames:
         return None, 1.0
     picks = np.linspace(0, len(frames) - 1, max(1, int(round(len(frames) * fps / src_fps)))).round().astype(int)
-    with mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1,
-                                        min_detection_confidence=0.3, min_tracking_confidence=0.3) as holo:
-        raw = np.stack([frame_from_holistic(holo.process(frames[i])) for i in picks])
+    with Holistic(min_confidence=0.3) as holo:
+        raw = np.stack([frame_from_holistic(holo.process(frames[i], i * 1000 / src_fps)) for i in picks])
     hand = ~(np.isnan(raw[:, LH, 0]).all(axis=1) & np.isnan(raw[:, RH, 0]).all(axis=1))
     if hand.sum() < 3 or np.isnan(raw[:, R_SH, 0]).all():
         return None, 1.0

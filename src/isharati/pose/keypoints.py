@@ -197,18 +197,97 @@ class ExtractResult:
     ok: bool
 
 
+def _points(landmarks):
+    """Landmarks of one part from either MediaPipe API: the legacy solution's `.landmark`, or the Tasks API's list
+    (sometimes a per-person list of lists). None when the part was not detected."""
+    if not landmarks:
+        return None
+    if hasattr(landmarks, "landmark"):
+        return landmarks.landmark
+    if isinstance(landmarks[0], list):
+        landmarks = landmarks[0]
+    return landmarks or None
+
+
 def frame_from_holistic(results) -> np.ndarray:
     """One MediaPipe Holistic result -> [50,3] with NaN for anything not detected."""
     f = np.full((N_JOINTS, 3), np.nan, np.float32)
-    if results.pose_landmarks:
-        lm = results.pose_landmarks.landmark
+    lm = _points(results.pose_landmarks)
+    if lm:
         for j, mp_id in _BODY_IDS:
             f[j] = (lm[mp_id].x, lm[mp_id].y, lm[mp_id].z)
         f[NECK] = (f[R_SH] + f[L_SH]) / 2
     for hand, sl in ((results.left_hand_landmarks, LH), (results.right_hand_landmarks, RH)):
-        if hand:
-            f[sl] = [(p.x, p.y, p.z) for p in hand.landmark]
+        pts = _points(hand)
+        if pts:
+            f[sl] = [(p.x, p.y, p.z) for p in pts[:21]]
     return f
+
+
+HOLISTIC_MODEL_URL = ("https://storage.googleapis.com/mediapipe-models/holistic_landmarker/holistic_landmarker/"
+                      "float16/latest/holistic_landmarker.task")
+
+
+def holistic_model():
+    """The Tasks API's Holistic model: ISHARATI_HOLISTIC_MODEL, else downloaded once to ~/.cache/isharati."""
+    import os
+    import urllib.request
+    from pathlib import Path
+
+    if os.environ.get("ISHARATI_HOLISTIC_MODEL"):
+        return Path(os.environ["ISHARATI_HOLISTIC_MODEL"])
+    path = Path.home() / ".cache" / "isharati" / "holistic_landmarker.task"
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".part")
+        urllib.request.urlretrieve(HOLISTIC_MODEL_URL, tmp)
+        tmp.replace(path)
+    return path
+
+
+class Holistic:
+    """MediaPipe Holistic over a sequence of RGB frames, with whichever API the installed MediaPipe has: the legacy
+    `solutions.holistic` (MediaPipe <= 0.10, no wheels for recent Pythons) or the Tasks API's HolisticLandmarker.
+    `process(rgb, ms)` gives a result for frame_from_holistic; `ms` must increase from call to call. `min_confidence`
+    lowers the detection and tracking thresholds (both APIs default to 0.5)."""
+
+    def __init__(self, min_confidence: float | None = None):
+        self.min_confidence = min_confidence
+
+    def __enter__(self):
+        import mediapipe as mp
+
+        self._mp = mp
+        if hasattr(mp, "solutions"):
+            conf = {} if self.min_confidence is None else {"min_detection_confidence": self.min_confidence,
+                                                            "min_tracking_confidence": self.min_confidence}
+            self._legacy = mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1, **conf)
+            self._tasks = None
+        else:
+            from mediapipe.tasks.python import BaseOptions, vision
+
+            self._legacy = None
+            c = self.min_confidence
+            conf = {} if c is None else {k: c for k in (
+                "min_face_detection_confidence", "min_face_landmarks_confidence", "min_pose_detection_confidence",
+                "min_pose_landmarks_confidence", "min_hand_landmarks_confidence")}
+            self._tasks = vision.HolisticLandmarker.create_from_options(vision.HolisticLandmarkerOptions(
+                base_options=BaseOptions(model_asset_path=str(holistic_model())),
+                running_mode=vision.RunningMode.VIDEO, **conf))
+        self._last = -1
+        return self
+
+    def process(self, rgb, ms: int):
+        if self._legacy is not None:
+            return self._legacy.process(rgb)
+        ms = max(int(ms), self._last + 1)  # the Tasks API needs strictly increasing timestamps
+        self._last = ms
+        image = self._mp.Image(image_format=self._mp.ImageFormat.SRGB, data=np.ascontiguousarray(rgb))
+        return self._tasks.detect_for_video(image, ms)
+
+    def __exit__(self, *exc):
+        (self._legacy or self._tasks).close()
+        return False
 
 
 def extract(video_path, fps: int = FPS) -> ExtractResult:
@@ -253,16 +332,14 @@ def extract_image_dir(frame_dir, src_fps: float = 30.0, fps: int = FPS) -> Extra
 
 
 def _pose_from_frames(frames, src_fps, fps) -> ExtractResult:
-    import mediapipe as mp
-
     if not frames:
         return ExtractResult(np.zeros((1, N_JOINTS, 3), np.float32), 1.0, False)
     n_out = max(1, int(round(len(frames) * fps / src_fps)))
     picks = np.linspace(0, len(frames) - 1, n_out).round().astype(int)
     raw = []
-    with mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1) as holo:
+    with Holistic() as holo:
         for i in picks:
-            raw.append(frame_from_holistic(holo.process(frames[i])))
+            raw.append(frame_from_holistic(holo.process(frames[i], i * 1000 / src_fps)))
     raw = np.stack(raw)
     body_seen = ~np.isnan(raw[:, R_SH, 0])
     filled, ratio = interpolate_missing(raw)

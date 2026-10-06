@@ -112,7 +112,14 @@
   "خروج": "أخرج",
   "الخروج": "أخرج",
   "وخروج": "أخرج",
-  "خروجه": "أخرج"
+  "خروجه": "أخرج",
+  "لا": "ليس",
+  "بن": "ابن",
+  "لو": "إذا",
+  "ولم": "لم",
+  "فلم": "لم",
+  "ولن": "لن",
+  "فلن": "لن"
  },
  "_comment_verb_lemmas": "Verbs whose sign is the act's noun: every conjugation the analyser reads as this verb lemma («تصوم، يصومون، صمتم» -> صام) is signed with the gloss on the right. Same review rule as the synonyms. Most entries are verb signs recorded in the dictionary's citation form «يفعل» (يكتب, يذهب), which the analyser reads as the verb's lemma; misreadings were left out («يرى» read as راوند, «يسر» as سار, «يسلم» which would take «وسلم» in «صلى الله عليه وسلم», «يشخص» which would take «شخص» a person).",
  "verb_lemmas": {

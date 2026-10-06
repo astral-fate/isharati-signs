@@ -476,8 +476,7 @@ def prepare_egcbt(n_videos=6, window_s=60.0):
     """Pose for a 60 s window (from 30% of the running time) of n_videos EGCBT videos, MediaPipe Holistic as the
     app extracts (isharati.pose.keypoints), resampled to 25 fps."""
     import cv2
-    import mediapipe as mp
-    from isharati.pose.keypoints import frame_from_holistic, interpolate_missing, normalize
+    from isharati.pose.keypoints import Holistic, frame_from_holistic, interpolate_missing, normalize
     vids = []
     for f in sorted(EGCBT_DIR.glob("*.mp4")):
         cap = cv2.VideoCapture(str(f))
@@ -493,7 +492,7 @@ def prepare_egcbt(n_videos=6, window_s=60.0):
         cap = cv2.VideoCapture(str(f))
         cap.set(cv2.CAP_PROP_POS_MSEC, t0 * 1000)
         raw, i, kept = [], 0, -1
-        with mp.solutions.holistic.Holistic(static_image_mode=False, model_complexity=1) as holo:
+        with Holistic() as holo:
             while i < window_s * fps:
                 ok = cap.grab()
                 if not ok:
@@ -503,7 +502,7 @@ def prepare_egcbt(n_videos=6, window_s=60.0):
                     kept = k
                     _, img = cap.retrieve()
                     img = cv2.resize(img, (960, 540))
-                    raw.append(frame_from_holistic(holo.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))))
+                    raw.append(frame_from_holistic(holo.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), i * 1000 / fps)))
                 i += 1
         cap.release()
         raw = np.stack(raw)
