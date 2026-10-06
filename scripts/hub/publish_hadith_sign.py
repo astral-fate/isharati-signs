@@ -21,7 +21,9 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parents[1] / "eval"))
 from publish_quran_sign import FPS, despike, to_isharati  # noqa: E402
+from qa_sign_datasets import body_checks  # noqa: E402
 
 GATHERED = Path(r"D:\islam\gathring data")
 SRC = GATHERED / "dataset" / "hadith_videos"
@@ -70,6 +72,33 @@ def to_face(z) -> dict:
     return {k: v for k, v in out.items() if v is not None}
 
 
+ARM_JOINTS = (13, 14, 15, 16)  # MediaPipe elbows and wrists
+MIN_VISIBILITY = 0.5            # below this MediaPipe is guessing the joint (a hand below the frame's edge)
+SMOOTH_FRAMES = 5               # 0.2 s at 25 fps
+BROKEN = {"no_shoulders", "scale_flicker", "upper_arm_out_of_range", "forearm_out_of_range"}
+
+
+def smooth(p: np.ndarray, w: int = SMOOTH_FRAMES) -> np.ndarray:
+    """A centred Hann window over time: MediaPipe's frame-to-frame jitter (in the deafedu lessons a wrist moving 0.6
+    shoulder widths in one frame and back, on most samples) is removed; a sign lasts 10-20 frames and keeps its shape."""
+    k = np.hanning(w + 2)[1:-1]
+    k /= k.sum()
+    h = w // 2
+    q = p.astype(np.float32)
+    pad = np.pad(q, ((h, h), (0, 0), (0, 0)), mode="edge")
+    return sum(k[i] * pad[i:i + len(q)] for i in range(w)).astype(np.float16)
+
+
+def broken(p: np.ndarray) -> list[str]:
+    """Reasons a pose is unusable for the avatar (the QA script's checks): no stable body, impossible arm lengths,
+    or both hands away from their wrists."""
+    flags, _ = body_checks(p.astype(np.float32))
+    bad = sorted(BROKEN.intersection(flags))
+    if {"left_hand_detached", "right_hand_detached"} <= set(flags):
+        bad.append("hands_detached")
+    return bad
+
+
 def build() -> tuple[Path, list]:
     # refresh the manifest from the pipeline state (cheap, no YouTube)
     subprocess.run([str(GATHERED / ".venv" / "Scripts" / "python.exe"), "hadith_pipeline.py", "manifest"],
@@ -86,8 +115,10 @@ def build() -> tuple[Path, list]:
     (OUT / "face").mkdir()
     by_source = defaultdict(list)
     for r in rows:
-        if (SRC / r["keypoints"]).exists():
+        # a sample no hadith was matched to has no label: it is not a hadith sample, so it is not published
+        if (SRC / r["keypoints"]).exists() and r.get("hadiths") and r.get("label_source") != "none":
             by_source[r["source"]].append(r)
+    dropped = Counter()
     manifest = []
     for source in sorted(by_source):
         group = sorted(by_source[source], key=lambda r: r["id"])
@@ -123,7 +154,20 @@ def build() -> tuple[Path, list]:
                         if k in clip:
                             clip[k] = clip[k].astype(np.float32)
                             clip[k][..., 0] *= aspect
+                    # elbows and wrists MediaPipe only guesses (low visibility) are left to interpolation
+                    if clip["pose"].shape[-1] > 3:
+                        for j in ARM_JOINTS:
+                            clip["pose"][clip["pose"][:, j, 3] < MIN_VISIBILITY, j] = np.nan
                     p = to_isharati(despike({k: clip[k] for k in ("pose", "left_hand", "right_hand", "time")}))
+                    if p is not None:
+                        p = smooth(p)
+                        why = broken(p)
+                        if why:  # the skeleton is unusable: the sample is left out, keypoints included
+                            dropped.update(why)
+                            for k in ("pose", "left_hand", "right_hand", "face", "time"):
+                                hol.pop(f"{r['id']}/{k}", None)
+                            print(f"  dropped {r['id']}: {', '.join(why)}", flush=True)
+                            continue
                     face = to_face({k: clip[k] for k in ("pose", "face", "time", "blend") if k in clip})
                     for k, v in face.items():
                         fac[f"{r['id']}/{k}"] = v
@@ -147,6 +191,8 @@ def build() -> tuple[Path, list]:
             np.savez_compressed(OUT / "isharati" / f"{part}.npz", **ish)
             np.savez_compressed(OUT / "face" / f"{part}.npz", **fac)
         print(f"  {source}: {len(group)} samples", flush=True)
+    if dropped:
+        print(f"  left out for an unusable skeleton: {dict(dropped)}", flush=True)
     (OUT / "manifest.jsonl").write_text("\n".join(json.dumps(m, ensure_ascii=False) for m in manifest) + "\n",
                                         encoding="utf-8")
     if (SRC / "gloss.jsonl").exists():

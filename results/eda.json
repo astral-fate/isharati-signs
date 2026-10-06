@@ -1529,8 +1529,8 @@
      139
     ]
    ],
-   "content_token_coverage": 0.5485,
-   "content_type_coverage": 0.3736,
+   "content_token_coverage": 0.5606,
+   "content_type_coverage": 0.3948,
    "top_uncovered": [
     [
      "لا",
@@ -1741,8 +1741,8 @@
      983
     ]
    ],
-   "content_token_coverage": 0.6204,
-   "content_type_coverage": 0.3312,
+   "content_token_coverage": 0.6308,
+   "content_type_coverage": 0.352,
    "top_uncovered": [
     [
      "وسلم",
@@ -1953,8 +1953,8 @@
      1069
     ]
    ],
-   "content_token_coverage": 0.6128,
-   "content_type_coverage": 0.3223,
+   "content_token_coverage": 0.6234,
+   "content_type_coverage": 0.3433,
    "top_uncovered": [
     [
      "وسلم",
@@ -2061,29 +2061,29 @@
   "attribution": {
    "content_tokens": 531477,
    "by_source": {
-    "quran_curriculum": 0.247,
-    "karsl": 0.1919,
-    "unified_dictionary": 0.0691,
-    "kuwaiti_dictionary": 0.0409,
-    "new_arabic_sources": 0.0372,
-    "reviewed_fingerspelling": 0.0107,
+    "quran_curriculum": 0.2504,
+    "karsl": 0.1927,
+    "unified_dictionary": 0.0686,
+    "kuwaiti_dictionary": 0.0465,
+    "new_arabic_sources": 0.0378,
+    "reviewed_fingerspelling": 0.0106,
     "tawasol": 0.005,
-    "jordan_shorts": 0.0036,
+    "jordan_shorts": 0.0044,
     "arabic_dictionary_explained": 0.0035,
-    "children_dictionary": 0.0028,
+    "children_dictionary": 0.0029,
     "saudi_dictionary_explained": 0.0008,
     "scouts_dictionary": 0.0003,
     "arabsign": 0.0
    },
    "glosses_used_by_source": {
-    "unified_dictionary": 743,
+    "unified_dictionary": 742,
     "quran_curriculum": 294,
-    "karsl": 504,
-    "new_arabic_sources": 250,
-    "kuwaiti_dictionary": 436,
+    "karsl": 505,
+    "new_arabic_sources": 249,
+    "kuwaiti_dictionary": 444,
+    "jordan_shorts": 50,
     "tawasol": 71,
-    "children_dictionary": 37,
-    "jordan_shorts": 47,
+    "children_dictionary": 38,
     "arabic_dictionary_explained": 28,
     "reviewed_fingerspelling": 20,
     "saudi_dictionary_explained": 15,
@@ -2097,15 +2097,15 @@
     ],
     [
      "قال",
-     14914
+     15225
     ],
     [
      "صلى",
-     13360
+     13433
     ],
     [
      "كان",
-     9764
+     9956
     ],
     [
      "نبي",
@@ -2169,7 +2169,7 @@
     ],
     [
      "أتى",
-     1736
+     1746
     ],
     [
      "سلام",
@@ -2197,7 +2197,7 @@
     ],
     [
      "ذكر",
-     1477
+     1498
     ],
     [
      "آخر",
@@ -2208,8 +2208,8 @@
      1397
     ],
     [
-     "أرض",
-     1328
+     "أخرج",
+     1336
     ]
    ]
   }

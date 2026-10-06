@@ -82,11 +82,11 @@ nothing about whether the meaning is signed.
 | English | ASL | 3,677 | 3,677 | 8,564 | 86.9% | 82.3% | **83.1%** |
 | Turkish | TİD | 4,827 | 4,491 | 8,386 | 75.4% | 75.7% | **75.7%** |
 | Urdu | ISL · PSL | 10,233 | 8,402 | 8,456 | 72.4% | 72.0% | **72.1%** |
-| Arabic | ArSL | 6,658 | 6,610 | 9,810 | 54.9% | 62.0% | **61.3%** |
+| Arabic | ArSL | 6,658 | 6,610 | 9,810 | 56.1% | 63.1% | **62.3%** |
 
 Urdu signs by source: CISLR 3,965, WSLP 4,056, ISLRTC 966, PSL 1,246 (Urdu coverage is measured on the English glosses).
 
-**Why Arabic is at 61% and how to reach ~80%.** Arabic text is dense: one written word often carries a clitic, a
+**Why Arabic is at 62% and how to reach ~80%.** Arabic text is dense: one written word often carries a clitic, a
 pronoun and a conjunction («فلا», «سبيله»), and the hadith formulas repeat thousands of times. The largest uncovered
 tokens are «وسلم» (12,493, part of the phrase sign ﷺ, which the lexicon has but which is counted word by word), «لا»,
 «بن», «ولا», «شيء» and «فلا». Giving a sign or a reviewed synonym to the most frequent missing words raises coverage as
@@ -127,22 +127,24 @@ and, for the hadith, the signer's 52 face blendshape scores. No video is uploade
 [`hadith-sign`](https://huggingface.co/datasets/FatimahEmadEldin/hadith-sign) is built from 824 YouTube videos by Deaf
 associations and Islamic channels. The speech is transcribed (Whisper large-v3-turbo) and matched to the
 [hadith-api](https://github.com/fawazahmed0/hadith-api) corpus with a rare-bigram index and ordered alignment; silent
-videos are labelled from on-screen text or titles and verified against the corpus. First snapshot (the collection is
-still running and the dataset is republished as it grows):
+videos are labelled from on-screen text or titles and verified against the corpus. Only labelled samples are
+published, with jitter smoothed (0.2 s) and unusable skeletons left out:
 
 | Samples | Distinct hadith | Hours | ArSL | TİD |
 |---|---|---|---|---|
-| 404 | 282 | 15.4 | 376 | 28 |
+| 372 | 298 | 15.5 | 354 | 18 |
 
 | Source | Samples |
 |---|---|
-| القناة التعليمية للصم: شرح عمدة الأحكام بلغة الإشارة | 134 |
-| Islamweb for Deaf: الحديث الشريف بلغة الإشارة | 103 |
-| جمعية إنسان: الأربعون النووية بلغة الإشارة | 52 |
-| القناة التعليمية للصم: رياض الصالحين | 26 |
-| حمزة ودويد للصم: الأحاديث | 24 |
-| Eray Demir: İşaret Dili ile 40 Hadis | 23 |
-| القناة التعليمية للصم: شرح 30 حديثاً للنساء | 19 |
+| القناة التعليمية للصم: شرح عمدة الأحكام بلغة الإشارة | 142 |
+| Islamweb for Deaf: الحديث الشريف بلغة الإشارة | 99 |
+| جمعية إنسان: الأربعون النووية بلغة الإشارة | 50 |
+| القناة التعليمية للصم: رياض الصالحين | 21 |
+| Eray Demir: İşaret Dili ile 40 Hadis | 18 |
+| القناة التعليمية للصم: شرح 30 حديثاً للنساء | 17 |
+| mahmoud hafez: الأربعين النووية بلغة الإشارة | 15 |
+| حمزة ودويد للصم: الأحاديث | 8 |
+| أحاديث متفرقة بلغة الإشارة | 2 |
 
 ## Data
 

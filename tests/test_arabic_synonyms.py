@@ -26,6 +26,17 @@ def test_synonyms_never_override_own_signs_or_guards(lex):
 
 
 @pytest.mark.parametrize("word, gloss", [("تصوم", "صوم"), ("وتصوم", "صوم"), ("يصومون", "صوم"), ("تشهد", "شهادة"),
-                                         ("تحج", "حج"), ("وتؤتي", "أعطى")])
+                                         ("تحج", "حج"), ("وتؤتي", "أعطى"),
+                                         ("يخرج", "أخرج"), ("خرج", "أخرج"), ("يخرجون", "أخرج"), ("الخروج", "أخرج")])
 def test_every_conjugation_of_a_reviewed_verb_finds_its_sign(lex, word, gloss):
     assert lex.match_token(word).gloss == gloss
+
+
+@pytest.mark.parametrize("word, gloss", [("ذهبوا", "يذهب"), ("وجلس", "يجلس"), ("فتحت", "يفتح"), ("فكتب", "يكتب")])
+def test_verb_signs_in_citation_form_and_conjunction_ambiguity(lex, word, gloss):
+    # «فتحت» is «فَتَحَت» (she opened) as often as «ف + تحت» (and under): the verb with a sign wins over the strip
+    assert lex.match_token(word).gloss == gloss
+
+
+def test_reviewed_verbs_never_take_the_blessing_formula(lex):
+    assert lex.match_token("وسلم") is None or lex.match_token("وسلم").gloss != "يسلم"

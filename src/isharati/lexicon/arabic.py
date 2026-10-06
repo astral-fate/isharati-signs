@@ -226,9 +226,31 @@ def qa_lexicon(path):
                     return None
             return e if self._keeps_alef(token, e) else None
 
+        def _verb_reading(self, token):
+            """The sign of a verb reading about as probable as the best one (within MARGIN), if exactly one sign."""
+            readings = morph.analyses(token)
+            if not readings:
+                return None
+            best = max(a["lp"] for a in readings)
+            idx, found = self._lex_index(), set()
+            for a in readings:
+                if a["pos"] == "verb" and best - a["lp"] < self.MARGIN:
+                    g = idx.get(("verb", a["lex"])) or getattr(self, "_verb_lemmas", {}).get(self._lemma_key(a["lex"]))
+                    if g:
+                        found.add(g)
+            return self._signs[found.pop()] if len(found) == 1 else None
+
         def match_token(self, token):
-            """The matcher above, the reviewed synonyms, then lemma matching through the analyser."""
+            """The matcher above, the reviewed synonyms, then lemma matching through the analyser. A match the string
+            matcher reached only by taking a letter off the front («فتحت» -> ف + تحت, under) gives way to an equally
+            probable verb reading that has a sign («فَتَحَت», she opened -> يفتح)."""
             e = self._match(token)
+            if e is not None and normalize_ar(e.gloss).removeprefix("ال") != normalize_ar(token).removeprefix("ال"):
+                bare = normalize_ar(token)
+                if bare[:1] in ("ف", "و", "ب", "ل") and not normalize_ar(e.gloss).startswith(bare[:1]):
+                    v = self._verb_reading(token)
+                    if v is not None:
+                        return v
             if e is None:
                 e = self._alias(token)
             return e if e is not None else self._lemma_match(token)
